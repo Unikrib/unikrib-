@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Homepage</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/agent-homepage.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1165447709024810"
+     crossorigin="anonymous"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QJB9RGPNHQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QJB9RGPNHQ');
+</script>
+<body>
+    <!-- responsive top navigator bar -->
+    <div class="top-nav" id="my-Top-nav">
+    </div>
+
+    <!-- <div id="preloader"></div> -->
+    <div id="logoff-loader"><h2 class="logoff-text">Logging off</h2></div>
+
+    <div id="out-most-cont">
+      <div id="inn-left-cont">
+        <div id="profile-cont">
+          <div id="profile-pic-cont">
+            <!--<img src="images/photo5.png">-->
+          </div>
+          <div id="name-cont">
+          </div>
+          <div id="contact-cont">
+          </div>
+        </div>
+        <!--contains reviews link , reviewer information profile pic and message-->
+        <div id="review-cont">
+          <!-- <p id="rev-headr">Latest review</p>
+          <div id="latest-review-cont">
+          </div>
+          <div id="other-reviews-cont">
+            <a href="review-page.html">
+              <p id="view-review"></p>
+            </a>
+          </div> -->
+        </div>
+        <div id="new-upload-cont">
+          <div id="new-upload-btn">
+            <a href="apartment-upload-page.html">
+              <p id="upload-btn-txt">Upload new apartment</p>
+            </a>
+          </div>
+
+        </div>
+        <div id="advisory-cont">
+          <h3>Advisory</h3>
+          <p>We advise agents to always update apartments they upload and 
+            delete apartments that are no more available for rent </p>
+        </div>
+      </div>
+
+      <div id="inn-right-cont">
+        <div id="uploads-cont">
+
+          <h2>Your uploads</h2>
+
+          <div id="first-apart">
+          </div>
+
+           <!--view more button call viewMore Function when clicked and displayed vew more container and its hidden content-->
+          <div id="view-more-button" onclick="viewMore()">
+            <p id="button-text">See more results</p>
+          </div>
+          <!--view more container containing all hidden apartment output containers-->
+        <div id="view-more-cont">
+        </div>
+
+      </div>
+       
+       
+
+        
+    </div>
+    </div>
+
+    
+    <!--footer container and sub containers(sub, base and icon), containing  links, contact information and social media links-->
+
+       <div id="footer-cont"></div>
+
+
+      
+    <SCRIPT src="https://code.jquery.com/jquery-3.2.1.min.js"></SCRIPT>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src = "scripts/main2.js"></script>
+    <script src="scripts/agent-homepage.js"></script>
+    <script>
+          //toggles see more button between visible and hidden
+          //make view more container visible
+          function viewMore() {
+             var self = document.getElementById("view-more-button");
+             var more = document.querySelector("#view-more-cont");
+             more.style.display = "block";
+             self.style.display = "none";
+          }
+    </script>
+</body>
+</html>

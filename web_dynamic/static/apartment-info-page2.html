@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartment info page</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/Apartment-info-page.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1165447709024810"
+     crossorigin="anonymous"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QJB9RGPNHQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QJB9RGPNHQ');
+</script>
+<body>
+        <!-- responsive top navigator bar -->
+        <div class="top-nav" id="my-Top-nav">
+        </div>
+
+        <!-- <Div id="preloader"></Div> -->
+        <div id="logoff-loader"><h2 class="logoff-text">Logging off</h2></div>
+
+        <div id="external-main-cont">
+          <div id="internal-left-container">
+            <div id="">
+              <div class="wrapper">
+                <i id="left" class="fa fa-angle-left"></i>
+                <div class="carousel" id="carousel">
+                </div>
+                <i id="right" class="fa fa-angle-right"></i>
+              </div>
+                 <!--contains apartment details-->
+                 <div id="apartment-details">
+                 </div>
+                 <!--contains apartment features-->
+                 <div id="feature-cont">
+                       <h4>Apartment Features</h4>
+                </div>
+            </div>
+          </div>
+          <!--contains profile pic container and uploader info, review container, security tip cont, and report cont  -->
+          <div id="internal-right-container">
+            <!--contains uploader information, profile pic and uploader contacts-->
+            <div id="profile-cont">
+            </div>
+            <!--contains reviews link , reviewer information profile pic and message-->
+            <div id="review-cont">
+              <p id="rev-headr">latest review</p>
+              <div id="latest-review-cont">
+              </div>
+              <div id="other-reviews-cont">
+                <a href="review-page.html">
+                  <p id="view-review">more reviews</p>
+                </a>
+              </div>
+            </div>
+            <!--contains Edit and delete buttons-->
+            <div id="edit-delete-cont">
+              <div id="edit-delete-left">
+                <a href="apartment-edit-page.html">
+                  <button id="edit-apartment"><icon class="fa fa-pencil"></icon> Edit</button>
+                </a>
+              </div>
+              <div id="edit-delete-right">
+                <button id="delete-apartment"><icon class="fa fa-trash"></icon> Delete</button>
+              </div>
+         </div>
+          </div>
+        </div>
+
+        <!--footer container and sub containers(sub, base and icon), containing  links, contact information and social media links-->
+      <div id="footer-cont">
+      </div>
+
+      <SCRIPT src="https://code.jquery.com/jquery-3.2.1.min.js"></SCRIPT>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src = "scripts/main2.js"></script>
+        <script src="scripts/confirm.js"></script>
+        <script src="scripts/apartment-info2.js"></script>
+        <script>
+          document.querySelector("#delete-apartment").addEventListener("click", () => {
+              Confirm.open({
+                title: "Confirm delete",
+                message: "Are you sure you want to delete this apartment?",
+                okText: "Delete",
+                cancelText: "Cancel",
+                onok: function() {
+                  request.destroy('/houses/' + houseId)
+                  .then(() => {
+                    alert("Apartment deleted succesfully")
+                    getUserType()
+                  }).catch((err) => {
+                    errorHandler(err, "An error occured and apartment could not be deleted")
+                  })
+                },
+                oncancel: function() {}
+              })
+            });
+
+            
+        </script>
+</body>
+</html>

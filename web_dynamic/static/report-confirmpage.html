@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="images/Favicon.ico">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/report-confirmpage.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1165447709024810"
+     crossorigin="anonymous"></script>
+    <title></title>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QJB9RGPNHQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QJB9RGPNHQ');
+</script>
+<body>
+      <!-- responsive top navigator bar containing organisation logo, drop down menu icon and links-->
+      <div class="top-nav" id="my-Top-nav">
+    </div>
+
+
+    <div id="extern-cont">
+        <div id="inner-cont" data-aos="zoom-in-up">
+            <div id="image-cont">
+                <img src="images/icon_high.png">
+    
+            </div>
+            <div id="Text-cont">
+                <h2 id="headline">Report Recieved</h2>
+                <p id="info-txt">Your report has been received, we'll look into it immmediately!
+                    and if your report against this user is confirmed true we'll take appropriate
+                    measures
+                </p>
+                <div id="btn-cont">
+                    <button id="continue-btn" class="cont-btn"><i class="fa fa-spinner fa-spin" id="loader2"></i> Continue</button>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+
+     <!-- link to external javascript file main.js-->
+     <SCRIPT src="https://code.jquery.com/jquery-3.2.1.min.js"></SCRIPT>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <script src = "scripts/main2.js"></script>
+     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+     <script>
+        AOS.init({
+          delay: 10,
+          duration: 700
+        });
+
+        document.querySelector("#continue-btn").addEventListener("click", goBack);
+
+        function goBack() {
+            window.history.go(-2);
+        }
+      </script>
+    
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/login.css">
+</head>
+<body>
+    <div class="top-nav" id="my-Top-nav">
+        <a href="homepage.html"><img src="images/Multi colo logo on transparent_2.png"></a>
+        <a href="homepage.html">Home</a>
+        <a href="">apartments</a>
+        <a href="">products & services </a>
+        <a href="">contact</a>
+        <a href="login.html" class="active">Login</a>
+        <a href="signup.html">sign up</a>
+        <a href="javascript:void(0);" class="icon" onclick="dropMenu()">
+            <div class="icon-cont" onclick="changeIcon(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+         </a>
+    </div>
+    <div id="ext-form-cont">
+        <form action="" method="post" id="login-form">
+            <div id="logo-container">
+                <img src="images/Black logo Icon on Transparent.png">
+            </div>
+            <div id="login-container">
+                <label for="E-mail">E-mail</label><br>
+                <input type="email" name="email" id="username" placeholder="Enter Email" required><br>
+    
+                <label for="psw">Password</label><br>
+                <input type="password" name="psw" value="" placeholder="Enter Password" 
+                id="input-pass" onfocus="showToggle()" required></br>
+
+                <icon class="fa fa-eye" onclick="showPassword()" id="eye-icon"></icon>
+
+              <div>
+                <button type="submit">Log in</button>
+              </div>
+            
+                <p id="sign-up"><a href=""id="forgot">Forgot password?</a></p>
+                <div id="signin-with"><a href="/auth"role="button">
+                    <p><img src="images/download.png" style="height: 20px;"> sign up with google</p>
+                </a>
+                </div>
+                <p id="sign-up">Don't have an account sign up <a href="signup.html"><span>here</span></a></p>
+    
+            </div>
+        </form>
+    </div>
+
+    <div id="footer-cont">
+        <div class="footer-sub-cont-a">
+          <p ><a href="" class="foot-links">apartments</a></p>
+          <p><a href="" class="foot-links">products and services</a></p>
+          <p><a href=""class="foot-links">The team</a></p>
+          <p><a href=""class="foot-links">contact</a></p>
+          <p><a href=""class="foot-links">Become a unikrib agent or vendor</a></p>
+        </div>
+        <div class="footer-sub-cont-b">
+          <p style="font-size:18px; font-weight:500;">For feedback and inquiries contact us on</p>
+          <p><a href="" class="foot-links"><i class="fa fa-phone" id="small1"></i>+2347054598108</a></p>
+          <p></i><a href="" class="foot-links"><i class="fa fa-whatsapp" id="small2"></i>+2347037270954</a</p>
+          <p><i class="fa fa-envelope" id="small3"></i> <a href="" class="foot-links">mail@unikrib.ng</a></p>
+        </div>
+      </div>
+
+      <div id="footer-base-cont">
+        <div id="icon-cont">
+          <div class="icon-sub-cont">
+            <a href="">
+              <img src="images/facebook-logo.png">
+            </a>
+          </div>
+          <div class="icon-sub-cont">
+            <a href="">
+              <img src="images/124021.png">
+            </a>
+          </div>
+          <div class="icon-sub-cont">
+            <a href="">
+              <img src="images/2048px-Instagram_icon.png">
+            </a>
+          </div>
+          <div class="icon-sub-cont">
+            <a href="">
+              <img src="images/official-linkedin-icon-png-16.jpg">
+            </a>
+          </div>
+        </div> 
+      </div>
+      <script src="scripts/main.js"></script>
+
+    
+    
+</body>
+</html>

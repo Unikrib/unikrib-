@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete your profile</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/user-profile.css">
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QJB9RGPNHQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QJB9RGPNHQ');
+</script>
+<body>
+    <!-- responsive top navigator bar -->
+    <div class="top-nav" id="my-Top-nav">
+    </div>
+    <div id="preloader"></div>
+    <!-- main external container containing form and its input fields-->
+    <div id="main-ext-cont">
+
+        <div id="profile-form-cont">
+         <div id="logo-container">
+            <img src="images/Black logo on white.png">
+         </div>
+
+         <h3>Complete your profile</h3>
+         
+         <!--Select id for community where user lives-->
+         <label for="select community">Where  do you live</label>
+         <select id="community-select" name="select community">
+         </select><br/>
+         
+         <!--contains image input field-->
+         <div id="profile-pic-cont">
+            <label for="profile_photo" id="upload">upload a profile photo(optional)
+                <input type="file" name="profile_photo" onchange="readURL(this, 'avatar');" id="profile-photo" class="file"/>
+            <p id="file-name" class="img-name"></p>
+         </label>
+         </div>
+        <div class="image-select-cont">
+          <img id="avatar" src="images/default-img.webp ">
+        </div>
+
+         <div>
+            <button id="submit" type="submit"  class="submit-btn"><i class="fa fa-spinner fa-spin" id="loader"></i> Finish</button>
+          </div>
+        </div>
+    </div>
+
+     <!--footer container and sub containers(sub, base and icon), containing  links, contact information and social media links-->
+     <div id="footer-cont">
+    </div>
+   
+    <script>
+        //displays name and size of uploaded image file
+        const file = document.getElementById("profile-photo")
+        file.addEventListener("change", (e) => {
+            const [file] = e.target.files;
+            const {name: fileName , size} = file;
+            const fileSize = (size / 1000).toFixed(2);
+            const fileNameAndSize = `${fileName} - ${fileSize}KB`;
+            document.querySelector('#file-name').textContent = 
+            fileNameAndSize;
+        })
+
+
+        //toggles eye icon between visible and invisible
+        function showToggle () {
+        var icon = document.getElementById("eye-icon")
+        icon.style.display="block";
+        }
+
+
+         function iconChange () {
+         let x = document.getElementById("eye-icon");
+           if (icon.className == "fa fa-eye") {
+               icon.className = "fa fa-eye-slash";
+            } else {
+               icon.className = "fa fa-eye";
+            }
+         }
+
+    </script>
+      <SCRIPT src="https://code.jquery.com/jquery-3.2.1.min.js"></SCRIPT>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src = "scripts/main2.js"></script>
+      <script src="scripts/user-profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+settings/.set_up_db.sql
+__pycache__
+.vscode
+test3.py
+error.json

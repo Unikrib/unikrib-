@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--here-->
+    <title>Edit service portfolio images</title>
+    <!--to here-->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/image-upload-page.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1165447709024810"
+     crossorigin="anonymous"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QJB9RGPNHQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QJB9RGPNHQ');
+</script>
+<body>
+     <!-- responsive top navigator bar -->
+     <div class="top-nav" id="my-Top-nav">
+    </div>
+
+     <div id="preloader"></div>
+     <div id="logoff-loader"><h2 class="logoff-text">Logging off</h2></div>
+
+    <div id="outer-most-container">
+
+      <!---Contains image upload container, submit button and notice container-->
+        <div id="service-images-form">
+             <h2 id="form-title">Update portfolio images</h2>
+
+             <!-- contains product image upload input fields-->
+             <h3>Upload up to five images of your services</h3>
+             <div id="service-img-cont">
+                 <label for="service img" id="upload">upload new image
+                     <input type="file" onchange="readURL(this, 'image1');" name="service img" id="service-image1" class="service-imgs" required/>
+                     <p id ="file-name1" class="file-name"></p>
+                 </label>
+                 <div id="Image1" class="image-select-cont">
+                  <img id="image1" src="">
+                </div>
+
+                 <label for="service img" id="upload">upload new image
+                    <input type="file" onchange="readURL(this, 'image2');" name=" service img" id="service-image2" class="service-imgs"/>
+                    <p id ="file-name2" class="file-name"></p>
+                </label>
+                <div id="Image2" class="image-select-cont">
+                  <img id="image2" src="">
+                </div>
+
+                <label for="service img" id="upload">upload new image
+                    <input type="file" onchange="readURL(this, 'image3');" name="service img" id="service-image3" class="service-imgs"/>
+                    <p id ="file-name3" class="file-name"></p>
+                </label>
+                <div id="Image3" class="image-select-cont">
+                  <img id="image3" src="">
+                </div>
+
+                <label for="service img" id="upload">upload new image
+                    <input type="file" onchange="readURL(this, 'image4');" name="service img" id="service-image4" class="service-imgs"/>
+                    <p id ="file-name4" class="file-name"></p>
+                </label>
+                <div id="Image4" class="image-select-cont">
+                  <img id="image4" src="">
+                </div>
+
+                <label for="service img" id="upload">upload new image
+                    <input type="file" onchange="readURL(this, 'image5');" name="service img" id="service-image5" class="service-imgs"/>
+                    <p id ="file-name5" class="file-name"></p>
+                </label>
+                <div id="Image5" class="image-select-cont">
+                  <img id="image5" src="">
+                </div>
+             </div>
+
+             <!--contains submit button-->
+             <div id="Submit upload">
+                <button type="submit" id="imgs-submit" class="submit-btn"><i class="fa fa-spinner fa-spin" id="loader"></i> Save changes</button>
+             </div>
+
+             <!--notice contains important upload conditions-->
+             <div id="notice">
+                <h4>Please Note:</h4>
+                <p> only one photo of your work, workshop or you working is required, you are allowed to upload as many as 5 images</p>
+                <p>pls try to upload original pictures of you ,your workshop or you working</p>
+
+             </div>
+            </div>
+    </div>
+    
+    <!--footer container and sub containers(sub, base and icon), containing  links, contact information and social media links-->
+    <div id="footer-cont">
+    </div>
+    
+    <SCRIPT src="https://code.jquery.com/jquery-3.2.1.min.js"></SCRIPT>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src = "scripts/main2.js"></script>
+    <script src="scripts/service-image-edit.js"></script>
+    <script>
+        const file = document.getElementById("service-image1")
+        const file2 = document.getElementById("service-image2")
+        const file3 = document.getElementById("service-image3")
+        const file4 = document.getElementById("service-image4")
+        const file5 = document.getElementById("service-image5")
+
+        //for first image
+        file.addEventListener("change", (e) => {
+            const [file] = e.target.files;
+            const {name: fileName , size} = file;
+            const fileSize = (size / 1000).toFixed(2);
+            const fileNameAndSize = `${fileName} - ${fileSize}KB`;
+            document.querySelector('#file-name1').textContent = 
+            fileNameAndSize;
+        
+        })
+        //for second image
+        file2.addEventListener("change", (e) => {
+            const [file2] = e.target.files;
+            const {name: fileName , size} = file2;
+            const fileSize = (size / 1000).toFixed(2);
+            const fileNameAndSize = `${fileName} - ${fileSize}KB`;
+            document.querySelector('#file-name2').textContent = 
+            fileNameAndSize;
+        
+        })
+
+        //for third image
+        file3.addEventListener("change", (e) => {
+            const [file3] = e.target.files;
+            const {name: fileName , size} = file3;
+            const fileSize = (size / 1000).toFixed(2);
+            const fileNameAndSize = `${fileName} - ${fileSize}KB`;
+            document.querySelector('#file-name3').textContent = 
+            fileNameAndSize;
+        
+        })
+
+        //for fourth image
+        file4.addEventListener("change", (e) => {
+            const [file4] = e.target.files;
+            const {name: fileName , size} = file4;
+            const fileSize = (size / 1000).toFixed(2);
+            const fileNameAndSize = `${fileName} - ${fileSize}KB`;
+            document.querySelector('#file-name4').textContent = 
+            fileNameAndSize;
+        
+        })
+
+         //for fifth image
+         file5.addEventListener("change", (e) => {
+            const [file5] = e.target.files;
+            const {name: fileName , size} = file5;
+            const fileSize = (size / 1000).toFixed(2);
+            const fileNameAndSize = `${fileName} - ${fileSize}KB`;
+            document.querySelector('#file-name5').textContent = 
+            fileNameAndSize;
+        
+        })
+        //to here
+    </script>
+</body>
+</html>

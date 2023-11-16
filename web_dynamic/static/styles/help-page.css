@@ -1,0 +1,160 @@
+body{
+    background-color: #f5fbfc;
+}
+#outer-cont{
+    width:85%;
+    margin-left: 7.5%;
+    display: flex;
+    padding: 60px 0 0 0;
+}
+.header{
+    text-align: center;
+    font-size: 1.7em;
+    line-height: 0.2em;
+    color: #33990b;
+
+}
+.header-txt{
+    text-align: center;
+    font-size: 1em;
+    font-weight: 500;
+    
+}
+#inner-cont-left{
+    width: 60%;
+    margin: 2vw 5% 2vw 0%;
+    padding: 0 0 1vw 0;
+}
+#faqs-header{
+    background-color: #4062a0;
+    padding: 0.5vw 0 0.5vw 0;
+}
+#faqs-header h2{
+    text-align: center;
+    font-size: 1.5em;
+    color: #fff;
+}
+#accordion {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+}
+.accordion-item {
+	display: flex;
+	flex-direction: column;
+}
+.accordion-item button {
+	display: block;
+	width: 100%;
+    padding: 1em 2% 1em 2%;
+	color:#373838;
+    background-color: #fff;
+	font-size: 1em;
+    font-weight: 600;
+	text-align: left;
+    border: none;
+	outline: none;
+	transition: .3s ease background;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+    font-family: 'Fredoka', sans-serif;
+}
+.accordion-content {
+	padding: 0 20px;
+	height: 0;
+	display: block;
+	background-color: #fff;
+	overflow: hidden;
+	transition: .3s ease height;
+}
+.accordion-content p {
+	margin-bottom: 20px;
+}
+.accordion-item.active button, .accordion-item button:hover {
+	background-color:#094a68;
+    color: white;
+}
+.accordion-item.active .accordion-content {
+	display: block;
+}
+/* button icon */
+#icon {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: block;
+    transition: .3s ease transform
+}
+
+#inner-cont-right{
+    width: 38%;
+    margin: 4em 0 1em 0;
+}
+
+#more-help-cont{
+    background-color: #444444;
+    color: #fff;
+    text-align: center;
+    margin: 0 0 2vw 0;
+    padding: 0.5em 0 0.5em 0;
+}
+#more-help-cont h2{
+    font-size: 1.3em;
+    line-height: 0.2em;
+}
+#more-help-cont p{
+    font-size: 0.8em;
+}
+#mail-link{
+    color: #fff;
+}
+@keyframes slidedown {
+    0%{
+        transform: translateY(-25px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #outer-cont{
+        width:80%;
+        display: grid;
+        margin-left: 10%;
+    }
+
+    #inner-cont-left{
+        width: 100%;
+        margin: 4vw 0 8vw 0%;
+        padding: 0 0 2vw 0;   
+    }
+
+    #inner-cont-right{
+        width: 98%;
+        margin: 0 0 1em 0;
+    }
+    
+   
+}
+@media screen and (max-width: 590px) {
+    #outer-cont{
+        width:100%;
+        margin:0 0 0 0;
+    }
+    #inner-cont-left{
+        width: 100%;
+        margin: 5vw 0 10vw 0%;
+        padding: 0 0 2vw 0;
+        box-shadow:none;
+    }
+    .accordion-item button {
+	    font-size: 0.9em;
+    }
+   
+   
+}

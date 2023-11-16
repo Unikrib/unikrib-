@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unikrib</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src = "{{ url_for('static', filename='scripts/home.js') }}"></script>
+
+</head>
+<body>
+    <div class="top-nav" id="my-Top-nav">
+        <a href="{{ url_for('static', filename='homepage.html') }}"><img src="{{ url_for('static', filename='images/Multi colo logo on transparent_2.png') }}"></a>
+        <a href="{{ url_for('static', filename='homepage.html') }}"class="active">Home</a>
+	      <a href="{{ url_for('static', filename='Apartment-page.html') }}">Apartments</a>
+        <a href="{{ url_for('static', filename='product-page.html') }}">products</a>
+        <a href="{{ url_for('static', filename='service-page.html') }}">services</a>
+        <!-- <a class="login-signup" href="{{ url_for('static', filename='login.html') }}">Login</a>
+        <a class="login-signup" href="{{ url_for('static', filename='signup.html') }}">sign up</a> -->
+        <a class="login-sign" href="{{ url_for('static', filename='login.html') }}">Login</a>
+        <a class="login-signup" href="{{ url_for('static', filename='signup.html') }}">sign up</a>
+        <div class="dropdown" id="dropdown">
+          <button class="dropbtn" onclick="dropDown()"><icon class="fa fa-user"></icon> <icon class="fa fa-caret-down"></icon></buttons>
+          <div class="dropmenu-content" id="dropdown-cont">
+             <p class="drop-links" onclick="getUserType()">Profile</p>
+             <p id="edit-profile" class="drop-links">Edit profile</p>  
+             <p id="help" class="drop-links">Help</p>
+             <p class="drop-links" onclick="logout()">logout</p>
+          </div>
+        </div>  
+        <a href="javascript:void(0);" class="icon" onclick="dropMenu()">
+            <div class="icon-cont" onclick="changeIcon(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+         </a>
+    </div>
+
+    <div id="preloader"></div>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+          <img src="{{ url_for('static', filename='images/intro-img.jpg') }}" id="pexels" style="width:100%">
+          <div class="slide-text">
+            <h1 id ="headtext">Unikrib</h1>
+            <p id="sub-headtext">Househunt online</p>
+            <p><a href="#about" class="startlink">find your krib today</a></p>
+          </div>
+        </div>
+        <div class="mySlides fade">
+          <img src="{{ url_for('static', filename='images/product-img.jpg') }}" id="quatro" style="width:100%">
+          <div class="slide-text">
+            <h1 id ="headtext">Unikrib</h1>
+            <p id="sub-headtext">buy products</p>
+            <p><a href="#about" class="startlink">get started</a></p>
+          </div>
+        </div>
+        <div class="mySlides fade">
+          <img src="{{ url_for('static', filename='images/service-img.jpg') }}" id="handyman"style="width:100%">
+          <div class="slide-text">
+            <h1 id ="headtext">Unikrib</h1>
+            <p id="sub-headtext">access domestic services</p>
+            <p  ><a href="#about" class="startlink">Order now</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div id = "about-cont">
+        <div id = "about-sub-cont-a" data-aos="fade-right">
+          <div id="about-text-contain">
+              <h1 class="text-header"> About us</h1>
+              <p class="text-descript">Unikrib is a student founded and focused platform, one that
+                seeks to profer solutions to some of the challenges experienced
+                by students while searching for apartments off campus, buying
+                products and accessing services...
+              </p>
+              <p><a href="{{ url_for('static', filename='about-page.html') }}" class="redmre">Readmore</a></p>  
+             </div>
+        </div>
+        <div id="about-sub-cont-b" data-aos="zoom-in-up">
+          <img src="{{ url_for('static', filename='images/graduate-img.jpg') }}" id="about-img">
+        </div>
+      </div>
+
+      <div id="service-cont">
+        <h2 id="service-header">Our services</h2>
+        <a href="Apartment-page.html">
+          <div class="service-sub-cont" data-aos="zoom-in-up">
+            <i class="fa fa-home" id="large1"></i>
+            <p class="text-descript">Through this platform we enable students search for vacant
+              student apartments close to their campuses online and connect
+              them to various agents
+            </p>
+          </div>
+        </a>
+        <a href="{{ url_for('static', filename='service-page.html') }}">
+          <div class="service-sub-cont" data-aos="zoom-in-up">
+            <i class="fa fa-cog" id="large2"></i>
+            <p class="text-descript">Unikrib connects students to service providers, like 
+              carpenters,electricians, plumbers, cleaners etc. and 
+              allows them "order" these services with ease
+            </p>
+          </div>
+        </a>
+        <a href="{{ url_for('static', filename='product-page.html') }}">
+          <div class="service-sub-cont " data-aos="zoom-in-up">
+            <i class="fa fa-shopping-cart" id="large3"></i>
+            <p class="text-descript">We connect students to various vendors in and around 
+              their campuses and provide them more buying options 
+              and competitive pricing
+            </p>
+          </div>
+        </a>
+      </div>
+
+      </div>
+
+      <div id="vendor-cont">
+        <div id="text-sub-cont"  data-aos="zoom-in-up">
+          <div id="txt-inner-cont">
+             <h1 class="text-header">Become a unikrib vendor or agent</h1>
+             <p class="text-descript"> Are you an agent, a service provider or a vendor? 
+              are students your main customer base? are you looking for
+              a platform to advertise your apartments,goods and services
+              to a wide audience of prospective customers? register
+              with us to advertise your services to as many as 5000 students
+              for less than N1000 a month!</p>
+              <a href="{{ url_for('static', filename='agent-service-signup.html') }}" class="redmre">register now</a>
+          </div>
+        </div>
+        <div id="img-sub-cont">
+          <img src="{{ url_for('static', filename='images/lady-working.jpg') }}" data-aos="zoom-in-down">
+        </div>
+      </div>
+
+      <div id="stat-cont">
+          <div id="stat-sub-cont">
+              <i class="fa fa-home"></i>
+              <p class="values" id="stat1">0</p>
+              <p class="groups">Apartments</p>
+          </div>
+          <div id="stat-sub-cont">
+              <i class="fa fa-male"></i>
+              <p class="values" id="stat2">0</p>
+              <p class="groups">Agents</p> 
+          </div>
+          <div id="stat-sub-cont">
+              <i class="fa fa-shopping-bag"></i>
+              <p class="values" id="stat3">0</p>
+              <p class="groups">Vendors</p>
+          </div>
+          <div id="stat-sub-cont">
+              <i class="fa fa-wrench"></i>
+              <p class="values" id="stat4">0</p>
+              <p class="groups">Service providers</p> 
+          </div>
+      </div>
+
+
+      <div id="footer-cont">
+        <div class="footer-sub-cont-a">
+          <p ><a href="{{ url_for('static', filename='Apartment-page.html') }}" class="foot-links">apartments</a></p>
+          <p><a href="{{ url_for('static', filename='product-page.html') }}" class="foot-links">products</a></p>
+          <p><a href="{{ url_for('static', filename='service-page.html') }}"class="foot-links">services</a></p>
+          <p><a href="{{ url_for('static', filename='about-page.html') }}"class="foot-links">about us</a></p>
+          <p><a href="{{ url_for('static', filename='agent-service-signup.html') }}"class="foot-links">Become a unikrib agent, vendor or service provider</a></p>
+        </div>
+        <div class="footer-sub-cont-b">
+          <p id="foot-para">For feedback and inquiries contact us on</p>
+          <p><a href="" class="foot-links"><i class="fa fa-phone" id="small1"></i>+2347054598108</a></p>
+          <p></i><a href="" class="foot-links"><i class="fa fa-whatsapp" id="small2"></i>+2347037270954</a</p>
+          <p><i class="fa fa-envelope" id="small3"></i> <a href="" class="foot-links">mail@unikrib.ng</a></p>
+        </div>
+        <div id="footer-base-cont">
+          <div id="icon-cont">
+            <div class="icon-sub-cont">
+              <a href="">
+                <img src="{{ url_for('static', filename='images/facebook-logo.png') }}">
+              </a>
+            </div>
+            <div class="icon-sub-cont">
+              <a href="">
+                <img src="{{ url_for('static', filename='images/124021.png') }}">
+              </a>
+            </div>
+            <div class="icon-sub-cont">
+              <a href="">
+                <img src="{{ url_for('static', filename='images/2048px-Instagram_icon.png') }}">
+              </a>
+            </div>
+            <div class="icon-sub-cont">
+              <a href="">
+                <img src="{{ url_for('static', filename='images/official-linkedin-icon-png-16.jpg') }}">
+              </a>
+            </div>
+          </div> 
+        </div>
+      </div>
+
+    <script>
+       let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+          let i;
+          let slides =
+          document.getElementsByClassName("mySlides");
+          for (i = 0; i < slides.length; i++){
+          slides[i].style.display = "none";
+        }
+           slideIndex++;
+           if(slideIndex > slides.length){ 
+              slideIndex = 1
+            }
+            slides[slideIndex-1].style.display = "block";
+            setTimeout(showSlides, 3000);
+
+}
+
+
+    </script>
+    <SCRIPT src="https://code.jquery.com/jquery-3.2.1.min.js"></SCRIPT>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts/homepage.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/main2.js') }}"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        delay: 10,
+        duration: 1500
+      });
+
+      $(document).ready(function() {
+        $(".values").counterUp({
+          delay: 10,
+          time: 1500
+        })
+      })
+    </script>
+</body>
+</html>

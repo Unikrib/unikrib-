@@ -1,0 +1,259 @@
+#external-main-cont{
+    width:100%;
+    padding: 100px 0 0 0;
+    display: inline-block;
+    
+}
+#internal-left-cont{
+    width: 65%;
+    display: subgrid;
+    margin:5em 0 11em 17.5%;
+    padding: 0 0 0 1%;   
+}
+#profile-cont{
+    width:49%;
+    display:inline-block;
+    margin: 0 0 1em 0;
+    background-color: #e2f0f8;
+    border-radius: 10px;
+}
+#profile-pic-cont{
+    width:24%;
+    float: left;
+    margin: 0 0 1em 0;
+    padding: 1em 0 0 0;
+}
+#profile-pic-cont img{
+    width: 90%;
+    margin-left: 10%;
+    height: 7vw;
+    border-radius: 50%;
+}
+#name-cont{
+    padding: 0 0 0 4%;
+    width:72%;
+    float: left;
+    margin: 0 0 0 0;
+}
+.edit-icon a{
+    float:right;
+    margin-right: 10%;
+    margin-top: -2em;
+    font-size: 1.5em;
+    color: #7e7e81;
+
+}
+.name{
+    font-size: 1em;
+    font-weight: 600;
+    color: #094385;
+    line-height: 0.9em;
+}
+ .community{
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #071355;
+    line-height: 0.2em;
+
+}
+.email{
+    font-size: 0.9em;
+    margin-bottom: 4em;
+    color: #044d3d;
+    font-weight: 500;
+}
+#contact-cont{
+    padding: 1vw 0 1vw 3%;
+}
+#uploader-phone{
+    display: inline-block;
+    background-color: #092980;
+    padding: 0px 4vw 0 4vw;
+    margin-right: 1vw;
+    border-radius: 5px;
+    
+}
+#uploader-whatsapp{
+    display: inline-block;
+    background-color: #0b880b;
+    padding: 0px 4vw 0 4vw;
+    border-radius: 5px;
+}
+#uploader-phone a, #uploader-whatsapp a {
+    text-decoration: none;
+    color: #ffffff;
+} 
+#uploader-phone .fa #uploader-whatsapp .fa{
+    color: #ffffff;
+}
+.contact{
+    font-size: 0.95vw;
+}
+.contact .fa {
+    color: #ffffff;
+}
+#security-tip-cont{
+    width: 49%;
+    float: right;
+    background-color: #1a60a1e1;
+    padding: 1em 0 1em 1%;
+    margin: 0 0 1em 0;
+    border-radius: 10px;
+}
+#security-tip-cont h4{
+    font-size: 1.3em;
+    color: #fff;
+    line-height: 0.2em;
+}
+.tips {
+    font-size: 0.9em;
+    color: #ffffff;
+    font-weight: 600;
+}
+#disclaimer{
+    width: 48%;
+    padding: 0.5vw 0 0.5vw 1%;
+    color: #eb2906;
+    background-color: #fae1e0;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+#disclaimer h4{
+    font-size: 1.1em;
+}
+#message{
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-top: -1em;
+}
+
+@media screen and (max-width: 900px){
+
+    #internal-left-cont{
+        display: inline-block;
+        width: 90%;
+        margin:5em 0 11em 5%;
+        padding: 0 0 0 1%;  
+        
+    }
+    #profile-pic-cont{
+        width:23%;
+        float: left;
+        margin: 0 0 1em 0;
+        padding: 0.5em 0 0 0;
+    }
+    #profile-pic-cont img{
+        width: 90%;
+        margin-left: 10%;
+        height: 9vw;
+        border-radius: 50%;
+    }
+   
+    #contact-cont{
+        padding: 1vw 0 1vw 5%;
+    }
+    .contact{
+        font-size: 1.55vw;
+    }
+    #uploader-phone{
+        padding: 0px 4.5vw 0 4.5vw;
+        
+    }
+    #uploader-whatsapp{
+        padding: 0px 4.5vw 0 4.5vw;
+    }
+   
+    
+}
+
+@media screen and (max-width: 590px){
+    #internal-left-cont{
+        width: 89%;
+        margin:0.5em 0 0 5%;
+        padding: 0 0 0 1%;  
+        
+    }
+    #profile-cont{
+        width:100%;
+        float: none;
+      
+    }
+    #profile-pic-cont{
+        width:23%;
+        float: left;
+        margin: 0 0 5vw 0;
+        padding: 3px 0 0 0;
+    }
+    #profile-pic-cont img{
+        width: 90%;
+        margin-left: 10%;
+        height: 18vw;
+        border-radius: 50%;
+    }
+   
+    .name{
+        font-size: 1.1em;
+        font-weight: 600;
+        line-height: 1.5vw;
+    }
+    .edit-icon a{
+        margin-right: 8%;
+        margin-top: -1.3em;
+    }
+    .email{
+        font-size: 0.75em;
+        font-weight: 500;
+    }
+    #contact-cont{
+        padding: 0.5em 0 1em 3%;
+    }
+    #uploader-phone{
+        display: inline-block;
+        background-color: #092980;
+        padding: 0px 9.3vw 0 9.3vw;
+        margin-right: 5%;
+        
+    }
+    #uploader-whatsapp{
+        display: inline-block;
+        background-color: #0b880b;
+        padding: 0px 9.3vw 0 9.3vw;
+    }
+    .contact{
+        font-size: 2.8vw;
+    }
+    
+    #internal-right-cont{
+        width: 90%;
+        padding: 0 0 0 5%;
+    
+    }
+    #security-tip-cont{
+        width: 96%;
+        float: none;
+        padding: 0.5em 2% 0.5em 2%;
+        background-color: #fff;
+        margin: 0 0 2em 0;
+    }
+    #security-tip-cont h4{
+        font-size: 1.2em;
+        color: #071355;
+    }
+    .tips{
+        color: #071355;
+    }
+   
+    #disclaimer{
+        width: 98%;
+        padding: 0.5em 1% 0.5em 1%;
+        float: none;
+    }
+    #disclaimer h4{
+        font-size: 1.1em;
+    }
+    #message{
+        margin-top: -1em;
+    }
+    
+
+}
