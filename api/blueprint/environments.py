@@ -23,3 +23,12 @@ def get_env(env_id):
     if obj is None:
         return jsonify("Environment does not exists"), 404
     return jsonify(obj.to_dict())
+
+@app_views.route('/school/<school_id>/environments', strict_slashes=False)
+def get_school_environments(school_id):
+    """This returns all the environments in a school"""
+    envs = storage.search("Environment", school_id=school_id)
+    if not envs or len(envs) == 0:
+        return jsonify("School not found"), 404
+    envs = [env.to_dict() for env in envs]
+    return jsonify(envs), 200

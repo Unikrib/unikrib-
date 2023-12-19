@@ -2,13 +2,14 @@
 """This defines the environment e.g Ekosodin, Bdpa ..."""
 
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, ForeignKey
 
 
 class Environment(BaseModel, Base):
     """Class definition"""
     __tablename__ = 'environments'
     name = Column(String(128), nullable=False)
+    school_id = Column(ForeignKey('schools.id'))
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

@@ -10,6 +10,7 @@ from models.house import House
 from models.street import Street
 from models.review import Review
 from models.report import Report
+from models.school import School
 from models.service import Service
 from models.product import Product
 from models.base_model import Base
@@ -32,7 +33,7 @@ class Storage:
             "Review": Review, "Category": Category, "Service": Service,
             "ServiceCategory": ServiceCategory, "Report": Report,
             'UserSession': UserSession, 'Notification': Notification,
-            "Transaction": Transaction}
+            "Transaction": Transaction, "School": School}
 
     __engine = None
     __session = None

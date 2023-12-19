@@ -19,6 +19,7 @@ from models.review import Review
 from models.category import Category
 from models.notification import Notification
 from models.service import Service
+from models.school import School
 from models.transaction import Transaction
 from models.user_session import UserSession
 from models.service_category import ServiceCategory
@@ -35,6 +36,7 @@ classes = {
         "Review": Review,
         "Category": Category,
         "Service": Service,
+        "School": School,
         "ServiceCategory": ServiceCategory,
         "UserSession": UserSession,
         "Notification": Notification,

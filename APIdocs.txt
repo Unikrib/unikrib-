@@ -1,11 +1,43 @@
 note: All data sent through the endpoints must be json encoded
-      url prefixing each endpoint is 'https://unikribbackend.onrender.com/unikrib'
+      base url for the endpoints is 'https://unikribbackend.onrender.com/unikrib'
       All images transfered must use formData (see the '/upload-image' endpoint for details)
       All images must first be sent to the '/upload-image' endpoint which returns the url that can be stored
       Login and signup requests always return an authorization token, this should be stored on the client side
-      Any subsequent request after log in must contain the header: "Authorization: unikrib <token>"
+      Any subsequent request after login or signup must contain the header: "Authorization: unikrib <token>"
 
-CATEGORY (Products):
+
+SCHOOLS:
+        --> GET, '/schools': This returns a list of all schools
+                res: [
+                        {
+                                "__class__": "School", 
+                                "created_at": "2023-12-19T15:30:54", 
+                                "full_name": "University of Benin", 
+                                "id": "0977d95d-7f3a-4023-b2b4-a4931bda6925", 
+                                "name": "Uniben", 
+                                "updated_at": "2023-12-19T15:30:54"
+                        },
+                        {
+                                "__class__": "School", 
+                                "created_at": "2023-12-19T16:18:18", 
+                                "full_name": "University of Lagos", 
+                                "id": "3abb9cc5-3209-445e-b619-7696db23e33b", 
+                                "name": "Unilag",
+                                "updated_at": "2023-12-19T16:18:18"
+                        },
+                        ...]
+        --> GET, '/schools/<school_id>': This fetches one school based on id
+                res: {
+                        "__class__": "School", 
+                        "created_at": "2023-12-19T15:30:54", 
+                        "full_name": "University of Benin", 
+                        "id": "0977d95d-7f3a-4023-b2b4-a4931bda6925", 
+                        "name": "Uniben", 
+                        "updated_at": "2023-12-19T15:30:54"
+                }
+
+
+CATEGORY (Products category):
         --> GET, '/categories': This returns a list of all categories
                 res: [
                         {
@@ -34,6 +66,7 @@ ENVIRONMENT (community of residence):
                             "created_at": "2023-02-03T12:37:55", 
                             "id": "123456789", 
                             "name": "Adolor",
+                            "school_id": "0977d95d-7f3a-4023-b2b4-a4931bda6925",
                             "updated_at": "2023-02-03T12:37:55"
                         },
                         ...
@@ -44,6 +77,7 @@ ENVIRONMENT (community of residence):
                         "created_at": "2023-02-03T12:37:55", 
                         "id": "123456789", 
                         "name": "Adolor",
+                        "school_id": "0977d95d-7f3a-4023-b2b4-a4931bda6925",
                         "updated_at": "2023-02-03T12:37:55"
                     }
 
