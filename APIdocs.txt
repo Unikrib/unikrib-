@@ -1,5 +1,5 @@
 note: All data sent through the endpoints must be json encoded
-      url prefixing each endpoint is 'https://unikribbackend-s0ik.onrender.com/unikrib'
+      url prefixing each endpoint is 'https://unikribbackend-trhm.onrender.com/unikrib'
       All images transfered must use formData (see the '/upload-image' endpoint for details)
       All images must first be sent to the '/upload-image' endpoint which returns the url that can be stored
       Login and signup requests always return an authorization token, this should be stored on the client side
