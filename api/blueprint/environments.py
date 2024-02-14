@@ -10,7 +10,7 @@ def all_env():
     """This returns a list of all environments"""
     # print("Environment fetched from database.")
     all_env = []
-    for key, obj in storage.all(Environment).items():
+    for key, obj in storage.all("Environment").items():
         all_env.append(obj.to_dict())
     sorted_list = sorted(all_env, key=lambda d: d['name'])
 
