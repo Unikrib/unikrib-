@@ -11,7 +11,7 @@ def all_env():
     # print("Environment fetched from database.")
     all_env = []
     school = storage.search("School", name='UniBen')
-    for obj in storage.search("Environment", school_id=school.id):
+    for obj in storage.search("Environment", school_id=school[0].id):
         all_env.append(obj.to_dict())
     sorted_list = sorted(all_env, key=lambda d: d['name'])
 
