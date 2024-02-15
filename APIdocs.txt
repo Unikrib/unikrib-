@@ -26,6 +26,27 @@ CATEGORY (Products):
                         "updated_at": "2023-02-03T12:37:55"
                     }
 
+CATEGORY (services):
+        --> GET, '/service-categories': This returns a list of all the service categories
+            res: [
+                    {
+                        "__class__": "ServiceCategory", 
+                        "created_at": "2023-03-31T17:39:55", 
+                        "id": "123456789", 
+                        "name": "AC Installer", 
+                        "updated_at": "2023-03-31T17:39:55"
+                    },
+                    ...
+                ]
+        --> GET, '/service-categories/<category_id>': This returns a category based on id
+                res: {
+                        "__class__": "ServiceCategory", 
+                        "created_at": "2023-03-31T17:39:55", 
+                        "id": "123456789", 
+                        "name": "AC Installer", 
+                        "updated_at": "2023-03-31T17:39:55"
+                    }
+
 ENVIRONMENT (community of residence):
         --> GET, '/environments': This returns a list of all environments.
                 res: [
@@ -250,26 +271,28 @@ REVIEW:
                         "updated_at": "2023-02-09T07:33:05"
                     }
 
-CATEGORY (services):
-        --> GET, '/service-categories': This returns a list of all the service categories
-            res: [
-                    {
-                        "__class__": "ServiceCategory", 
-                        "created_at": "2023-03-31T17:39:55", 
-                        "id": "123456789", 
-                        "name": "AC Installer", 
-                        "updated_at": "2023-03-31T17:39:55"
-                    },
-                    ...
+SCHOOL:
+        --> GET, '/schools': This returns a list of all schools
+                res:    [
+                        {
+                                'name': 'UniBen',
+                                'full_name': 'University of Benin',
+                                'id': '1234567890ABCDEF',
+                                'created_at': '2024-02-14T19:57:47',
+                                'updated_at': '2024-02-14T19:57:47',
+                                '__class__': 'School'
+                        }
+                        ...
                 ]
-        --> GET, '/service-categories/<category_id>': This returns a category based on id
-                res: {
-                        "__class__": "ServiceCategory", 
-                        "created_at": "2023-03-31T17:39:55", 
-                        "id": "123456789", 
-                        "name": "AC Installer", 
-                        "updated_at": "2023-03-31T17:39:55"
-                    }
+        --> GET, '/schools/<school_id>: This returns a school by id
+                res:    {
+                                'name': 'UniBen',
+                                'full_name': 'University of Benin',
+                                'id': '1234567890ABCDEF',
+                                'created_at': '2024-02-14T19:57:47',
+                                'updated_at': '2024-02-14T19:57:47',
+                                '__class__': 'School'
+                        }
 
 SERVICE:
         --> GET, '/services': This returns a list of all the services
