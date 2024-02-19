@@ -8,8 +8,8 @@ class Requests {
     // Requests
     constructor() {
         // this.api = 'http://localhost:8000/unikrib';
-        this.api = 'https://unikribafrica.com/unikrib'
-        // this.api = 'https://unikribbackend-s0ik.onrender.com/unikrib';
+        // this.api = 'https://unikribafrica.com/unikrib'
+        this.api = 'https://unikribbackend-trhm.onrender.com/unikrib';
     }
 
     get(endpoint) {
