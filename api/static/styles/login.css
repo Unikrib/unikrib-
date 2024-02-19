@@ -1,0 +1,156 @@
+/*styles external  form container for desktop view*/
+#ext-form-cont{
+    width: 30%;
+    margin-left: 35%;
+    padding-top: 100px;
+    display: block;
+
+}
+/*styles form and its contents for desktop view*/
+#login-form{
+    width: 98%;
+    padding-top: 25px;
+    display: block;
+    float:left;
+    margin: 0.3em 1% 10em 1%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+#logo-container{
+    width:25%;
+    margin-left: 37.5%;
+}
+
+#logo-container img{
+    width: 100%;
+}
+#logo-container{
+    width:25%;
+    margin-left: 37.5%;
+}
+
+#logo-container img{
+    width: 100%;
+}
+h2{
+    text-align: center;
+    color: #3554b9
+    ;
+}
+label {
+    font-size: 1em;
+    font-weight: 700;
+    margin-left: 10%;
+}
+input[type=email],input[type=text], input[type=password]{
+    width: 70%;
+    padding: 7px;
+    margin: 0.2em 0 0.2em 13%;
+    border:none;
+    border-bottom: #607dda solid 3px;
+ }
+ input[type=email]:focus, input[type=text], input[type=password]:focus {
+    background-color: #d4d6d8;
+    outline:none;
+    font-size: 0.8em;
+    transition: 300ms;
+ }
+
+ /*makes eye icon invisible until password input field is focused on*/
+ #eye-icon{
+    margin-left:15%;
+    display: none;
+    color: #6b6d6b;
+    font-size: 1.3em;
+    width: 20px;
+ }
+ .submit-btn{
+    padding: 15px;
+    width: 70%;
+    margin:1.5em 0 1.5em 16.7%;
+    font-size: 0.8em;
+    color: #ffffff;
+    background-color: #217707;
+    border:none;
+    border-radius: 5px;
+ }
+ .submit-btn:hover{
+    background-color: #5c0a75;
+
+ }
+#forgot{
+    text-align: center;
+    font-weight: 800;
+    color: #072586;
+}
+ #signin-with{
+    width:90%;
+    margin:1.5em 0 1em 5%;
+    padding: 0.1em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius:5px;
+    text-align: center;
+    font-weight: 900;
+    text-decoration: none;
+}
+#sign-up{
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: 700;
+
+}
+#forgot, #google {
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #145183;
+}
+#signin-with a{
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 700;
+    color: #104672;
+}
+
+#reset-info{
+    margin: 0 2% 2em 2%;
+    text-align: center;
+    font-size: 1em;
+    font-weight: 500;
+    color: #217707;
+}
+
+@media screen and (max-width: 1000px){
+    /*styles external  form container for tab view*/
+    #ext-form-cont{
+        width: 50%;
+        margin-left: 25%;
+        padding-top: 100px;
+    
+    }
+
+}
+
+@media screen and (max-width: 600px){
+    /*styles external  form container for phone view*/
+    #ext-form-cont{
+        width: 80%;
+        margin-left: 10%;
+        padding-top: 90px;
+    
+    }
+
+    /*styles form and its contents for phone view*/
+    #login-form{
+        width: 100%;
+        padding-top: 1em;
+        margin-bottom: 3em;
+        
+    }
+    
+   
+
+}
+

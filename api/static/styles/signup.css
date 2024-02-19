@@ -1,0 +1,232 @@
+/*styles main external container for desktop view*/
+#main-container{
+    padding-top: 100px;
+    width: 28%;
+    margin-left: 36%;
+    display: inline-block;
+    
+
+}
+/*styles form container and its contents for desktop view*/
+#form-container{
+    width: 100%;
+    padding: 2em 0 0 0;
+    display: block;
+    float:left;
+    margin:0 0 2em 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#form-header{
+    width:100%;
+    display: inline-block;
+}
+
+#icon-mark{
+    width:30%;
+    margin-left: 5%;
+    height: auto;
+
+}
+.form-headr{
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom: 0.5em;
+
+}
+p {
+    font-size: 0.85em;
+    font-weight: 600;
+}
+label{
+    font-size: 1em;
+    font-weight: 700;
+    margin-left: 10%;
+}
+input[type=text], input[type=email], input[type=password],
+ input[type=tel] {
+    width: 70%;
+    padding: 7px;
+    margin: 5px 0 5px 13%;
+    border:none;
+    border-bottom: #607dda solid 2px;
+ }
+ select {
+    width: 73%;
+    padding: 7px;
+    margin: 0.5em 0 5px 13%;
+    border: none;
+    border-bottom:#607dda solid 2px;
+ }
+
+ input[type=text]:focus, input[type=email]:focus, 
+ input[type=password]:focus,input[type=tel]:focus {
+    background-color: #d4d6d8;
+    outline:none;
+    font-size: 0.8em ;
+    transition: 300ms;
+ }
+ select:focus {
+    outline: none;
+    font-size:0.9em;
+    transition: 300ms;
+ }
+ 
+ textarea {
+    width: 73%;
+    margin: 5px 0 10px 15%;
+    height:3em;
+    border: none;
+    border-bottom: #607dda solid 3px;
+    resize: none; 
+  }
+  textarea:focus{
+    width: 77%;
+    height: 5em;
+    background-color: #e9e5e5;
+    outline: none;
+    transition: 300ms;
+  }
+ 
+ 
+ /*makes eye icon invisible until password input field is focused on*/
+ #eye-icon {
+    margin-left:15%;
+    display: none;
+    color: #6b6d6b;
+    font-size: 1.3em;
+    width: 2em;
+ }
+ .file{
+    opacity:0;
+    width: 100%;
+    height:100px;
+    position: absolute;
+ }
+ #profile-pic-cont{
+    margin-top: 20px;
+    width:70%;
+    margin-left: 8%;
+    margin-bottom: 20px;
+ }
+ #profile-pic-cont label{
+    display:block;
+    position: relative;
+    width: 100%;
+    height:50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1843d1;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 2s ease-out;
+ }
+ #file-name{
+    position: absolute;
+    left: -10%;
+    bottom: -20px;
+    text-align: center;
+    color: #f5f5f5;
+    font-size: 9px;
+    background-color: #1843d1;
+    text-decoration: underline;
+    width: 100%;
+    
+ }
+ 
+ .img-name{
+    font-weight: 700;
+    margin-left: 10%;
+ }
+ 
+ 
+ .submit-btn{
+    padding: 15px;
+    width: 60%;
+    margin:1.5em 0 1em 20%;
+    font-size: 0.8em;
+    color: #ffffff;
+    background-color: #217707;
+    border:none;
+    border-radius: 5px;
+ }
+
+ .submit-btn:hover{
+   background-color: #5b0866;
+ }
+
+ #google{
+    background-color: #ffffff;
+    width:90%;
+    margin-left: 5%;
+    padding: 1px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius:5px;
+    text-align: center;
+ }
+ .other{
+    font-weight: 600;
+    text-align: center;
+ }
+ 
+ #google a {
+    font-size: 1em;
+    color: #05349b;
+    font-weight: 700;
+    text-decoration: none;
+   
+ }
+ #other a, .other a{
+    font-size: 1em;
+    color: #093aa5;
+    font-weight: 700;
+    text-decoration: none;
+ }
+
+
+ @media screen and (max-width: 1000px) {
+
+    /*styles main external container for tab view*/
+    #main-container{
+        width: 50%;
+        margin-left: 25%;
+        
+    
+    }
+    textarea {
+        height:7vw;
+        
+    }
+    textarea:focus{
+        height: 10vw;
+    }
+    
+
+ }
+@media screen and (max-width: 600px) {
+    /*styles main external container for phone view*/
+    #main-container{
+        width: 100%;
+        margin-left: 0;
+    }
+    /*styles form container for phone view*/
+    #form-container{
+        width: 90%;
+        margin:0 0 2em 5%;
+       
+    }
+
+    textarea {
+        height:10vw;
+        
+      }
+      textarea:focus{
+        height: 20vw;
+      }
+
+
+
+}
+

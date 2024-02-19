@@ -1,0 +1,135 @@
+#ext-form-cont{
+    width: 30%;
+    margin-left: 35%;
+    padding-top: 140px;
+    display: block;
+
+}
+#login-form{
+    width: 100%;
+    padding-top: 25px;
+    display: block;
+    float:left;
+    margin-bottom: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+#logo-container{
+    width:25%;
+    margin-left: 37.5%;
+}
+
+#logo-container img{
+    width: 100%;
+    opacity: 0.3;
+}
+label {
+    font-size: 15px;
+    font-weight: 700;
+    margin-left: 10%;
+}
+input[type=email],input[type=text], input[type=password]{
+    width: 70%;
+    padding: 7px;
+    margin: 5px 0 5px 15%;
+    border:none;
+    border-bottom: #607dda solid 3px;
+ }
+ input[type=email]:focus, input[type=text], input[type=password]:focus {
+    background-color: #d4d6d8;
+    outline:none;
+    font-size: 14px;
+    transition: 300ms;
+ }
+ #eye-icon{
+    margin-left:15%;
+    display: none;
+    color: #6b6d6b;
+    font-size: 20px;
+    width: 20px;
+ }
+ button{
+    padding: 15px;
+    width: 70%;margin-top: 20px;
+    margin-left: 16.7%;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #217707;
+    border:none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+ }
+#forgot{
+    text-align: center;
+    font-weight: 800;
+    color: #072586;
+}
+ #signin-with{
+    background-color: #ffffff;
+    width:90%;
+    margin-top: 20px;
+    margin-left: 5%;
+    padding: 1px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius:5px;
+    text-align: center;
+    font-weight: 900;
+    text-decoration: none;
+}
+#sign-up{
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+
+}
+a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a3897;
+}
+
+@media screen and (max-width: 1000px){
+    #ext-form-cont{
+        width: 50%;
+        margin-left: 25%;
+        padding-top: 140px;
+    
+    }
+
+}
+
+@media screen and (max-width: 600px){
+    #ext-form-cont{
+        width: 90%;
+        margin-left: 5%;
+        padding-top: 70px;
+    
+    }
+
+    #login-form{
+        width: 100%;
+        padding-top: 25px;
+        display: block;
+        float:left;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        
+    }
+    button{
+        padding: 10px;
+        width: 70%;margin-top: 20px;
+        margin-left: 17.5%;
+        font-size: 20px;
+        color: #ffffff;
+        background-color: #217707;
+        border:none;
+        border-radius: 10px;
+        margin-bottom: 20px;
+     }
+
+}
+

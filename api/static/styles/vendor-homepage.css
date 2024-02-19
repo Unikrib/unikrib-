@@ -1,0 +1,520 @@
+body{
+    background-color: #f5fbfc;
+}
+#out-most-cont{
+    width:100%;
+    margin:0 0 0 0;
+    padding: 100px 0 0 0;
+    display: flexbox;
+}
+#inn-left-cont{
+    width: 25%;
+    float: left;
+    margin: 2em 0 0 10%;
+    padding: 0 0 0 1%;
+}
+#profile-cont{
+    width:98%;
+    display:inline-block;
+    padding:0 1% 2vw 1%;
+    margin-bottom: 1em;
+    background-color: #e2f0f8;
+    border-radius: 10px; 
+}
+#profile-pic-cont{
+    width:17%;
+    float: left;
+    margin: 0 0 1vw 0;
+    padding: 3px 0 0 0;
+}
+#profile-pic-cont img{
+    width: 90%;
+    margin-left: 10%;
+    height: 4vw;
+    border-radius: 50%;
+}
+#name-cont{
+    padding: 0 0 0 3%;
+    width:80%;
+    float: left;
+    margin: 0 0 1vw 0;
+}
+
+.name{
+    font-size: 1em;
+    font-weight: 600;
+    line-height: 0.2vw;
+    color: #071981;
+}
+.edit-icon a{
+    float:right;
+    margin-right: 5%;
+    margin-top: -1.2em;
+    font-size: 1.4em;
+    color: #7e7e81;
+
+}
+.services, .community{
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #172074;
+    line-height: 0.4vw;
+}
+
+.rating{
+    color: #e2df0c;
+    font-size: 1em;
+    margin-top: -10px;
+}
+.bio{
+    font-size: 0.8em;
+    font-weight: 500;
+    color: #0c5555;
+    margin-top: -10px;
+}
+#contact-cont{
+    padding: 1vw 0 0 2.5%;
+}
+#uploader-phone{
+    display: inline-block;
+    background-color: #092980;
+    padding: 0px 2.5vw 0 2.5vw;
+    margin-right: 1vw;
+    border-radius: 5px;
+    
+}
+#uploader-whatsapp{
+    display: inline-block;
+    background-color: #0b880b;
+    padding: 0px 2.5vw 0 2.5vw;
+    border-radius:5px;
+}
+#uploader-phone a, #uploader-whatsapp a {
+    text-decoration: none;
+    color: #ffffff;
+} 
+#uploader-phone .fa #uploader-whatsapp .fa{
+    color: #ffffff;
+}
+.contact{
+    font-size: 0.85vw;
+}
+.contact .fa {
+    color: #ffffff;
+}
+#review-cont{
+    width: 96%;
+    background-color:#f8fcf8;
+    padding: 1vw 2% 1vw 2%;
+    margin: 1em 0 1em 0;
+}
+#rev-headr{
+    font-size: 1.4em;
+    font-weight: 700;
+    color:#071981;
+}
+#latest-review-cont{
+    background-color: #aef3b7;
+    width: 98%;
+    border-radius: 5px;
+    padding: 0 0 0 1vw;
+    display: inline-block;
+}
+#rev-img-cont{
+    float: left;
+    width: 15%;
+    padding: 0.5vw 0 0 1%;
+}
+#rev-img-cont img{
+    width: 100%;
+    border-radius: 50%;
+    height: 3.5vw;
+}
+#rev-name-cont{
+    float: left;
+    width:81.5%;
+    padding:0 0 0 2.5%;
+}
+.rev-name{
+    font-size: 1.3vw;
+    font-weight: 700;
+}
+#rev-message-cont {
+    width: 98%;
+    margin-top: 4.5vw;
+    padding: 0 1% 0 1%;
+}
+#review-message {
+    font-size: 1vw;
+    font-weight: 500;
+}
+.time-stamp{
+    text-align: right;
+    font-size: 0.8em;
+    font-weight: 600;
+    color: #686666da;
+}
+#other-reviews-cont p {
+    font-size: 1em;
+    text-align: center;
+    font-weight: 500;
+    color: #09216e;
+}
+#new-upload-cont{
+    background-color: #e6e1e1;
+    text-align: center;
+    width:95%;
+    padding: 3vw 2.5% 3vw 2.5%;
+    margin: 1.5vw 0 1.5vw 0;
+    border-radius: 10px;
+}
+#new-upload-btn{
+    width: 45%;
+    margin: 0 0 0 25%;
+    background-color:#161670;
+    padding: 1vw 2.5% 1vw 2.5%;
+    text-align: center;
+    border-radius: 5px;
+}
+#upload-btn-txt {
+    font-size: 0.9em;
+    color: #ffffff;
+
+}
+#new-upload-btn:hover{
+    background-color: #5e0957;
+    
+}
+#inn-right-cont{
+    width: 45%;
+    float: left;
+    margin: 0 2% 0 5%;
+    border-radius: 10px;
+}
+h2{
+    text-align: center;
+    font-size: 1.5em;
+}
+.output-containers{
+    width:92%;
+    margin:0 0 1em 4%;
+    display: inline-block;
+    border: 1px solid #6564864f;
+    padding: 0 1% 0 1%;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+#image-cont{
+    width: 38%;
+    height: 11em;
+    padding: 0.5em 0 0.5em 1%;
+    float:left;
+    margin: 0 0 0 0;
+}
+#image-cont img{
+    width:100%;
+    height: 100%;
+    
+}
+#text-cont{
+    width: 58%;
+    padding: 0 1% 0.5em 1%;
+    float:right;
+}
+
+a {
+    text-decoration: none;
+    color: #161616;
+
+}
+.product-results{
+    font-size: 1.1em;
+    color:#161670;
+    font-weight: 600;
+    line-height: 1vw;
+}
+.price-results{
+    color:#28880b;
+    font-size: 1.3em;
+    font-weight: 700;
+    line-height: 0.5vw;
+}
+.ven-location, .community {
+    font-size:1em;
+    font-weight: 600;
+    color: #152b8f;
+    line-height: 0.5vw;
+
+} 
+
+#view-more-button{
+    background-color: #05740b;
+    text-align: center;
+    padding: 0.1em 1% 0.1em 1%;
+    width: 29%;
+    margin-left:35%;
+    color: #f5f2f2;
+    margin-bottom: 30px;
+    border-radius:5px;
+}
+#button-text{
+    font-size: 0.9em;
+    font-weight: 600;
+}
+#view-more-cont {
+    display: none;
+}
+#view-more-button:hover {
+    cursor: pointer;
+    transition: 500ms;
+    background-color: #353536;
+}
+@media screen and (max-width: 900px){
+    #inn-left-cont{
+        width: 90%;
+        display: inline-block;
+        margin: 0 0 0 5%;
+    }
+    #profile-cont{
+        width:45%;
+        display:inline-block;
+        padding:0 1% 2vw 1%;
+        margin: 0 2% 0 0; 
+    }
+    #profile-pic-cont{
+        width:20%;
+    }
+    #profile-pic-cont img{
+        height: 7vw;
+    }
+    #name-cont{
+        padding: 0 0 0 3%;
+        width:72%;
+        margin: 0 0 2vw 0;
+    }
+   
+   
+    #contact-cont{
+        padding: 1vw 0 1vw 4%;
+    }
+    .contact{
+        font-size: 1.6vw;
+    }
+    #uploader-phone{
+        padding: 0px 3.5vw 0 3.5vw;
+        
+    }
+    #uploader-whatsapp{
+        padding: 0px 3.5vw 0 3.5vw;
+    }
+   
+    #review-cont{
+        width: 45%;
+        float: right;
+        padding: 1vw 2% 1vw 2%;
+        margin: 0 0 1vw 0;
+    }
+   
+    #rev-img-cont{
+        padding: 1vw 0 0 1%;
+    }
+    #rev-img-cont img{
+        height: 6vw;
+    }
+    .rev-name{
+        font-size: 2.4vw;
+    }
+   
+    #rev-message-cont {
+        width: 96%;
+        margin-top: 5vw;
+        padding: 0 2% 0 2%;
+    }
+    #review-message {
+        font-size: 1.6vw;
+    }
+   
+    #new-upload-cont{
+        width: 43%;
+        float: left;
+        padding: 3vw 2.5% 3vw 2.5%;
+        margin: 2vw 0 2vw 0;
+    }
+    #new-upload-btn{
+        padding: 2vw 5.5% 2vw 5.5%;
+    
+    }
+   
+    #upload-btn-txt {
+        font-size: 0.7em;
+    
+    }
+    #inn-right-cont{
+        width: 90%;
+        float: left;
+        margin: 2vw 0 5vw 5%;
+    }
+    #uploads-cont{
+        overflow-y:hidden;
+        height: auto;
+    
+    }
+    .output-containers{
+        width:90%;
+        margin-left: 5%;
+        padding: 0 1% 0px 1%;
+
+    }
+    #image-cont{
+        width: 32%;
+        height: 10em;
+        padding: 0.5em 0 0.5em 1%;
+    }
+    
+    #text-cont{
+        width: 63%;
+        padding: 0 1% 0.5em 1%;
+    }
+    
+    
+    #view-more-button{
+        width: 40%;
+        margin-left:30%;
+    }
+
+    
+}
+@media screen and (max-width: 590px) {
+    #inn-left-cont{
+        width: 90%;
+        float: left;
+        margin: 0 0 0 5%;
+    }
+    #profile-cont{
+        width:98%;
+        padding:0 1% 2vw 1%;
+        margin: 0 2% 0 0;
+    }
+    #profile-pic-cont{
+        width:22%;
+    }
+    #profile-pic-cont img{
+        height: 17vw;
+    }
+    #name-cont{
+        padding: 0 0 0 3%;
+        width:67%;
+        margin: 0 0 4vw 0;
+    }
+   
+    #contact-cont{
+        padding: 1.5vw 0 1.5vw 2%;
+    }
+    .contact{
+        font-size: 3vw;
+    }
+    #uploader-phone{
+        padding: 0px 9.7vw 0 9.7vw;
+        
+    }
+    #uploader-whatsapp{
+        padding: 0px 9.7vw 0 9.7vw;
+    }
+   
+    #review-cont{
+        width: 96%;
+        padding: 4vw 2% 4vw 2%;
+        margin: 4vw 0 4vw 0;
+    }
+  
+    #rev-img-cont{
+        padding: 1.5vw 0 0 1%;
+        width: 20%;
+    }
+    #rev-img-cont img{
+        height: 16vw;
+    }
+    #rev-name-cont{
+        float: left;
+        width:75.5%;
+        padding:0 0 0 2.5%;
+    }
+    .rev-name{
+        font-size: 6vw;
+    }
+  
+    #rev-message-cont {
+        width: 96%;
+        margin-top: 14vw;
+        padding: 0 2% 0 2%;
+    }
+    #review-message {
+        font-size: 3.7vw;
+    }
+   
+    #new-upload-cont{
+        width:95%;
+        padding: 8vw 2.5% 8vw 2.5%;
+        margin: 4vw 0 4vw 0;
+    }
+    #new-upload-btn{
+        padding: 3vw 2.5% 3vw 2.5%;
+    
+    }
+   
+    #inn-right-cont{
+        width: 90%;
+        margin: 1.5em 0 3em 5%;
+        background: none;
+    }
+    h2{
+        color: #09216e;
+        font-size: 1.35em;
+    }
+    .output-containers{
+        width:95%;
+        margin-left: 2.5%;
+        padding: 0 0 0 0;
+        background-color: #fff;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    #image-cont{
+        width: 99%;
+        height: 12em;
+        padding: 0 0 0 0;
+    }
+    #image-cont img{
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    #text-cont{
+        width: 92%;
+        padding: 0 4% 0.5em 4%;
+    }
+   
+    
+    .product-results{
+        font-size: 0.9em;
+    }
+    .price-results{
+        font-size: 1.2em;
+        line-height: 0.5vw;
+    }
+    .ven-location, .community {
+        font-size:0.9em;
+    
+    } 
+   
+    #view-more-button{
+        width: 50%;
+        margin-left:25%;
+    }
+   
+    
+    
+
+}

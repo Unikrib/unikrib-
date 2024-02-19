@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload a product</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/product-upload-page.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1165447709024810"
+     crossorigin="anonymous"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QJB9RGPNHQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QJB9RGPNHQ');
+</script>
+<body>
+     <!-- responsive top navigator bar -->
+     <div class="top-nav" id="my-Top-nav">
+    </div>
+
+    <div id="preloader"></div>
+    <div id="logoff-loader"><h2 class="logoff-text">Logging off</h2></div>
+
+    <div id="outer-most-container">
+      <!---Contains input fields, select boxes, image upload container, submit button and notice container-->
+        <div id="product-upload-form">
+             <h2 id="form-title">Upload product</h2>
+
+             <!--select box for product category-->
+             <label for="">product category</label>
+             <select name="product category" id="product-category" class="type" required>
+             </select><br>
+
+             <!--Input field for product name-->
+             <label for="productname">product name</label><br>
+             <input type="text" id="product-name" name="productname" class="products"><br>
+
+             <!--product price input field-->
+             <label for="product-price">Product price</label><br>
+             <input type="number" id="price" class="price" required><br>
+
+             <!--product features textarea field-->
+             <label for="product features">Product features</label><br>
+             <textarea id="product-features" name="product features"></textarea><br>
+
+             <label for="delivery status">Delivery</label><br>
+             <select name="delivery status" id ="delivery-status" class="deliveries">
+                <option value="yes">Available</option>
+                <option value="no">Unavailable</option>
+             </select><br>
+
+             <label for="product status">product status</label><br>
+             <select name="product status" id="product-status" class="status">
+                <option value="yes">In stock</option>
+                <option value="no">Out of stock</option>
+             </select>
+             
+             <!-- contains product image upload input fields-->
+             <h3>Upload atleast one image of the product(no videos)</h3>
+             <div id="product-img-cont">
+                 <label for="product img" id="upload">upload image
+                     <input type="file" onchange="readURL(this, 'image1');" name="product img" id="product-image1" class="product-img"/>
+                     <p id ="file-name1" class="file-name"></p>
+                 </label>
+                <div class="image-select-cont">
+                  <img id="image1" src="">
+                </div>
+
+                 <label for="apartmemt img" id="upload">upload image
+                    <input type="file" onchange="readURL(this, 'image2');" name="product img" id="product-image2" class="product-img"/>
+                    <p id ="file-name2" class="file-name"></p>
+                </label>
+                <div class="image-select-cont">
+                  <img id="image2" src="">
+                </div>
+
+                <label for="product img" id="upload">upload image
+                    <input type="file" onchange="readURL(this, 'image3');" name="product img" id="product-image3" class="product-img"/>
+                    <p id ="file-name3" class="file-name"></p>
+                </label>
+                <div class="image-select-cont">
+                  <img id="image3" src="">
+                </div>
+             </div>
+
+             <!--contains submit button-->
+             <div id="Submit upload">
+                <button type="submit" id="submit-product" class="submit-btn"><i class="fa fa-spinner fa-spin" id="loader"></i> Save and upload</button>
+             </div>
+
+             <!--notice contains important upload conditions-->
+             <div id="notice">
+                <h4>Please Note:</h4>
+                <p> This form  is to be filled as factually as possible, using false information in this form is ill advised </p>
+                <p>Only currently available products should be uploaded, and should be deleted when unavailable</p>
+
+             </div>
+            </div>
+    </div>
+
+    <!--footer container and sub containers(sub, base and icon), containing  links, contact information and social media links-->
+    <div id="footer-cont">
+      </div>
+    
+    <SCRIPT src="https://code.jquery.com/jquery-3.2.1.min.js"></SCRIPT>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src = "scripts/main2.js"></script>
+    <script src = "scripts/product-upload.js"></script>
+    <script>
+
+        //displays name and size of uploaded image file
+        const file = document.getElementById("product-image1")
+        const file2 = document.getElementById("product-image2")
+        const file3 = document.getElementById("product-image3")
+        //for first image
+        file.addEventListener("change", (e) => {
+            const [file] = e.target.files;
+            const {name: fileName , size} = file;
+            const fileSize = (size / 1000).toFixed(2);
+            const fileNameAndSize = `${fileName} - ${fileSize}KB`;
+            document.querySelector('#file-name1').textContent = 
+            fileNameAndSize;
+        
+        })
+        //for second image
+        file2.addEventListener("change", (e) => {
+            const [file2] = e.target.files;
+            const {name: fileName , size} = file2;
+            const fileSize = (size / 1000).toFixed(2);
+            const fileNameAndSize = `${fileName} - ${fileSize}KB`;
+            document.querySelector('#file-name2').textContent = 
+            fileNameAndSize;
+        
+        })
+
+        //for third image
+        file3.addEventListener("change", (e) => {
+            const [file3] = e.target.files;
+            const {name: fileName , size} = file3;
+            const fileSize = (size / 1000).toFixed(2);
+            const fileNameAndSize = `${fileName} - ${fileSize}KB`;
+            document.querySelector('#file-name3').textContent = 
+            fileNameAndSize;
+        
+        })
+        
+    </script>
+</body>
+</html>

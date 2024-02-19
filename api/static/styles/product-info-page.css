@@ -1,0 +1,666 @@
+#external-main-cont{
+    width:92%;
+    margin-left: 0%;
+    display: inline-block;
+    padding: 80px 0 0 8%;
+}
+
+#internal-left-container{
+    width: 35%;
+    float: left;
+    margin: 0 0 0 10%;
+}
+/*here*/
+.wrapper{
+    display: flex;
+    max-width: 1200px;
+    position: relative;
+  }
+  .wrapper i{
+    top: 50%;
+    height: 70px;
+    width: 70px;
+    color: #343F4F;
+    cursor: pointer;
+    font-size: 3.5rem;
+    position: absolute;
+    text-align: center;
+    line-height: 70px;
+    background: #fff;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
+  }
+  .wrapper i:active{
+    transform: translateY(-50%) scale(0.9);
+  }
+  .wrapper i:hover{
+    background: #f2f2f2;
+  }
+  .wrapper i:first-child{
+    left: -35px;
+    display: none;
+  }
+  .wrapper i:last-child{
+    right: -35px;
+  }
+  .wrapper .carousel{
+    font-size: 0px;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+  }
+  .carousel.dragging{
+    cursor: grab;
+    scroll-behavior: auto;
+  }
+  .carousel.dragging img{
+    pointer-events: none;
+  }
+  .carousel img{
+    height: 340px;
+    object-fit: contain;
+    user-select: none;
+    margin-left: 14px;
+    width: calc(100%);
+  }
+  .carousel img:first-child{
+    margin-left: 0px;
+  }
+
+  /*to here*/
+
+#Text-info-container{
+    display: block;
+    width: 100%;
+}
+#product-details{
+    background-color: #fff;
+    padding:5px 0 2px 5px;
+}
+.product-results{
+    font-size: 1.1em;
+    color:#161670;
+    font-weight: 600;
+    line-height: 0.3vw;
+}
+.price-results{
+    color:#28880b;
+    font-size: 1.4em;
+    font-weight: 700;
+    line-height: 0.2vw;
+}
+.ven-location {
+    font-size:1em;
+    font-weight: 500;
+    color: #262727;
+    line-height: 0.2vw;
+
+} 
+.community{
+    font-size:1em;
+    font-weight: 500;
+    color: #152b8f;
+    line-height: 0.2vw;
+}
+.delivery{
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 0.8vw;
+}
+.Available{
+    color: #057405;
+    font-weight: 600;
+}
+.Unavailable{
+    color: #be0d0d;
+    font-weight: 600;
+}
+#feature-cont{
+    padding: 10px 0 2px 10px;
+    margin: 1vw 0 2vw 0;
+    color: #ffffff;
+    background-color: #0e9215a4;
+    border-radius: 10px;
+}
+.feature{
+    font-size: 1em;
+    font-weight: 500;
+}
+
+#disclaimer{
+    padding: 10px 0 2px 10px;
+    color: #cc2b0e;
+    background-color: #f8debb;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+
+#disclaimer h4{
+    font-size: 1em;
+    line-height: 0.2em;
+}
+#message{
+    margin-top: -1vw;
+    font-size: 0.8em;
+    font-weight: 500;  
+}
+
+#internal-right-container{
+    float: left;
+    width: 30%;
+    margin:2vw 0 0 8%;
+    padding: 0 0 0 1%;   
+}
+#profile-cont{
+    width:100%;
+    display:inline-block;
+    margin-bottom: 1vw;
+    background-color: #e2f0f8;
+    border-radius: 10px;
+}
+#profile-pic-cont{
+    width:15%;
+    float: left;
+    margin: 0 0 1vw 0;
+    padding: 3px 0 0 0;
+}
+#profile-pic-cont img{
+    width: 90%;
+    margin-left: 10%;
+    height: 4vw;
+    border-radius: 50%;
+}
+#name-cont{
+    padding: 0 0 0 3%;
+    width:82%;
+    float: left;
+    margin: 0 0 1vw 0;
+}
+.name{
+    font-size: 1.1em;
+    font-weight: 600;
+    line-height: 0.2vw;
+}
+.services{
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #686666;
+    line-height: 0.2vw;
+}
+.rating{
+    color: #c7c409;
+    font-size: 1em;
+    margin-top: -15px;
+}
+.bio{
+    font-size: 0.7em;
+    font-weight: 500;
+    color: #0c5555;
+    margin-top: -10px;
+}
+#contact-cont{
+    padding: 1vw 0 1vw 3%;
+}
+#uploader-phone{
+    display: inline-block;
+    background-color: #092980;
+    padding: 0px 4.5vw 0 4.5vw;
+    margin-right: 1vw;
+    border-radius: 5px;
+    
+}
+#uploader-whatsapp{
+    display: inline-block;
+    background-color: #0b880b;
+    padding: 0px 3vw 0 3vw;
+    border-radius:5px;
+}
+#uploader-phone a, #uploader-whatsapp a {
+    text-decoration: none;
+    font-size: 1.2em;
+    font-family: 'Fredoka', sans-serif;
+    color: #ffffff;
+} 
+#uploader-phone .fa #uploader-whatsapp .fa{
+    color: #ffffff;
+}
+.contact{
+    font-size: 0.9vw;
+}
+.contact .fa {
+    color: #ffffff;
+}
+#review-cont{
+    width: 95%;
+    background-color: #fff;
+    padding: 1vw 2.5% 1vw 2.5%;
+    margin: 0 0 1vw 0;
+}
+#rev-headr{
+    font-size: 1.3em;
+    font-weight: 700;
+}
+#latest-review-cont{
+    background-color: #aef3b7;
+    width: 98%;
+    border-radius: 5px;
+    padding: 0 0 0 1vw;
+    display: inline-block;
+}
+#rev-img-cont{
+    float: left;
+    width: 14%;
+    padding: 0.5vw 0 0 1%;
+}
+#rev-img-cont img{
+    width: 100%;
+    border-radius: 50%;
+    height: 3.5vw;
+}
+#rev-name-cont{
+    float: left;
+    width:82.5%;
+    padding:0 0 0 2.5%;
+}
+.rev-name{
+    font-size: 1.2vw;
+    font-weight: 700;
+}
+#rev-message-cont {
+    width: 98%;
+    margin-top: 4.5vw;
+    padding: 0 1% 0 1%;
+}
+#review-message {
+    font-size: 1vw;
+    font-weight: 500;
+}
+.time-stamp{
+    text-align: right;
+    font-size: 0.7em;
+    font-weight: 600;
+    color: #686666da;
+}
+#other-reviews-cont p {
+    font-size: 1em;
+    text-align: center;
+    font-weight: 500;
+    color: #092980;
+}
+#security-tip-cont{
+    width: 98%;
+    background-color: #0c3a8094;;
+    padding: 2.5px 1% 2.5px 1%;
+    margin: 0 0 1vw 0;
+    border-radius: 10px;
+}
+#security-tip-cont h4{
+    font-size: 1.2em;
+    color: #ffffff;
+    line-height: 0.2vw;
+}
+.tips {
+    font-size: 0.8em;
+    color: #ffffff;
+    font-weight: 600;
+}
+#report-cont{
+    background-color: #e6e1e1;
+    padding: 0.5vw 0 1.5vw 0;
+    width:100%;
+    border-radius: 10px;
+   }
+   #report-cont a {
+       color: #fff;
+       text-decoration: none;
+       font-size: 0.8em;
+       font-weight: 500;
+   }
+   #report-button{
+       background-color: #e20f0f;
+       width: 42%;
+       margin-left: 29%;
+       padding: 1.5vw 1.5% 1.5vw 1.5%;
+       text-align: center;
+   }
+   
+   #edit-delete-cont{
+    width: 99%;
+    background-color: #dbd8d8;
+    padding: 1vw 0 1vw 1%;
+    display: inline-block;
+   }
+   #edit-delete-left{
+    width:50%;
+    float: left;
+   }
+   #edit-delete-right{
+    width:50%;
+    float: left;
+   }
+   #edit-product{
+    width:70%;
+    margin-left: 15%;
+    padding: 1.3em 0 1.3em 0;
+    background-color: #0b880b;
+    color: #ffffff;
+    border: none;
+    font-size: 1em;
+   }
+   #delete-product{
+    width:70%;
+    margin-left: 15%;
+    padding: 1.3em 0 1.3em 0;
+    background-color: #eb0c0c;
+    color: #ffffff;
+    border: none;
+    font-size: 1em;
+   }
+   button .fa{
+     color: #ffffff;
+    }
+    
+    
+
+@media screen and (max-width: 900px) {
+    #external-main-cont{
+        width:90%;
+        margin-left: 0%;
+        padding: 100px 0 0 10%;
+    }
+    #internal-left-container{
+        width: 80%;
+        margin: 0 0 0  5%;
+    }
+    .carousel img{
+        height: 280px;
+      }
+    
+    #Text-info-container{
+        display: block;
+        width: 100%;
+        float: left;
+    }
+   
+    #disclaimer{
+        padding: 10px 0 2px 10px;
+        margin-bottom: 30px;
+    }
+    
+    #internal-right-container{
+        float: left;
+        width: 90%;
+        margin:2vw 0 0 0;
+        padding: 0 0 0 2%;   
+    }
+    #profile-cont{
+        width:49%;
+        display:inline-block;
+        margin-bottom: 1vw;
+        margin: 0 1vw 1vw 0; 
+    }
+    #profile-pic-cont{
+        width:22%;
+        float: left;
+        margin: 0 0 5vw 0;
+        padding: 3px 0 0 0;
+       
+    }
+    #profile-pic-cont img{
+        width: 90%;
+        margin-left: 10%;
+        height: 7.5vw;
+    }
+    #name-cont{
+        padding: 0 0 0 3%;
+        width:65%;
+        margin: 0 0 2vw 0;
+    }
+   
+    #contact-cont{
+        padding: 1vw 0 1vw 5%;
+    }
+    .contact{
+        font-size: 1.5vw;
+    }
+    #uploader-phone{
+        padding: 0px 5.7vw 0 5.7vw;
+        
+    }
+    #uploader-whatsapp{
+        padding: 0px 3.5vw 0 3.5vw;
+    }
+
+    #review-cont{
+        width: 42.5%;
+        float: right;
+        padding: 0.5vw 2.5% 0.5vw 2.5%;
+        margin: 0 0 1vw 0;
+    }
+  
+    #rev-img-cont{
+        float: left;
+        width: 17%;
+        padding: 0.5vw 0 0 1%;
+    }
+    #rev-img-cont img{
+        width: 100%;
+        height: 5vw;
+        
+    }
+    #rev-name-cont{
+        float: left;
+        width:80%;
+        padding:0 0 0 2%;
+    }
+    .rev-name{
+        font-size: 2.4vw;
+    }
+   
+    #rev-message-cont {
+        width: 98%;
+        margin-top: 4.5vw;
+        padding: 0 1% 0 1%;
+    }
+    #review-message {
+        font-size: 1.6vw;
+    }
+    
+    #security-tip-cont{
+        width: 48%;
+        float: left;
+    }
+    
+    #report-cont{
+     padding: 2.5vw 0 2.5vw 0;
+     float: left;
+     width:43%;
+     margin: 0 0 0 5vw;
+    }
+
+    #report-button{
+        width: 62%;
+        margin-left: 19%;
+        padding: 3.5vw 2% 3.5vw 2%;
+    }
+   #edit-delete-cont{
+    width: 48%;
+    padding: 2vw 0 2vw 1%;
+   }
+   
+  
+}
+@media screen and (max-width: 590px){
+    #external-main-cont{
+        width: 95%;     
+        padding: 100px 0 0 5%;
+    }
+    #internal-left-container{
+        width: 90%;
+        margin: 0 0 0 2.5%;
+    }
+
+    .wrapper i{
+        top: 50%;
+        height: 44px;
+        width: 44px;
+        font-size: 1.5rem;
+        line-height: 44px;
+      }
+    .wrapper i:first-child{
+        left: -20px;
+        display: none;
+      }
+      .wrapper i:last-child{
+        right: -20px;
+      }
+
+    #Text-info-container{
+        display: block;
+        width: 100%;
+        float: left;
+    }
+
+    #disclaimer{
+        padding: 10px 0 2px 10px;
+        margin-bottom: 20px;
+    }
+    #internal-right-container{
+        float: left;
+        width: 92%;
+        margin:2vw 0 0 0%;
+        padding: 0 0 0 1%;   
+    }
+    #profile-cont{
+        width:99%;
+        display:inline-block;
+        padding-bottom: 2vw;
+        margin: 0 1vw 3vw 0; 
+    }
+    
+    #profile-pic-cont{
+        width:25%;
+        float: left;
+        margin: 0 0 1.5em 0;
+        padding: 3px 0 0 0;
+    }
+    #profile-pic-cont img{
+        width: 90%;
+        margin-left: 10%;
+        height: 19vw;
+        border-radius: 50%;
+    }
+    #name-cont{
+        padding: 0 0 0 3%;
+        width:65%;
+        float: left;
+        margin: 0 0 5vw 0;
+    }
+
+    #contact-cont{
+        padding: 1vw 0 1vw 4%;
+    }
+    .contact{
+        font-size: 2.8vw;
+    }
+    #uploader-phone{
+        padding: 5px 13.7vw 5px 13.7vw;
+        margin-right: 2%;
+        
+    }
+    #uploader-whatsapp{
+        display: inline-block;
+        padding: 5px 11vw 5px 11vw;
+    }
+  
+    #review-cont{
+        width: 94%;
+        float: none;
+        padding: 1vw 2.5% 1vw 2.5%;
+        margin: 0 0 3vw 0;
+    }
+    #rev-img-cont{
+        float: left;
+        width: 17%;
+        padding: 0.5vw 0 0 1%;
+    }
+    #rev-img-cont img{
+        width: 100%;
+        height: 13vw;
+    }
+    #rev-name-cont{
+        float: left;
+        width:79.5%;
+        padding:0 0 0 2.5%;
+    }
+    .rev-name{
+        font-size: 5vw;
+    }
+   
+    #rev-message-cont {
+        width: 98%;
+        margin-top: 4.5vw;
+        padding: 0 1% 0 1%;
+    }
+    #review-message {
+        font-size: 3.7vw;
+    }
+   
+    #security-tip-cont{
+        width: 98%;
+        float: none;
+        background-color: #fff;
+        padding: 2vw 0 2vw 1%;
+        margin: 0 0 6vw 0;
+    }
+    #security-tip-cont h4{
+        font-size: 1.2em;
+        color: #04155f;
+        line-height: 0.2vw;
+    }
+    .tips{
+        font-size: 0.8em;
+        color: #04155f;
+
+    }
+  
+    #report-cont{
+     padding: 3vw 0 3vw 0;
+     float: none;
+     width:98%;
+     margin: 0vw 0 5vw 0;
+    }
+    
+    #report-cont a {
+        text-decoration: none;
+        font-size: 3.7vw;
+        font-weight: 500;
+    }
+    #report-button{
+        width: 42%;
+        margin-left: 29%;
+        padding: 5.5vw 2% 5.5vw 2%;
+    }
+    
+     #edit-delete-cont{
+       width: 98%;
+       padding: 4vw 0 4vw 1%;
+    }
+     #edit-product{
+       width:80%;
+       margin-left: 10%;
+       padding: 4vw 0 4vw 0;
+    }
+     #delete-product{
+       width:80%;
+       margin-left: 10%;
+       padding: 4vw 0 4vw 0;
+    }
+
+    
+
+   
+
+}

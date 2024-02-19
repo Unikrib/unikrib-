@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report this user</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/report.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1165447709024810"
+     crossorigin="anonymous"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QJB9RGPNHQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QJB9RGPNHQ');
+</script>
+<body>
+    <!-- responsive top navigator bar -->
+    <div class="top-nav" id="my-Top-nav">
+    </div>
+
+     <div id="preloader"></div>
+     <div id="logoff-loader"><h2 class="logoff-text">Logging off</h2></div>
+
+     <div id="outer-main-cont">
+      <div id="inner-main-cont">
+          <div id="regForm" action="">
+              <div id="radio-cont">
+                <h3>What do you want to report this user for</h3>
+                <input type="radio" value="Dishonest" class="radio-btn">
+                <label for="dishonest">Dishonesty</label>
+                <p class="exp-text">This user is dishonest</p>
+                <input type="radio" value="Fraud" class="radio-btn"> 
+                <label for="fraud">Fraud</label>
+                <p class="exp-text">This user tried to defraud me</p>
+                <input type="radio" value="Unprofessional conduct" class="radio-btn">
+                <label for="unprofessional">Unprofessional conduct</label>
+                <p class="exp-text">This user does not act professionally</p>
+                <input type="radio" value="Harrassment" class="radio-btn">
+                <label for="harrassment">Harassment</label>
+                <p class="exp-text">This user tried to harass and take advantage of me </p>
+                <input type="radio" value="Dangerous conduct" class="radio-btn">
+                <label for="dangerous">Dangerous conduct</label>
+                <p class="exp-text">This user attempted to cause me physical harm</p>
+              </div>
+
+              <div id="detail-cont">
+                <h3 id="detail-headr">Tell us more</label><h3>
+                <textarea class="" id="description"></textarea>
+                <div id="button-cont">
+                   <button type="submit" id="subBtn" onclick=""><i class="fa fa-spinner fa-spin" id="loader"></i>Submit Report</button>
+                </div>
+                <!-- Circles which indicates the steps of the form: -->
+                <div style="text-align:center;margin-top:40px;">
+                  <span class="step"></span>
+                  <span class="step"></span>
+                </div>
+              </div>
+              
+            </div>
+            
+
+      </div>
+   </div>
+
+    <!--footer container and sub containers(sub, base and icon), containing  links, contact information and social media links-->
+    <div id="footer-cont">
+    </div>
+    
+      
+      
+    <SCRIPT src="https://code.jquery.com/jquery-3.2.1.min.js"></SCRIPT>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src = "scripts/main2.js"></script>
+    <script src="scripts/report.js"></script>
+</body>
+</html>

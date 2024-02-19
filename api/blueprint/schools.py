@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 from api.blueprint import app_views
-from models.school import School
+# from models.school import School
 from models import storage
 from flask import jsonify
 

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Product listings. Buy products from vendors all around uniben. search now">
+    <meta name="keywords" content="University of benin, buy products online, shopping online, vendors in uniben, delivery, order,
+    clothes, groceries, accessories, jewellery, kitchen utensils, Cosmetics and care products, furniture, footwear, electronics, beddings
+    hair extensions, designers, iphone, samsung, tv, sneakers, bed, mattress,laptop, hp, macbook, fridge, washing machine, air conditioner
+    pots, table, chair, foam, bed sheet, duvet, frying pan, Generator, charger, ear piece, earpods, bluetooth speaker,rechargeable bulbs">
+    <title>Products search page</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/product-page.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1165447709024810"
+     crossorigin="anonymous"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QJB9RGPNHQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QJB9RGPNHQ');
+</script>
+<body>
+    <!-- responsive top navigator bar -->
+    <div class="top-nav" id="my-Top-nav">
+    </div>
+
+    <div id="preloader"></div>
+    <div id="logoff-loader"><h2 class="logoff-text">Logging off</h2></div>
+
+    <div id="main-ext-cont"> 
+        <!--Apartment container containing filter select options-->
+        <div id="product-container">
+          <h1>Buy products from vendors around uniben</h1>
+            <div id="search-filters-cont">
+                <!--location container containing location filter select box-->
+                <div id="location-cont" class="filter-containers">
+                    <label for="location search">Location</label><br>
+                    <select id="location-search" name="location search">
+                         <option value="all">All Communities</option>
+                   </select>
+                </div>
+                
+                <!--Apartment container containing Apartment filter select box-->
+                <div id="Apartment-cont" class="filter-containers">
+                    <label for="product category">Product category</label><br>
+                    <select id="product-category" name="product category">
+                      <option value="all">All Categories</option>
+                    </select>
+                </div>
+                
+                <div id="search-cont" class="search-container">
+                    <label for="search box">Product name</label><br>
+                    <input type="search" id="product-search-box" name="search box" placeholder="Enter product name">
+                </div>
+
+
+                <!--button container containing search button-->
+                <div id="button-cont" class="filter-containers">
+                    <button id="product-search"type="submit" onclick="searchParameter()"><i class="fa fa-search"></i> Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+    <!--output container containing all product output containers-->
+    <div id="output-ext-cont">
+        <h2 id="search-filter"><span id=""></span></h2>
+
+        <div id="figures">
+          <p id="show">showing results <span id="num-from">0</span> - <span id="num-to">0</span> out of
+            <span id="total-length">0</span></p>
+        </div>
+        <div id="all-products">
+          <div id="product-list"></div>
+          <div id="nav-button-cont">
+            <!-- <a href="" class="nav-btn">&laquo Prev </a>
+            <a href="" class="nav-btn-active">1</a>
+            <a href="" class="nav-btn">2</a>
+            <a href="" class="nav-btn">3</a>
+            <a href="" class="nav-btn">4</a>
+            <a href="" class="nav-btn">...</a>
+            <a href="" class="nav-btn">10</a>
+            <a href="" class="nav-btn">Next &raquo</a> -->
+          </div>
+        </div>
+
+        <!-- Service link container containing service search page link, image and text-->
+        <div id="side-cont">
+          <h3>Our product Categories<i class="fa fa-shopping-cart"></i></h3>
+          <div id="category-cont" class="side-space-cont">
+            <div id="Category">
+              <!-- <a href="" class="categories">Bed and beddings</a>
+              <a href="" class="categories">Books and stationery</a>
+              <a href="" class="categories">clothing and accesories</a>
+              <a href="" class="categories">Cosmetics and care products</a>
+              <a href="" class="categories">Drinks and beverages</a>
+              <a href="" class="categories">Electronics and accesories</a>
+              <a href="" class="categories">Food and groceries</a>
+              <a href="" class="categories">Foot Wear </a>
+              <a href="" class="categories">Home furniture</a>
+              <a href="" class="categories">Jewellery</a>
+              <a href="" class="categories">Kitchen utensil</a>
+              <a href="" class="categories">Laptops and Accesories</a>
+              <a href="" class="categories">Phones and Accesories</a>
+              <a href="" class="categories">Stationery</a> -->
+            </div>
+          </div>
+
+          <div id="vendor-Ad-cont" class="side-space-cont">
+            <div class="slider">
+              <div class="slides">
+                <div class="Ad-img-container" id="">
+                  <img src="images/vendor-ad-image.jpg">
+                  <p>Hey there, Are you a vendor? Sign up to advertise
+                     your products here for free!<br><br>
+                     <a href="signup.html"> Sign up</a>
+                  </p>
+                 </div>
+                 <div class="Ad-img-container">
+                  <img src="images/agent-ad-image.jpg">
+                  <p>Need logistic services to deliver your products, contact
+                    us we'll hook you up!<br><br>
+                    <a href="https://api.whatsapp.com/send?phone=+2347041352299">contact us</a>
+                  </p>
+                 </div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="service-link-cont" class="side-space-cont">
+            <a href="service-page.html">
+              <div id="img-right-cont">
+                <image src="images/woman-mechanic.jpg"></image>
+            </div>
+            <div id="text-left-cont">
+              <p id="redir">Do you need a service but can't seem to find the right service provider?</p>
+                <p><a href="service-page.html" id="redirect-link">
+                Click here
+              </a></p>
+            </div>
+            </a>    
+          </div>
+        </div>
+    
+     
+    
+
+    
+    <!--footer container and sub containers(sub, base and icon), containing  links, contact information and social media links-->
+    <div id="footer-cont">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="scripts/main2.js"></script>
+    <script src="scripts/product-page.js"></script>
+    <script>
+      let currentSlide = 0;
+
+      function startSlider() {
+        let imageCount = document.querySelectorAll(".Ad-img-container");
+  
+        if (imageCount.length === 0) {
+           imageCount = document.querySelectorAll("Ad-img-container");
+           images.style.transform = `translateX(0%)`;
+            return;
+        }
+  
+            let images = document.querySelector(".slides");
+            images.style.transform = `translateX(-${currentSlide * 50}%)`;
+  
+        if (currentSlide === imageCount.length - 1) {
+          currentSlide = 0;
+        } else {
+          currentSlide++;
+        }
+      }
+
+      setInterval(() => {
+        startSlider();
+      }, 3500)
+    </script>
+</body>
+</html>

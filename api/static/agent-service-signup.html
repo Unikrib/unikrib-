@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get started</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/signup.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1165447709024810"
+     crossorigin="anonymous"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QJB9RGPNHQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QJB9RGPNHQ');
+</script>
+<body>
+    <div class="top-nav" id="my-Top-nav">
+    </div>
+    <!-- <div id="preloader"></div> -->
+    <div id="main-container">
+        <div id="form-container">
+            <div id="reg-form">
+              <h2 class="form-headr">Get started for free</h2> 
+                <label for="firstname">First Name</label><br>
+                <input type="text" name="firstname" id="first_name" required><br>
+                
+                <label for="lastname">Last Name</label><br>
+                <input type="text" name="lastname" id="last_name" required><br>
+
+                <label for="email">E-mail</label><br>
+                <input type="email" name="email" id="email" placeholder="Email Address" required><br>
+
+                <label for="tel">Phone Number</label><br>
+                <input type="tel" name="tel" id="phone_no" placeholder="Phone Number" required><br>
+
+
+                <label for="psw">Password</label><br>
+                <input type="password" name="psw" value="" placeholder="Enter Password" 
+                id="input-pass" onfocus="showToggle()" required><br>
+
+                <icon class="fa fa-eye" onclick="showPassword()" id="eye-icon"></icon>
+
+                <label for="account" id="account-type">Who are you</label><br>
+                <select id="account-type-input" name="account">
+                    <option value="regular">Regular user</option>
+                    <option value="agent">Agent</option>
+                    <option value="sp">Service provider</option>
+                    <option value="vendor">Vendor</option>
+                </select>
+
+                <div>
+                  <button type="submit" class="submit-btn" id="submit"><i class="fa fa-spinner fa-spin" id="loader"></i> Create account</button>
+                </div>
+                
+                  <div id="google">
+                    <a href="">
+                      <p><img  src="images/download.png" style="height: 20px;"> sign in with google</p>
+                    </a>
+                </div>
+
+                <p class="other">Already have an account? Sign in <a href="login.html">here</a></p>
+ 
+            </div>
+        </div>
+    </div>
+
+
+    <div id="footer-cont">
+    </div>
+
+      <SCRIPT src="https://code.jquery.com/jquery-3.2.1.min.js"></SCRIPT>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src = "scripts/main2.js"></script>
+      <script src="scripts/agent-service-signup.js"></script>
+</body>
+</html>
