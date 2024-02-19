@@ -14,13 +14,13 @@ import logging
 # from os import environ
 
 # load_dotenv()
-app = Flask(__name__)
+app = Flask(__name__, template_folder='static')
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 app.register_blueprint(app_views)
 cache = LFUCache()
 
 log_file = "error.json"
-log_level = logging.ERROR
+log_level = logging.WARN
 
 logger = logging.getLogger("error_logger")
 logger.setLevel(log_level)
@@ -33,11 +33,15 @@ logger.addHandler(log_handler)
 
 @app.errorhandler(401)
 def unauthorized_error(error):
-    return jsonify({"Error": "Unauthorized"}), 401
+    return jsonify({"Error": "Unauthorized", "message": error}), 401
 
 @app.errorhandler(403)
 def forbidden_error(error):
     return jsonify({"Error": "Forbidden"}), 403
+
+@app.route('/', strict_slashes=False)
+def main():
+    return render_template('homepage2.html')
 
 @app.before_request
 def filter():
