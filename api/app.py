@@ -6,7 +6,7 @@ from models import storage
 from flask_cors import CORS
 from settings.caching import LFUCache
 import time
-import json
+# import json
 import logging
 # import schedule
 # import threading
@@ -14,7 +14,8 @@ import logging
 # from os import environ
 
 # load_dotenv()
-app = Flask(__name__, template_folder='static')
+# app = Flask(__name__, template_folder='static')
+app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 app.register_blueprint(app_views)
 cache = LFUCache()
@@ -39,9 +40,9 @@ def unauthorized_error(error):
 def forbidden_error(error):
     return jsonify({"Error": "Forbidden"}), 403
 
-@app.route('/', strict_slashes=False)
-def main():
-    return render_template('homepage2.html')
+# @app.route('/', strict_slashes=False)
+# def main():
+#     return render_template('homepage2.html')
 
 @app.before_request
 def filter():

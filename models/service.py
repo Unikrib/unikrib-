@@ -9,6 +9,7 @@ class Service(BaseModel, Base):
     category_id = Column(String(60), ForeignKey('service_categories.id'), nullable=False)
     owner_id = Column(String(60), ForeignKey('users.id'), nullable=False)
     description = Column(String(1024, collation='utf8mb4_unicode_ci'), nullable=False)
+    name = Column(String(256, collation='utf8mb4_unicode_ci'), nullable=True)
     image1 = Column(String(128), nullable=True, default='images/white_image.jpg')
     image2 = Column(String(128), nullable=True, default='images/white_image.jpg')
     image3 = Column(String(128), nullable=True, default='images/white_image.jpg')
