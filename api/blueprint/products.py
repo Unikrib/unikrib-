@@ -9,15 +9,20 @@ from api.blueprint.upload_image import cloudinary
 @app_views.route('/products', strict_slashes=False)
 def all_products():
     """This returns a list of curated products in storage"""
-    avail = request.args.get('available', '')
+    avail = request.args.get('available', 'yes')
     pgnum = request.args.get('pgnum', 1)
     pgsize = request.args.get('pgsize', 10)
     all_prod = []
+    if avail and pgnum and pgsize:
+        products = storage.paginate_query(Product, pgnum, pgsize, available=avail)
+    elif pgnum and pgsize:
+        products = storage.paginate_query(Product, pgnum, pgsize)
+    else:
+        products = storage.all(Product)
 
-    dic = {"available": avail}
-    products = storage.paginate_query(Product, pgnum, pgsize, available=avail)
-    for prod in products:
-        all_prod.append(prod.to_dict())
+    all_prod = [prod.to_dict() for prod in products]
+    # for prod in products:
+    #     all_prod.append(prod.to_dict())
     return jsonify(all_prod)
 
 @app_views.route('/products/<product_id>', strict_slashes=False)
