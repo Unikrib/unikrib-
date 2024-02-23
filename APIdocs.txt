@@ -289,6 +289,7 @@ SCHOOL:
                 res:    {
                                 'name': 'UniBen',
                                 'full_name': 'University of Benin',
+                                'image_url': 'https://1234567890.jpg',
                                 'id': '1234567890ABCDEF',
                                 'created_at': '2024-02-14T19:57:47',
                                 'updated_at': '2024-02-14T19:57:47',
