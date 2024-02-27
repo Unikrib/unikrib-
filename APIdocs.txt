@@ -179,6 +179,8 @@ HOUSE (apartments):
                         max_price: int (eg. 60000)
                     }
                 res: * same as '/houses'
+        --> GET, '/get-trending-apartments': This returns the top 5 trending apartments
+                res: * same as '/houses'
 
 INDEX:
         --> GET, '/status': This check if the backend APIs are active
