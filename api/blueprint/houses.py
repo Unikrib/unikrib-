@@ -276,10 +276,21 @@ def search_house():
         return jsonify("Not a valid json"), 400
     search_dict = request.get_json()
 
-    env = search_dict['environment']
-    apartment = search_dict['apartment']
-    min_price = int(search_dict['min_price'])
-    max_price = int(search_dict['max_price'])
+    env = search_dict.get('environment', None)
+    apartment = search_dict.get('apartment', None)
+    min_price = int(search_dict.get('min_price', None))
+    max_price = int(search_dict.get('max_price', None))
+    env_id = search_dict.get('env_id', None)
+
+    if env_id:
+        result = []
+        objs = storage.search(House, env_id=env_id, apartment=apartment)
+        if not objs:
+            return jsonify([])
+        for obj in objs:
+            if (obj.price <= min_price) and (obj.price >= max_price):
+                result.append(obj.to_dict())
+        return jsonify(result), 200
 
     streets = storage.search("Street", env_id=env)
     streetsId = []

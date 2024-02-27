@@ -57,6 +57,7 @@ ENVIRONMENT (community of residence):
                             "created_at": "2023-02-03T12:37:55", 
                             "id": "123456789", 
                             "name": "Adolor",
+                            "school_id": "1234567890",
                             "updated_at": "2023-02-03T12:37:55"
                         },
                         ...
@@ -69,51 +70,81 @@ ENVIRONMENT (community of residence):
                         "name": "Adolor",
                         "updated_at": "2023-02-03T12:37:55"
                     }
+        --> GET, '/school/<school_id>/environments': This returns the environments in a school
+                res: [
+                        {
+                                "__class__":"Environment",
+                                "created_at":"2023-06-16T02:24:23",
+                                "id":"09a1f9b1-dfbd-4b70-bda0-c63614c98cea",
+                                "name":"Adolor",
+                                "school_id":"51eba9c6-e217-4be5-8661-671802327121",
+                                "updated_at":"2023-06-16T02:24:23"
+                        }
+                        ...
+                ]
 
 HOUSE (apartments):
         --> GET, '/houses': This returns a list of all houses.
                 res: [
                         {
-                            "__class__": "House", 
-                            "apartment": "Single-room", 
-                            "created_at": "2023-02-16T17:16:06", 
-                            "id": "123456789", 
-                            "image1": "https://example.jpg", 
-                            "image2": "https://example.jpg",
-                            "image3": "https://example.jpg", 
-                            "name": "John Doe hostel", 
-                            "owner_id": "123456789", 
-                            "power_supply": 10, 
-                            "price": 60000, 
-                            "running_water": "yes", 
-                            "street_id": "123456789", 
-                            "updated_at": "2023-02-16T17:16:16", 
-                            "waste_disposal": "yes"
-                        },
+                                "__class__":"House",
+                                "agent_fee":null,
+                                "apartment":"Self-contain",
+                                "created_at":"2024-02-15T10:41:14",
+                                "daily_power":12,
+                                "features":"less than 10 minutes from school gate",
+                                "id":"1a689353-3e02-4673-8e4e-466905402a6a",
+                                "image1":"https://res.cloudinary.com/deg1j9wbh/image/upload/v1707993690/apartment-images/1a689353-3e02-4673-8e4e-466905402a6aone.jpg",
+                                "image2":"https://res.cloudinary.com/deg1j9wbh/image/upload/v1707993687/apartment-images/1a689353-3e02-4673-8e4e-466905402a6atwo.jpg",
+                                "image3":"https://res.cloudinary.com/deg1j9wbh/image/upload/v1707993683/apartment-images/1a689353-3e02-4673-8e4e-466905402a6athree.jpg",
+                                "name":"Greenville hostel",
+                                "newly_built":false,
+                                "no_clicks":5,
+                                "owner_id":"e12f7964-c20e-4335-962a-cb14a812affb",
+                                "price":250000,
+                                "rooms_available":1,
+                                "running_water":"yes",
+                                "security_available":false,
+                                "street_id":"f2ad8ca3-2e6f-4102-b4ca-ca59fa74347f",
+                                "tiled": true,
+                                "updated_at":"2024-02-21T22:43:00",
+                                "waste_disposal":["yes" | "no"],
+                                "balcony": [true | false],       (default = true)
+                                "furnished": [true | false]     (default = false)
+                        }
                         ...
                     ]
-                requests can also include a query string for pagination:
+                requests can also include a query string for pagination. eg:
                 '/houses?limit=12&cursor=123456789&nav='prev'
-                where: limit is number of houses to be returned
-                        cursor (optional) is the id of last house where limit is to be counted from, starts from the first if absent
-                        nav (optional) is the str indicating whether to count forward or backwards, can be 'prev' meaning backwards and it counts forward by default
+                where: "limit" is number of houses to be returned
+                        "cursor" (optional) is the id of last house where limit is to be counted from, starts from the first apartment if absent
+                        "nav" (optional) is the str indicating whether to count forward or backwards, can be 'prev' meaning backwards. Counts forward by default
         --> GET, '/houses/<house_id>': This returns a houses based on inputted id
                 res: {
-                    "__class__": "House", 
-                    "apartment": "Single-room", 
-                    "created_at": "2023-02-16T17:16:06", 
-                    "id": "123456789", 
-                    "image1": "https://example.jpg", 
-                    "image2": "https://example.jpg",
-                    "image3": "https://example.jpg", 
-                    "name": "John Doe hostel", 
-                    "owner_id": "123456789", 
-                    "power_supply": 10, 
-                    "price": 60000, 
-                    "running_water": "yes", 
-                    "street_id": "123456789", 
-                    "updated_at": "2023-02-16T17:16:16", 
-                    "waste_disposal": "yes"
+                        "__class__":"House",
+                        "agent_fee":null,
+                        "apartment":"Self-contain",
+                        "created_at":"2024-02-15T10:41:14",
+                        "daily_power":12,
+                        "features":"less than 10 minutes from school gate",
+                        "id":"1a689353-3e02-4673-8e4e-466905402a6a",
+                        "image1":"https://apartment-images/1a689353-3e02-4673-8e4e-466905402a6aone.jpg",
+                        "image2":"https://apartment-images/1a689353-3e02-4673-8e4e-466905402a6atwo.jpg",
+                        "image3":"https://apartment-images/1a689353-3e02-4673-8e4e-466905402a6athree.jpg",
+                        "name":"Greenville hostel",
+                        "newly_built":false,
+                        "no_clicks":5,
+                        "owner_id":"e12f7964-c20e-4335-962a-cb14a812affb",
+                        "price":250000,
+                        "rooms_available":1,
+                        "running_water":"yes",
+                        "security_available":false,
+                        "street_id":"f2ad8ca3-2e6f-4102-b4ca-ca59fa74347f",
+                        "tiled": true,
+                        "updated_at":"2024-02-21T22:43:00",
+                        "waste_disposal":["yes" | "no"],
+                        "balcony": [true | false],       (default = true)
+                        "furnished": [true | false]     (default = false)
                 }
         --> GET, '/users/<user_id>/houses': This returns a list of all the houses registered under an agent
                 if user_id = "me" (ie. '/users/me/houses') then only houses registered under the requester will be returned
@@ -142,13 +173,11 @@ HOUSE (apartments):
                 res: '{}'
         --> POST, '/houses/search': This searches the server for apartments that matches some criteria
                 req: {
-                        streets: [123456789, 987654321, ...],
+                        env_id: "123456789",
                         apartment: str ['Single-room' | 'Self-contain' | 'One-bedroom' | 'Two-bedroom' | 'Three-bedroom'],
                         min_price: int (eg. 30000),
                         max_price: int (eg. 60000)
                     }
-                NB: To get values for the 'streets' parameter, pass the selected environment_id to the 
-                    '/environments/<env_id>/streets' endpoint and select all the returned id's
                 res: * same as '/houses'
 
 INDEX:
@@ -235,6 +264,7 @@ PRODUCT:
                         "category": id | "all",
                         "query": str
                     }
+                    Note: "location" should be the either the id of the interested environment or the string "all" to fetch product from all locations
                 res: * same as '/products/<product_id>' *
         --> DELETE: '/products/<product_id>: This delete a product
                 res: {}
@@ -276,16 +306,16 @@ REVIEW:
 SCHOOL:
         --> GET, '/schools': This returns a list of all schools
                 res:    [
-                        {
-                                'name': 'UniBen',
-                                'full_name': 'University of Benin',
-                                'image_url': 'https://1234567890.jpg',
-                                'id': '1234567890ABCDEF',
-                                'created_at': '2024-02-14T19:57:47',
-                                'updated_at': '2024-02-14T19:57:47',
-                                '__class__': 'School'
-                        }
-                        ...
+                                {
+                                        'name': 'UniBen',
+                                        'full_name': 'University of Benin',
+                                        'image_url': 'https://1234567890.jpg',
+                                        'id': '1234567890ABCDEF',
+                                        'created_at': '2024-02-14T19:57:47',
+                                        'updated_at': '2024-02-14T19:57:47',
+                                        '__class__': 'School'
+                                }
+                                ...
                 ]
         --> GET, '/schools/<school_id>: This returns a school by id
                 res:    {
