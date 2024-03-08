@@ -26,8 +26,8 @@ class House(BaseModel, Base):
     security_available = Column(Boolean, default=False)
     daily_power = Column(Integer, default=12)
     no_clicks = Column(Integer, default=0)
-    balcony = Column(Boolean, default='yes')
-    furnished = Column(Boolean, default='no')
+    balcony = Column(Boolean, default=True)
+    furnished = Column(Boolean, default=False)
     env_id = Column(String(128), nullable=True)
 
     def __init__(self, *args, **kwargs):

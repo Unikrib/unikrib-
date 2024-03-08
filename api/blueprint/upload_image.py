@@ -3,10 +3,10 @@
 """
 
 from api.blueprint import app_views, auth
-from flask import jsonify, request, abort
+from flask import jsonify, request
 from cloudinary import uploader, CloudinaryImage
 import cloudinary
-from os import environ, getenv
+from os import getenv
 
 
 cloudinary.config(
