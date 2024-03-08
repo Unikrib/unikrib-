@@ -28,7 +28,7 @@ def upload_image():
     else:
         folder = 'general'
     if 'fileName' not in request.form:
-        return jsonify("Include a file name in request form"), 400
+        return jsonify("Include a fileName in request form"), 400
     else:
         public_id = request.form['fileName']
     initial_image = uploader.upload(file_to_upload, folder=folder, public_id=public_id, quality="auto:best")

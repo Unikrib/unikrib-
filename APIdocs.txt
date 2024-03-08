@@ -429,7 +429,7 @@ UPLOAD IMAGES
         --> POST, '/upload_image': This enpoint uploads all images
                 req: a formData containing {"file": <file_to_upload>,
                                             "folder": ["apartment-images" | "serviceImages" | "productImages" | "user_avatar"],
-                                            "filename": * should be the id of what is been uploaded plus a suffix for ids of multiple images *}
+                                            "fileName": * should be the id of what is been uploaded plus a suffix for ids of multiple images *}
                 res: The url of the uploaded image (example: "https://example123456789.jpg)
 
 USER
