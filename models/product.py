@@ -12,7 +12,7 @@ class Product(BaseModel, Base):
     name = Column(String(128), nullable=False)
     price = Column(Integer, nullable=False)
     delivery = Column(String(5), nullable=False, default='no')
-    features = Column(String(length=2048, collation='utf8mb4_unicode_ci'), nullable=True)
+    features = Column(String(length=5000, collation='utf8mb4_unicode_ci'), nullable=True)
     image1 = Column(String(128), nullable=True, default='images/white_image.jpg')
     image2 = Column(String(128), nullable=True, default='images/white_image.jpg')
     image3 = Column(String(128), nullable=True, default='images/white_image.jpg')

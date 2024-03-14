@@ -19,7 +19,7 @@ class House(BaseModel, Base):
     image2 = Column(String(128), nullable=True, default="images/white_image.jpg")
     image3 = Column(String(128), nullable=True, default="images/white_image.jpg")
     owner_id = Column(ForeignKey('users.id'), nullable=False)
-    features = Column(String(length=1024, collation='utf8mb4_unicode_ci'), nullable=True, default="")
+    features = Column(String(length=5000, collation='utf8mb4_unicode_ci'), nullable=True, default="")
     newly_built = Column(Boolean, default=False)
     tiled = Column(Boolean, default=False)
     rooms_available = Column(Integer, default=1)

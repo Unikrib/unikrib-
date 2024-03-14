@@ -91,6 +91,9 @@ def create_prod():
         return jsonify("Please include a category_id"), 400
     if "price" not in request_dict:
         return jsonify("Please include the product price"), 400
+    if "delivery" in request_dict:
+        if len(request_dict['delivery']) > 3:
+            return jsonify("Invalid value for \"delivery\", Please send only \"yes\" or \"no\""), 400
 
     user = auth.current_user()
     if len(storage.search(Product, owner_id=user.id)) > 4:
