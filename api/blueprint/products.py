@@ -95,8 +95,11 @@ def create_prod():
     user = auth.current_user()
     if len(storage.search(Product, owner_id=user.id)) > 4:
         return jsonify("Maximum number of uploads reached, please buy premium package to upload more"), 403
-    model = Product(**request_dict)
-    model.save()
+    try:
+        model = Product(**request_dict)
+        model.save()
+    except Exception as e:
+        return jsonify(f"Error encountered while uploading product: {e}"), 400
     return jsonify(model.to_dict())
 
 @app_views.route('/products/<product_id>', strict_slashes=False, methods=['PUT'])
@@ -111,8 +114,11 @@ def update_product(product_id):
     prod_dict = request.get_json()
 
     for key, val in prod_dict.items():
-        setattr(obj, key, val)
-        obj.save()
+        try:
+            setattr(obj, key, val)
+            obj.save()
+        except Exception as e:
+            return jsonify(f"Error encountered while updating product: {e}"), 400
     return jsonify(obj.to_dict())
 
 @app_views.route('/product-search', strict_slashes=False, methods=['POST'])

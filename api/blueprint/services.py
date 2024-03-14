@@ -96,8 +96,11 @@ def create_service():
         return jsonify("Please include a category_id"), 400
     if "owner_id" not in request_dict:
         return jsonify("Please include an owner_id"), 400
-    model = Service(**request_dict)
-    model.save()
+    try:
+        model = Service(**request_dict)
+        model.save()
+    except Exception as e:
+        return jsonify(f"Error encountered while creating service: {e}"), 400
     return jsonify(model.to_dict())
 
 @app_views.route('/services/<service_id>', strict_slashes=False, methods=['PUT'])
@@ -109,8 +112,11 @@ def update_service(service_id):
         return jsonify("No service instance found"), 404
     request_dict = request.get_json()
     for key, val in request_dict.items():
-        setattr(obj, key, val)
-        obj.save()
+        try:
+            setattr(obj, key, val)
+            obj.save()
+        except Exception as e:
+            return jsonify(f"Error encountered while updating service: {e}"), 400
     return jsonify(obj.to_dict())
 
 @app_views.route('/services/<service_id>', strict_slashes=False, methods=['DELETE'])

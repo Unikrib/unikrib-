@@ -212,8 +212,11 @@ def create_house():
             house_dict['tiled'] = val
         if not house_dict.get("agent_fee") or house_dict["agent_fee"] == '':
             house_dict["agent_fee"] = None
-        model = House(**house_dict)
-        model.save()
+        try:
+            model = House(**house_dict)
+            model.save()
+        except Exception as e:
+            return jsonify(f"Error encountered while creating apartment: {e}"), 400
         return jsonify(model.to_dict()), 201
     except Exception as e:
         return jsonify(str(e)), 404
@@ -242,8 +245,11 @@ def update_house(house_id):
         house_dict["agent_fee"] = None
 
     for key, val in house_dict.items():
-        setattr(obj, key, val)
-        obj.save()
+        try:
+            setattr(obj, key, val)
+            obj.save()
+        except Exception as e:
+            return jsonify(f"Error encountered while updating apartment: {e}"), 400
     return jsonify(obj.to_dict()), 200
 
 @app_views.route('/houses/<house_id>', strict_slashes=False, methods=['DELETE'])
