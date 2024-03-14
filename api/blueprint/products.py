@@ -102,7 +102,9 @@ def create_prod():
         model = Product(**request_dict)
         model.save()
     except Exception as e:
-        return jsonify(f"Error encountered while uploading product: {e.msg}"), 400
+        msg = str(e).split(')')[1][1:]
+        msg = msg.split(",")[1]
+        return jsonify(f"Error encountered while uploading product: {msg}"), 400
     return jsonify(model.to_dict())
 
 @app_views.route('/products/<product_id>', strict_slashes=False, methods=['PUT'])
