@@ -91,9 +91,9 @@ def create_prod():
         return jsonify("Please include a category_id"), 400
     if "price" not in request_dict:
         return jsonify("Please include the product price"), 400
-    if "delivery" in request_dict:
-        if len(request_dict['delivery']) > 3:
-            return jsonify("Invalid value for \"delivery\", Please send only \"yes\" or \"no\""), 400
+    # if "delivery" in request_dict:
+    #     if len(request_dict['delivery']) > 3:
+    #         return jsonify("Invalid value for \"delivery\", Please send only \"yes\" or \"no\""), 400
 
     user = auth.current_user()
     if len(storage.search(Product, owner_id=user.id)) > 4:
@@ -102,7 +102,7 @@ def create_prod():
         model = Product(**request_dict)
         model.save()
     except Exception as e:
-        return jsonify(f"Error encountered while uploading product: {e}"), 400
+        return jsonify(f"Error encountered while uploading product: {e.msg}"), 400
     return jsonify(model.to_dict())
 
 @app_views.route('/products/<product_id>', strict_slashes=False, methods=['PUT'])
