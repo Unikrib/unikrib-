@@ -100,7 +100,12 @@ def create_service():
         model = Service(**request_dict)
         model.save()
     except Exception as e:
-        return jsonify(f"Error encountered while creating service: {e}"), 400
+        try:
+            msg = str(e).split(')')[1][1:]
+            msg = msg.split(",")[1]
+        except:
+            msg = str(e)
+        return jsonify(f"Error encountered while creating service: {msg}"), 400
     return jsonify(model.to_dict())
 
 @app_views.route('/services/<service_id>', strict_slashes=False, methods=['PUT'])
@@ -116,7 +121,12 @@ def update_service(service_id):
             setattr(obj, key, val)
             obj.save()
         except Exception as e:
-            return jsonify(f"Error encountered while updating service: {e}"), 400
+            try:
+                msg = str(e).split(')')[1][1:]
+                msg = msg.split(",")[1]
+            except:
+                msg = str(e)
+            return jsonify(f"Error encountered while updating service: {msg}"), 400
     return jsonify(obj.to_dict())
 
 @app_views.route('/services/<service_id>', strict_slashes=False, methods=['DELETE'])

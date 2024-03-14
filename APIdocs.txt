@@ -119,7 +119,7 @@ HOUSE (apartments):
                 where: "limit" is number of houses to be returned
                         "cursor" (optional) is the id of last house where limit is to be counted from, starts from the first apartment if absent
                         "nav" (optional) is the str indicating whether to count forward or backwards, can be 'prev' meaning backwards. Counts forward by default
-        --> GET, '/houses/<house_id>': This returns a houses based on inputted id
+        --> *GET, '/houses/<house_id>': This returns a houses based on inputted id
                 res: {
                         "__class__":"House",
                         "agent_fee":null,
@@ -146,10 +146,10 @@ HOUSE (apartments):
                         "balcony": [true | false],       (default = true)
                         "furnished": [true | false]     (default = false)
                 }
-        --> GET, '/users/<user_id>/houses': This returns a list of all the houses registered under an agent
+        --> *GET, '/users/<user_id>/houses': This returns a list of all the houses registered under an agent
                 if user_id = "me" (ie. '/users/me/houses') then only houses registered under the requester will be returned
                 res: * same as '/houses' *
-        --> POST, '/houses': This uploads a new apartment to server
+        --> *POST, '/houses': This uploads a new apartment to server
                 req: price: int
                     apartment: str ['Single-room' | 'Self-contain' | 'One-bedroom' | 'Two-bedroom' | 'Three-bedroom']
                     name: str
@@ -162,14 +162,14 @@ HOUSE (apartments):
                     image3: href (* as gotten from the '/upload_image' endpoint *)
                     owner_id: id
                 res: * same as '/houses/<house_id>' *
-        --> PUT, '/houses/<house_id>': This updates an apartment details
+        --> *PUT, '/houses/<house_id>': This updates an apartment details
                 req: {
                         key1: value1,
                         key2: value2,
                         ...
                     }
                 res: * same as '/houses/<house_id>' *
-        --> DELETE, '/houses/<house_id>': This delete an apartment instance
+        --> *DELETE, '/houses/<house_id>': This delete an apartment instance
                 res: '{}'
         --> POST, '/houses/search': This searches the server for apartments that matches some criteria
                 req: {
@@ -218,7 +218,7 @@ PRODUCT:
                     'limit' is number of products to be returned
                     'cursor' (optional) is the id of last product where limit is to be counted from, starts from the first if absent
                     'nav' (optional) is the str indicating whether to count forward or backwards, can be 'prev' meaning backwards. It counts forward by default
-        --> GET, '/products/<product_id>' : This returns a product based on id
+        --> *GET, '/products/<product_id>' : This returns a product based on id
                 res: {
                         "__class__": "Product", 
                         "available": "yes", 
@@ -235,11 +235,11 @@ PRODUCT:
                         "price": 15000,
                         "updated_at": "2023-03-02T05:29:05"
                     }
-        --> GET, '/categories/<category_id>/products': This returns a lit of all products in a Category
+        --> GET, '/categories/<category_id>/products': This returns a list of all products in a Category
                 res: * same as '/products'
-        --> GET, '/users/<user_id>/products': This returs a list of all products posted by a vendor
+        --> *GET, '/users/<user_id>/products': This returs a list of all products posted by a vendor
                 res: * same as '/products'
-        --> POST, '/products': This creates a product
+        --> *POST, '/products': This creates a product
                 req: {
                         "name": str,
                         "price": int,
@@ -253,7 +253,7 @@ PRODUCT:
                         "category_id": id
                     }
                 res: * same as '/products/<product_id>' *
-        --> PUT: '/products/<product_id>': This update details of a product
+        --> *PUT: '/products/<product_id>': This update details of a product
                 req: {
                         key1: value1,
                         key2: value2,
@@ -270,6 +270,21 @@ PRODUCT:
                 res: * same as '/products/<product_id>' *
         --> DELETE: '/products/<product_id>: This delete a product
                 res: {}
+
+REPORT:
+        --> *POST, '/reports': This creates a report
+                req: {
+                        "topic": str. A general summary of the report,
+                        "description": str. A detailed report
+                        "reporter": str. The id of the reporter
+                        "reported": str. The id of the reported
+                }
+                res: {
+                        "topic": "Fraud",
+                        "description": "This agent collected double the rent from me",
+                        "reporter": "1234567890",
+                        "reported": "0987654321"
+                }
 
 REVIEW:
         --> GET, '/reviews': This returns a list of all reviews
@@ -288,7 +303,7 @@ REVIEW:
                     ]
         --> GET, '/users/<user_id>/reviews': This returns a list of all reviews for a user
                 res: * same as '/reviews'
-        --> POST, '/reviews': This creates a new review
+        --> *POST, '/reviews': This creates a new review
                 req: {
                         "text": str,
                         "reviewee": id,
@@ -354,7 +369,7 @@ SERVICE:
                     where limit = number of services to return
                           cursor (optional) = id of the last service to count from, starts from the begining by default
                           nav (optional) = direction of count, forward by default, backward if set to 'prev'
-        --> GET, '/services/<service_id>': This returns a service based on id
+        --> *GET, '/services/<service_id>': This returns a service based on id
                 res: {
                         "__class__": "Service", 
                         "category_id": "d46cbb67-1dc5-4018-abdb-b898105e33c3", 
@@ -370,7 +385,7 @@ SERVICE:
                         "owner_id": "123456789", 
                         "updated_at": "2023-05-10T14:34:18"
                     }
-        --> GET, '/users/<user_id>/services': This returns the services associated with a user
+        --> *GET, '/users/<user_id>/services': This returns the services associated with a user
                 res: same as '/services'
         --> GET, '/service-categories/<cat_id>/services': This returns a list of all services in a category
                 res: same as '/services'
@@ -380,7 +395,7 @@ SERVICE:
                         "category_id": id (category id) | "all" (for all categories)
                     }
                 res: same as '/services'
-        --> POST, '/services': This creates a new service
+        --> *POST, '/services': This creates a new service
                 req: {
                         "category_id": id,
                         "owner_id": id,
@@ -393,14 +408,14 @@ SERVICE:
                         "image5": href
                     }
                 res: same as '/services/<service_id>
-        --> PUT, '/services/<service_id>': This updates details of a service
+        --> *PUT, '/services/<service_id>': This updates details of a service
                 req: {
                         key1: value1,
                         key2: value2,
                         ...
                     }
                 res: same as '/services/<service_id>
-        --> DELETE, '/services/<service_id>': This deletes a service
+        --> *DELETE, '/services/<service_id>': This deletes a service
                 res: {}
 
 STREET:
@@ -426,14 +441,14 @@ STREET:
                     ]
 
 UPLOAD IMAGES
-        --> POST, '/upload_image': This enpoint uploads all images
+        --> *POST, '/upload_image': This enpoint uploads all images
                 req: a formData containing {"file": <file_to_upload>,
                                             "folder": ["apartment-images" | "serviceImages" | "productImages" | "user_avatar"],
                                             "fileName": * should be the id of what is been uploaded plus a suffix for ids of multiple images *}
                 res: The url of the uploaded image (example: "https://example123456789.jpg)
 
 USER
-        --> GET, '/user/profile: This returns the details of the requester
+        --> *GET, '/user/profile: This returns the details of the requester
                 res: {
                         "__class__": "User", 
                         "avatar": "https://ik.imagekit.io/nzohesnyo/user_avatar/134a6a57-dccd-410d-b14f-67dc40dae385_JlW743Bhh.jpg", 
@@ -452,7 +467,7 @@ USER
                         "updated_at": "2023-03-05T09:22:10", 
                         "user_type": "sp"
                     }
-        --> GET, '/user/<user_id>': This returns the details of a user
+        --> *GET, '/user/<user_id>': This returns the details of a user
                 res: * same as '/user/profile'
         --> POST, '/users': This creates a new user and sends a verify link to the user email
                 req: {
@@ -479,18 +494,18 @@ USER
                         "password": str
                     }
                 res: * same as POST '/users'
-        --> PUT, '/users/<user_id>': This updates the details of a user
+        --> *PUT, '/users/<user_id>': This updates the details of a user
                 req: {
                         key1: value1,
                         key2: value2,
                         ...
                     }
                 res: *same as '/user/profile'
-        --> DELETE, '/users/<user_id>': This deletes a user with id user_id
+        --> *DELETE, '/users/<user_id>': This deletes a user with id user_id
                 res: {}
-        --> DELETE, '/logout': This destroys a user session
+        --> *DELETE, '/logout': This destroys a user session
                 res: {"message": "You have been succesfully logged out"}
-        --> POST, '/users/reset-password': This sends a reet code to the user email for password reset
+        --> POST, '/users/reset-password': This sends a reset code to the user email for password reset
                 req: {"email": "johndoe@gmail.com"}
                 res: "OTP sent, please check your mail
         --> POST, '/users/confirm-reset-code': This confirms the user inputted the correct code

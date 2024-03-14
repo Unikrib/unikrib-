@@ -102,8 +102,11 @@ def create_prod():
         model = Product(**request_dict)
         model.save()
     except Exception as e:
-        msg = str(e).split(')')[1][1:]
-        msg = msg.split(",")[1]
+        try:
+            msg = str(e).split(')')[1][1:]
+            msg = msg.split(",")[1]
+        except:
+            msg = str(e)
         return jsonify(f"Error encountered while uploading product: {msg}"), 400
     return jsonify(model.to_dict())
 
@@ -123,7 +126,12 @@ def update_product(product_id):
             setattr(obj, key, val)
             obj.save()
         except Exception as e:
-            return jsonify(f"Error encountered while updating product: {e}"), 400
+            try:
+                msg = str(e).split(')')[1][1:]
+                msg = msg.split(",")[1]
+            except:
+                msg = str(e)
+            return jsonify(f"Error encountered while updating product: {msg}"), 400
     return jsonify(obj.to_dict())
 
 @app_views.route('/product-search', strict_slashes=False, methods=['POST'])

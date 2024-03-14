@@ -107,9 +107,13 @@ def create_user():
     try:
         user = User(**user_dict)
         user.save()
-    except ValueError as e:
-        print(e)
-        return jsonify(str(e)), 400
+    except Exception as e:
+        try:
+            msg = str(e).split(')')[1][1:]
+            msg = msg.split(",")[1]
+        except:
+            msg = str(e)
+        return jsonify(str(msg)), 400
     token = manager.create_session(user.id)
 
     # # send verify mail

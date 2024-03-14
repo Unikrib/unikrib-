@@ -216,7 +216,12 @@ def create_house():
             model = House(**house_dict)
             model.save()
         except Exception as e:
-            return jsonify(f"Error encountered while creating apartment: {e}"), 400
+            try:
+                msg = str(e).split(')')[1][1:]
+                msg = msg.split(",")[1]
+            except:
+                msg = str(e)
+            return jsonify(f"Error encountered while creating apartment: {msg}"), 400
         return jsonify(model.to_dict()), 201
     except Exception as e:
         return jsonify(str(e)), 404
@@ -249,7 +254,12 @@ def update_house(house_id):
             setattr(obj, key, val)
             obj.save()
         except Exception as e:
-            return jsonify(f"Error encountered while updating apartment: {e}"), 400
+            try:
+                msg = str(e).split(')')[1][1:]
+                msg = msg.split(",")[1]
+            except:
+                msg = str(e)
+            return jsonify(f"Error encountered while updating apartment: {msg}"), 400
     return jsonify(obj.to_dict()), 200
 
 @app_views.route('/houses/<house_id>', strict_slashes=False, methods=['DELETE'])
