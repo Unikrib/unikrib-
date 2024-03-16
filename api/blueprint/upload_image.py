@@ -30,7 +30,7 @@ def upload_image():
     if 'fileName' not in request.form:
         return jsonify("Include a fileName in request form"), 400
     else:
-        public_id = request.form['fileName']
+        public_id = request.form['fileName'].strip()
     initial_image = uploader.upload(file_to_upload, folder=folder, public_id=public_id, quality="auto:best")
     if folder != 'user_avatar':
         # Add watermarks to all images except user avatars
@@ -48,3 +48,4 @@ def upload_image():
         return jsonify(result['secure_url']), 200
     else:
         return jsonify(initial_image['secure_url'])
+    

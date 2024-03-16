@@ -15,7 +15,7 @@ class User(BaseModel, Base):
     phone_no = Column(Integer, nullable=True)
     user_type = Column(String(60), nullable=False)
     com_res = Column(String(60), nullable=True)
-    avatar = Column(String(256), nullable=True, default='images/default-img.webp')
+    avatar = Column(String(256), nullable=True, default='https://res.cloudinary.com/deg1j9wbh/image/upload/v1710551753/default-img_rthe0v.webp')
     note = Column(String(length=256, collation='utf8mb4_unicode_ci'), nullable=True, default='I provide the best products/services')
     rating = Column(Float, nullable=False, default=0)
     isVerified = Column(Boolean, nullable=False, default=False)
