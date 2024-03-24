@@ -13,6 +13,7 @@ class User(BaseModel, Base):
     email = Column(String(128), nullable=False)
     password = Column(String(60), nullable=False)
     phone_no = Column(Integer, nullable=True)
+    whatsapp_no = Column(Integer, nullable=True)
     user_type = Column(String(60), nullable=False)
     com_res = Column(String(60), nullable=True)
     avatar = Column(String(256), nullable=True, default='https://res.cloudinary.com/deg1j9wbh/image/upload/v1710551753/default-img_rthe0v.webp')

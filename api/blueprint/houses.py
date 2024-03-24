@@ -191,6 +191,9 @@ def create_house():
             return jsonify("House must contain a street_id"), 400
 
         user = auth.current_user()
+        apartment_types = ('Single-room', 'Self-contain', 'One-bedroom', 'Two-bedroom', 'Three-bedroom')
+        if "apartment" in house_dict and house_dict.get("apartment") not in apartment_types:
+            return jsonify("Invalid apartment type"), 400
         
         if user.id in ["2626708b-5f46-4bc3-8ae9-9371c1de57d4", "e12f7964-c20e-4335-962a-cb14a812affb"]:
             pass

@@ -70,7 +70,7 @@ ENVIRONMENT (community of residence):
                         "name": "Adolor",
                         "updated_at": "2023-02-03T12:37:55"
                     }
-        --> GET, '/school/<school_id>/environments': This returns the environments in a school
+        --> GET, '/school/<school_id>/environments': This returns all the environments in a school
                 res: [
                         {
                                 "__class__":"Environment",
@@ -266,7 +266,7 @@ PRODUCT:
                         "category": id | "all",
                         "query": str
                     }
-                    Note: "location" should be the either the id of the interested environment or the string "all" to fetch product from all locations
+                    Note: "location" and "category" should be the either the id of the interested environment/category or the string "all" to fetch product from all locations/category
                 res: * same as '/products/<product_id>' *
         --> DELETE: '/products/<product_id>: This delete a product
                 res: {}
@@ -461,7 +461,8 @@ USER
                         "last_name": "Doe", 
                         "note": "I apply all types of make ups. For all kinds of parties let me be your sure plug", 
                         "password": "********", 
-                        "phone_no": "08100883367", 
+                        "phone_no": "2348100883367",
+                        "whatsapp_no": "2348100883367",
                         "rating": 4.0, 
                         "reset_code": null, 
                         "updated_at": "2023-03-05T09:22:10", 

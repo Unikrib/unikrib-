@@ -104,6 +104,9 @@ def create_user():
             user_dict[key] = phone
         else:
             user_dict[key] = val.strip()
+    if 'whatsapp_no' not in user_dict:
+        user_dict['whatsapp_no'] = user_dict.get('phone_no', None)
+
     try:
         user = User(**user_dict)
         user.save()
@@ -200,11 +203,21 @@ def update_user(user_id):
         elif int(phone[0]) > 0:
             phone = '+234' + phone
         new_dict['phone_no'] = phone
+    if 'whatsapp_no' in new_dict:
+        phone = new_dict['whatsapp_no']
+        if phone[0] == '0':
+            phone = '+234' + phone[1:]
+        elif phone.startswith('+234') or phone.startswith('234'):
+            phone = phone
+        elif int(phone[0]) > 0:
+            phone = '+234' + phone
+        new_dict['whatsapp_no'] = phone
+
 
     obj.update(**new_dict)
     obj.save()
     user = format.filter_datum(",", obj.to_dict())
-    print(f"${user['first_name']} has been updated")
+    # print(f"${user['first_name']} has been updated")
     return jsonify(user)
 
 @app_views.route('/users/email', strict_slashes=False, methods=['PUT'])

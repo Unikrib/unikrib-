@@ -32,4 +32,5 @@ def get_school_environments(school_id):
     if not envs or len(envs) == 0:
         return jsonify("School not found"), 404
     envs = [env.to_dict() for env in envs]
+    envs = sorted(envs, key=lambda x: x['name'])
     return jsonify(envs), 200

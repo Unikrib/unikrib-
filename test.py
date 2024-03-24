@@ -4,12 +4,14 @@ from models import storage
 import requests
 import time
 from os import getenv
+from models.school import School
+from models.environment import Environment
 # import webbrowser
 # from datetime import datetime, timedelta
 # from models.notification import Notification
 # from models.code import Code
 # from models.house import House
-# from flask import jsonify
+from flask import jsonify
 # from twilio.rest import Client
 
 # api = "https://unikribmailer.onrender.com"
@@ -81,7 +83,7 @@ def sendotp():
 
 def test_search_paginate():
     dic = {"owner_id": "44891a67-9185-4731-83bc-4819d121c8d6"}
-    init_houses = storage.search(House, **dic)
+    init_houses = storage.search("House", **dic)
     print(len(init_houses), "have this owner")
     for house in init_houses:
         print(f"{house.name} --> {house.id}")
@@ -121,14 +123,14 @@ def test_paginate_query():
     for prod in res:
         print(prod['id'])
 
-# def clear_notification():
-#     for key, obj in storage.all(Notification).items():
-#         # setattr(obj, "read", False)
-#         ttl = 24 * 60 * 60 * 1000   # 24 hours
-#         valid_period = obj.updated_at + timedelta(seconds = ttl)
-#         if valid_period < datetime.now():
-#             obj.delete()
-#             print(f"Notification of id {obj.id} deleted")
+def clear_notification():
+    for key, obj in storage.all(Notification).items():
+        # setattr(obj, "read", False)
+        ttl = 24 * 60 * 60 * 1000   # 24 hours
+        valid_period = obj.updated_at + timedelta(seconds = ttl)
+        if valid_period < datetime.now():
+            obj.delete()
+            print(f"Notification of id {obj.id} deleted")
 
 def test_payment():
     url = "https://api.paystack.co/transaction/initialize"
@@ -243,6 +245,48 @@ def update_phone():
             print(f"{user.first_name} has been updated succesfully")
         except Exception as e:
             print("Error:", e)
+
+def add_schools():
+    schools = [("FUTO", "Federal University of Technology Owerri", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1710872081/Schools/FUTO_urv8ak.jpg"),
+               ("LASU", "Lagos state University", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1710872081/Schools/LASU_a5dfu5.jpg"),
+               ("AAU", "Ambrose Alli University", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1710872082/Schools/AAU_iwzcen.jpg"),
+               ("FUPRE", "Federal University Of Petroleum Resources Effurun", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1710872082/Schools/FUPRE_ojmx3s.jpg"),
+               ("ABSU", "Abia State University", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1710872082/Schools/ABSU_llmd5v.jpg"),
+               ("OOU", "Olabisi Onabanjo University", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1710872082/Schools/OOU_fbec2p.jpg"),
+               ("CRUTECH", "University of Cross River State", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1710872081/Schools/CRUTECH_pgclxg.jpg"),
+               ("FUOYE", "Federal University of Oye Ekiti", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1710872081/Schools/FUOYE_wsjjli.jpg")]
+    for sch in schools:
+        sc = School(name=sch[0], full_name=sch[1], image_url=sch[2])
+        try:
+            sc.save()
+            print(f"{sch[0]} added!")
+        except Exception as e:
+            print(e)
+
+def add_env():
+    environs = {"FUTO": ("Nekede", "Ihiagwa", "Eziobodo", "Obinze", "Umuchima", "Ezeogwu", "Okolochi"),
+            "LASU": ("First Gate", "Post service", "Ojo", "Akesan", "Iba"),
+            "AAU": ("School gate", "Ihumudum", "Ujemen", "Idumebo"),
+            "FUPRE": ("Ugbomoro", "Iteregbi", "Ugolo", "Okorikpehre"),
+            "ABSU": ("Isuikwato", "Uloma", "Okigwe", "Obiagu"),
+            "OOU": ("Ago Iwoye", "Oru", "Ilaporu", "Aha", "Awa"),
+            "CRUTECH": ("Ene-Obong", "Eko basi", "Mount zion", "Idim ita", "Edibe Edibe", "Efut Abua", "Atamunu", "Anantigha"),
+            "FUOYE": ("Odo-oro", "Ootunja", "Isaba", "Usin", "Ikoyi", "Ikoyi tuntun", "School gate", "Asin", "Shell", "Market", "Garage")}
+    for sch, envs in environs.items():
+        print(f"\n Adding environments for {sch}")
+        school = storage.search("School", name=sch)
+        if len(school) == 0:
+            print(f"{sch} was not found")
+            continue
+        school = school[0]
+        for env in envs:
+            try:
+                ev = Environment(name=env, school_id=school.id)
+                ev.save()
+                print(f"{env} added!")
+            except Exception as e:
+                print(e)
+
 
 if __name__ == '__main__':
     print("Starting test...")
