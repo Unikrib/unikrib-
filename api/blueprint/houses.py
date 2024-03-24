@@ -187,16 +187,16 @@ def create_house():
             int(house_dict['price'])
         except TypeError:
             return jsonify("Price must be a number"), 400
-        if "street_id" not in house_dict or house_dict["street_id"] == "":
-            return jsonify("House must contain a street_id"), 400
+        # if "street_id" not in house_dict or house_dict["street_id"] == "":
+        #     return jsonify("House must contain a street_id"), 400
 
         user = auth.current_user()
         apartment_types = ('Single-room', 'Self-contain', 'One-bedroom', 'Two-bedroom', 'Three-bedroom')
         if "apartment" in house_dict and house_dict.get("apartment") not in apartment_types:
             return jsonify("Invalid apartment type"), 400
         
-        if len(storage.search(House, owner_id=user.id)) > 4:
-            return jsonify("Maximum number of uploads reached, please buy premium package to upload more"), 403
+        # if len(storage.search(House, owner_id=user.id)) > 4:
+        #     return jsonify("Maximum number of uploads reached, please buy premium package to upload more"), 403
         # house_dict = request.get_json()
         if "owner_id" not in house_dict or house_dict['owner_id'] == "":
             house_dict['owner_id'] = user.id
