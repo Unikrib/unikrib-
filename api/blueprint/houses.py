@@ -195,9 +195,7 @@ def create_house():
         if "apartment" in house_dict and house_dict.get("apartment") not in apartment_types:
             return jsonify("Invalid apartment type"), 400
         
-        if user.id in ["2626708b-5f46-4bc3-8ae9-9371c1de57d4", "e12f7964-c20e-4335-962a-cb14a812affb"]:
-            pass
-        elif len(storage.search(House, owner_id=user.id)) > 4:
+        if len(storage.search(House, owner_id=user.id)) > 4:
             return jsonify("Maximum number of uploads reached, please buy premium package to upload more"), 403
         # house_dict = request.get_json()
         if "owner_id" not in house_dict or house_dict['owner_id'] == "":
