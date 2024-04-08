@@ -150,17 +150,27 @@ HOUSE (apartments):
                 if user_id = "me" (ie. '/users/me/houses') then only houses registered under the requester will be returned
                 res: * same as '/houses' *
         --> *POST, '/houses': This uploads a new apartment to server
-                req: price: int
-                    apartment: str ['Single-room' | 'Self-contain' | 'One-bedroom' | 'Two-bedroom' | 'Three-bedroom']
-                    name: str
-                    street_id: id
+                req: price*: int
+                    apartment*: str ['Single-room' | 'Self-contain' | 'One-bedroom' | 'Two-bedroom' | 'Three-bedroom']
+                    name*: str
+                    env_id*: id (*optionally defaults to the uploader community of residence if not provided)
                     running_water: str ['yes' | 'no']
                     waste_disposal: str ['yes' | 'no']
-                    power_supply: int
-                    image1: href (* as gotten from the '/upload_image' endpoint *)
+                    newly_built: Boolean [true | false]
+                    tiled: Boolean [true | false]
+                    rooms_available: int [default=1]
+                    security_available: Boolean
+                    balcony: Boolean
+                    furnished: Boolean
+                    image1*: href (* as gotten from the '/upload_image' endpoint *)
                     image2: href (* as gotten from the '/upload_image' endpoint *)
                     image3: href (* as gotten from the '/upload_image' endpoint *)
-                    owner_id: id
+                    owner_id*: id,
+                    agent_fee: int [optional]
+                    features: str (A description of the apartment)
+
+                    * required parameters
+
                 res: * same as '/houses/<house_id>' *
         --> *PUT, '/houses/<house_id>': This updates an apartment details
                 req: {

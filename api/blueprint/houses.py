@@ -213,6 +213,10 @@ def create_house():
             house_dict['tiled'] = val
         if not house_dict.get("agent_fee") or house_dict["agent_fee"] == '':
             house_dict["agent_fee"] = None
+        # if "school_id" not in house_dict:
+        #     res = user.com_res
+        #     school = storage.get("School", res.school_id)
+        #     house_dict['school_id'] = school.id
         try:
             model = House(**house_dict)
             model.save()

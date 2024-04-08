@@ -195,7 +195,7 @@ def update_user(user_id):
         passwd = bcrypt.hashpw(passwd, bcrypt.gensalt())
         new_dict['password'] = passwd
     if 'phone_no' in new_dict:
-        phone = new_dict['phone_no']
+        phone = str(new_dict['phone_no'])
         if phone[0] == '0':
             phone = '+234' + phone[1:]
         elif phone.startswith('+234') or phone.startswith('234'):
