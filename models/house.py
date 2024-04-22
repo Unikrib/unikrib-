@@ -29,6 +29,7 @@ class House(BaseModel, Base):
     balcony = Column(Boolean, default=True)
     furnished = Column(Boolean, default=False)
     env_id = Column(String(128), nullable=True)
+    school_id = Column(ForeignKey('schools.id'))
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
