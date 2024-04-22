@@ -213,6 +213,8 @@ def create_house():
             house_dict['tiled'] = val
         if not house_dict.get("agent_fee") or house_dict["agent_fee"] == '':
             house_dict["agent_fee"] = None
+        if 'school_id' not in house_dict:
+            return jsonify('Please include school_id'), 400
         # if "school_id" not in house_dict:
         #     res = user.com_res
         #     school = storage.get("School", res.school_id)
