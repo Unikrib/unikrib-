@@ -111,6 +111,8 @@ HOUSE (apartments):
                                 "waste_disposal":["yes" | "no"],
                                 "balcony": [true | false],       (default = true)
                                 "furnished": [true | false]     (default = false)
+                                "env_id": the community id,
+                                "school_id": 
                         }
                         ...
                     ]
