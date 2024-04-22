@@ -116,10 +116,12 @@ def get_all_houses():
     # limit = request.args.get('limit', None)
     # nav = request.args.get('nav', None)
     # cursor = request.args.get('cursor', None)
-    pgnum = request.args.get('pgnum', 1)
-    pgsize = request.args.get('pgsize', 10)
+    pgnum = request.args.get('pgnum', None)
+    pgsize = request.args.get('pgsize', None)
 
-    if pgsize:
+    if pgsize or pgnum:
+        pgnum = request.args.get('pgnum', None)
+        pgsize = request.args.get('pgsize', None)
         houses = storage.paginate_query(House, pgnum, pgsize)
         for house in houses:
             houseDict = house.to_dict()
