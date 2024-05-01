@@ -291,7 +291,9 @@ def delete_house(house_id):
     global terminate_thread
     terminate_thread = True
 
-    obj.delete()
+    # obj.delete()
+    storage.delete(obj)
+    storage.save()
     return {}, 201
 
 @app_views.route('/houses/search', strict_slashes=False, methods=['POST'])
@@ -312,7 +314,8 @@ def search_house():
         return jsonify("Please include \"env_id\""), 400
     else:
         result = []
-        objs = storage.search(House, env_id=env_id, apartment=apartment)
+        objs = storage.listFilter(House, **search_dict)
+        # objs = storage.search(House, env_id=env_id, apartment=apartment)
         print(objs)
         if not objs:
             return jsonify([])
