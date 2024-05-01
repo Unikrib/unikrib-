@@ -300,16 +300,20 @@ def search_house():
     if not request.json:
         return jsonify("Not a valid json"), 400
     search_dict = request.get_json()
-
-    env = search_dict.get('environment', None)
+    
     apartment = search_dict.get('apartment', None)
     min_price = int(search_dict.get('min_price', None))
     max_price = int(search_dict.get('max_price', None))
     env_id = search_dict.get('env_id', None)
 
-    if env_id:
+    print(f"apartment: {apartment}, min: {min_price}, max: {max_price}, envid: {env_id}")
+
+    if not env_id:
+        return jsonify("Please include \"env_id\""), 400
+    else:
         result = []
         objs = storage.search(House, env_id=env_id, apartment=apartment)
+        print(objs)
         if not objs:
             return jsonify([])
         for obj in objs:
