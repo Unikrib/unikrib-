@@ -313,7 +313,7 @@ def search_house():
         if not objs:
             return jsonify([])
         for obj in objs:
-            if (obj.price <= min_price) and (obj.price >= max_price):
+            if (obj.price >= min_price) and (obj.price <= max_price):
                 result.append(obj.to_dict())
         return jsonify(result), 200
 
