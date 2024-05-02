@@ -291,9 +291,10 @@ def delete_house(house_id):
     global terminate_thread
     terminate_thread = True
 
-    # obj.delete()
-    storage.delete(obj)
-    storage.save()
+    obj.delete()
+    print("House deleted!!!")
+    # storage.delete(obj)
+    # storage.save()
     return {}, 201
 
 @app_views.route('/houses/search', strict_slashes=False, methods=['POST'])
