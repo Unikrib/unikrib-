@@ -315,8 +315,8 @@ def search_house():
         return jsonify("Please include \"env_id\""), 400
     else:
         result = []
-        objs = storage.listFilter(House, **search_dict)
-        # objs = storage.search(House, env_id=env_id, apartment=apartment)
+        # objs = storage.listFilter(House, **search_dict)
+        objs = storage.search(House, env_id=env_id, apartment=apartment)
         print(objs)
         if not objs:
             return jsonify([])
