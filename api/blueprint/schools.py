@@ -10,7 +10,7 @@ def get_all_schools():
     """This returns a list of all schools"""
     schools = storage.all("School")
     schools = [school.to_dict() for key, school in schools.items()]
-    schools = sorted(schools, key=lambda x: x['name'])
+    schools = sorted(schools, key=lambda x: x['full_name'])
     return jsonify(schools), 200
 
 @app_views.route('/schools/<school_id>', methods=['GET'], strict_slashes=False)
