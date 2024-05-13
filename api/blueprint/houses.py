@@ -116,10 +116,12 @@ def get_all_houses():
     # limit = request.args.get('limit', None)
     # nav = request.args.get('nav', None)
     # cursor = request.args.get('cursor', None)
-    pgnum = request.args.get('pgnum', 1)
-    pgsize = request.args.get('pgsize', 10)
+    pgnum = request.args.get('pgnum', None)
+    pgsize = request.args.get('pgsize', None)
 
-    if pgsize:
+    if pgsize or pgnum:
+        pgnum = request.args.get('pgnum', None)
+        pgsize = request.args.get('pgsize', None)
         houses = storage.paginate_query(House, pgnum, pgsize)
         for house in houses:
             houseDict = house.to_dict()
@@ -213,6 +215,8 @@ def create_house():
             house_dict['tiled'] = val
         if not house_dict.get("agent_fee") or house_dict["agent_fee"] == '':
             house_dict["agent_fee"] = None
+        if 'school_id' not in house_dict:
+            return jsonify('Please include school_id'), 400
         # if "school_id" not in house_dict:
         #     res = user.com_res
         #     school = storage.get("School", res.school_id)
@@ -288,6 +292,9 @@ def delete_house(house_id):
     terminate_thread = True
 
     obj.delete()
+    print("House deleted!!!")
+    # storage.delete(obj)
+    # storage.save()
     return {}, 201
 
 @app_views.route('/houses/search', strict_slashes=False, methods=['POST'])
@@ -296,20 +303,25 @@ def search_house():
     if not request.json:
         return jsonify("Not a valid json"), 400
     search_dict = request.get_json()
-
-    env = search_dict.get('environment', None)
+    
     apartment = search_dict.get('apartment', None)
     min_price = int(search_dict.get('min_price', None))
     max_price = int(search_dict.get('max_price', None))
     env_id = search_dict.get('env_id', None)
 
-    if env_id:
+    print(f"apartment: {apartment}, min: {min_price}, max: {max_price}, envid: {env_id}")
+
+    if not env_id:
+        return jsonify("Please include \"env_id\""), 400
+    else:
         result = []
+        # objs = storage.listFilter(House, **search_dict)
         objs = storage.search(House, env_id=env_id, apartment=apartment)
+        print(objs)
         if not objs:
             return jsonify([])
         for obj in objs:
-            if (obj.price <= min_price) and (obj.price >= max_price):
+            if (obj.price >= min_price) and (obj.price <= max_price):
                 result.append(obj.to_dict())
         return jsonify(result), 200
 
