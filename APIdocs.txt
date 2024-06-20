@@ -457,7 +457,7 @@ STREET:
 UPLOAD IMAGES
         --> *POST, '/upload_image': This enpoint uploads all images
                 req: a formData containing {"file": <file_to_upload>,
-                                            "folder": ["apartment-images" | "serviceImages" | "productImages" | "user_avatar"],
+                                            "folder": ["apartment-images" | "serviceImages" | "productImages" | "user_avatar", | 'userVerification],
                                             "fileName": * should be the id of what is been uploaded plus a suffix for ids of multiple images *}
                 res: The url of the uploaded image (example: "https://example123456789.jpg)
 
@@ -535,3 +535,11 @@ USER
                         "user_type": ["agent" | "vendor" | "sp" | "regular"],
                         "token": <token_id>
                     }
+        --> POST, '/users/verify': This is used to verify the profile of a user
+                req: {'email': 'johndoe@gmail.com',
+                        'first_name': 'John',
+                        'last_name': 'Doe',
+                        'id_number': 1980555555,
+                        'face_image': 'https://face_image.jpeg',
+                        'id_image': 'https://id_image.jpeg'}
+                req: "User verification submitted successfully, please wait 24 hours for confirmation"

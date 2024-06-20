@@ -325,16 +325,16 @@ def search_house():
                 result.append(obj.to_dict())
         return jsonify(result), 200
 
-    streets = storage.search("Street", env_id=env)
-    streetsId = []
-    for street in streets:
-        streetsId.append(street.id)
-    result = []
+    # streets = storage.search("Street", env_id=env)
+    # streetsId = []
+    # for street in streets:
+    #     streetsId.append(street.id)
+    # result = []
 
-    dic = {"apartment": apartment, "street_id": streetsId, "max_price": max_price, "min_price": min_price}
-    for obj in storage.listFilter(House, **dic):
-        result.append(obj.to_dict())
-    return jsonify(result)
+    # dic = {"apartment": apartment, "street_id": streetsId, "max_price": max_price, "min_price": min_price}
+    # for obj in storage.listFilter(House, **dic):
+    #     result.append(obj.to_dict())
+    # return jsonify(result)
 
 @app_views.route('/book_inspection', strict_slashes=False, methods=['POST'])
 @auth.login_required

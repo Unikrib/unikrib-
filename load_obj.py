@@ -9,14 +9,18 @@ from models.category import Category
 
 # Load schools
 print("Creating schools...")
-schools = [("Unilag", "University of Lagos"), ("UNILORIN", "University of Ilorin"),
-           ("UNN", "University of Nigeria"), ("Uniport", "University of Port-Harcourt"),
-           ("UI", "University of Ibadan"), ("OAU", "Obafemi Awolowo University"),
-           ("UniAbuja", "University of Abuja"), ("FUTA", "Federal University of Technology Akure"),
-           ("UNIUYO", "University of Uyo"), ("UNIZIK", "Nnamdi Azikwe University"),
-           ("UNICAL", "University of Calabar")]
-for name, full_name in schools:
-    school = School(name=name, full_name=full_name)
+schools = [('AAU', 'Ambrose Alli University', 'Ekpoma'), ('ABSU', 'Abia State University', 'Uturu'),
+           ('CRUTECH', 'University of Cross River State', 'Calabar'), ('FUOYE', 'Federal University of Oye-Ekiti', 'Oye-Ekiti'),
+           ('FUPRE', 'Federal University of Petroleum Research Effurum', 'Warri'), ('LASU', 'Lagos State University', 'Lagos'),
+           ('OOU', 'Olabisi Onabanjo University', 'Ago-Iwoye'), ('FUTO', 'Federal University of Technology Owerri', 'Owerri'),
+           ("Unilag", "University of Lagos", 'Lagos'), ("UNILORIN", "University of Ilorin", 'Ilorin'),
+           ("UNN", "University of Nigeria", 'Nsukka'), ("Uniport", "University of Port-Harcourt", 'Port-Harcourt'),
+           ("UI", "University of Ibadan", 'Ibadan'), ("OAU", "Obafemi Awolowo University", 'Ile-Ife'),
+           ("UniAbuja", "University of Abuja", 'Abuja'), ("FUTA", "Federal University of Technology Akure", 'Akure'),
+           ("UNIUYO", "University of Uyo", 'Uyo'), ("UNIZIK", "Nnamdi Azikwe University", 'Awka'),
+           ("UNICAL", "University of Calabar", 'Calabar'), ('Uniben', 'University of Benin', 'Benin city')]
+for name, full_name, city in schools:
+    school = School(name=name, full_name=full_name, city=city)
     school.save()
     print(f"{school.name} --> {school.id}")
 

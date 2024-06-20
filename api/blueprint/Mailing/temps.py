@@ -454,3 +454,34 @@ class HTMLTemp:
                     </br>Best Wishes<p>
                 </body>
             </html>'''
+    
+    def user_verification(*args, **kwargs):
+        first_name = kwargs.get('first_name')
+        last_name = kwargs.get('last_name')
+        id_number = kwargs.get('id_number')
+        face_image = kwargs.get('face_image')
+        id_image = kwargs.get('id_image')
+        user_id = kwargs.get('user_id')
+
+        return f'''<!DOCTYPE html>
+            <html lang="en">
+                <head>
+                    <meta charset="utf-8"/>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                    <title>User verification</title>
+                </head>
+                <body style="background-color:#f6f6f6; font-family: Arial, sans-serif;">
+                    <h1> Hello admins, </h1>
+                    <p> A new user is requesting for verification, His/her details are as follows:>
+
+                    <br>
+                    first_name: {first_name},
+                    last_name: {last_name},
+                    id_number: {id_number},
+                    face_image: {face_image},
+                    id_image: {id_image},
+                    user_id: {user_id}.
+
+                    Please treat as urgent!.
+                </body>
+            </html>'''

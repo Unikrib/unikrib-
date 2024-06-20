@@ -373,3 +373,39 @@ def confirm_code():
         return jsonify("code valid"), 200
     else:
         return jsonify("Invalid code"), 400
+
+@app_views.route('users/verify', STRICT_SLASHES=False, methods=['POST'])
+def user_verification():
+    if not request.json:
+        return jsonify("Not a valid json"), 400
+    
+    user_data = request.get_json()
+
+    first_name = user_data.get('first_name')
+    last_name = user_data.get('last_name')
+    id_number = user_data.get('id_number')
+    face_image = user_data.get('face_image')
+    id_image = user_data.get('id_image')
+    email = user_data.get('email')
+
+    if email:
+        user = storage.search('User', email=email)
+        if user:
+            user = user[0]
+    if not user:
+        return jsonify("No user with this email found"), 400
+
+    params = {'first_name': first_name, 'last_name': last_name, 'id_number': id_number,
+              'face_image': face_image, 'id_image': id_image, 'email': email}
+    for key, val in params.items():
+        if not val:
+            return jsonify(f'Please include the required {key} field'), 400
+        
+
+    res = runner.userVerification(first_name=first_name, last_name=last_name,
+                                  id_number=id_number, face_image=face_image,
+                                  id_image=id_image, user_id=user.id)
+    if res.get('status_code') == 200:
+        return jsonify("User verification submitted successfully, please wait 24 hours for confirmation"), 200
+    else:
+        return jsonify("An error occured while submitting request, please try again later"), 404

@@ -4,6 +4,7 @@ from email.mime.multipart import MIMEMultipart
 from os import getenv
 from api.blueprint.Mailing.temps import HTMLTemp
 import json
+from models import storage
 
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
@@ -132,6 +133,20 @@ def perform_task(task_data):
             print("A new report has been added")
         except Exception as e:
             print("An error has occured", e)
+
+    elif task_data['type'] == 'userVerification':
+        message['Subject'] = 'A user has just submitted a verfication request'
+        message.attach(MIMEText(HTMLTemp.user_verification(**task_data), 'html'))
+        try:
+            smtp_server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+            smtp_server.starttls()
+            smtp_server.login(SMTP_USERNAME, APP_PASSWORD)
+            smtp_server.sendmail(SENDER_EMAIL, RECIPIENT_EMAIL, message.as_string())
+            smtp_server.quit()
+            print('A new user verification request has just been submitted')
+        except Exception as e:
+            print('An error has occured:', e)
+        
 
     elif task_data['type'] == "prompt_deletion":
         pass

@@ -8,6 +8,7 @@ from redis import from_url
 from redis import Redis
 from api.blueprint.Mailing.worker import perform_task
 from os import getenv
+from models import storage
 
 redis_url = getenv('REDIS_URL')
 redis_conn = from_url(redis_url)
@@ -61,5 +62,15 @@ class Controller:
         data = json.dumps(data)
         self.queue.enqueue(perform_task(data))
         return {'message': "Mail successfully sent to agent", "status_code": 200}
+    
+    def userVerification(self, *args, **kwargs):
+        data = {"first_name": kwargs.get('first_name'), 'last_name': kwargs.get('last_name'),
+                'id_number': kwargs.get('id_number'), 'face_image': kwargs.get('face_image'),
+                'id_image': kwargs.get('id_image'), 'email': 'unikrib@gmail.com', 'type': 'userVerification',
+                'user_id': kwargs.get('user_id')}
+        data = json.dumps(data)
+        self.queue.enqueue(perform_task(data))
+        return {'message': 'User verification submitted successfully', 'status_code': 200}
+        
 
 runner = Controller()
