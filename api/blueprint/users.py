@@ -276,7 +276,7 @@ def delete_user(user_id):
 @app_views.route('/logout', strict_slashes=False, methods=['DELETE'])
 @auth.login_required
 def user_logout():
-    """This removes a user session_token"""
+    """This destroys a user session_token"""
     user = auth.current_user()
     manager.delete_token(user.id)
     return jsonify({"message": "You have been succesfully logged out"})
@@ -374,7 +374,8 @@ def confirm_code():
     else:
         return jsonify("Invalid code"), 400
 
-@app_views.route('users/verify', STRICT_SLASHES=False, methods=['POST'])
+@app_views.route('users/verify', strict_slashes=False, methods=['POST'])
+# @auth.login_required
 def user_verification():
     if not request.json:
         return jsonify("Not a valid json"), 400
@@ -388,19 +389,18 @@ def user_verification():
     id_image = user_data.get('id_image')
     email = user_data.get('email')
 
-    if email:
-        user = storage.search('User', email=email)
-        if user:
-            user = user[0]
-    if not user:
-        return jsonify("No user with this email found"), 400
-
     params = {'first_name': first_name, 'last_name': last_name, 'id_number': id_number,
               'face_image': face_image, 'id_image': id_image, 'email': email}
     for key, val in params.items():
         if not val:
             return jsonify(f'Please include the required {key} field'), 400
-        
+
+    if email:
+        user = storage.search('User', email=email)
+        if user:
+            user = user[0]
+    if not user:
+        return jsonify("No user with this email found"), 400  
 
     res = runner.userVerification(first_name=first_name, last_name=last_name,
                                   id_number=id_number, face_image=face_image,
@@ -409,3 +409,24 @@ def user_verification():
         return jsonify("User verification submitted successfully, please wait 24 hours for confirmation"), 200
     else:
         return jsonify("An error occured while submitting request, please try again later"), 404
+    
+@app_views.route('/verify_user/<user_id>/<text>', strict_slashes=False, methods=['GET'])
+# This endpoint should be reserved for admins only
+def accept_or_deny_user_verification(user_id, text):
+    if not user_id or not text:
+        return jsonify('Incorrect url'), 400
+    
+    user:User = storage.get('User', user_id)
+    if not user:
+        return jsonify('User not found'), 404
+    
+    if text == 'accept':
+        setattr(user, 'isVerified', True)
+        user.save()
+        return jsonify('User profile has been verified successfully')
+    elif text == 'deny':
+        setattr(user, 'isVerified', False)
+        user.save()
+        return jsonify('User verification has been denied')
+    else:
+        return jsonify('Invalid command, please use \'accept\' or \'deny\''), 400

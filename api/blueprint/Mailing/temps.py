@@ -482,6 +482,16 @@ class HTMLTemp:
                     id_image: {id_image},
                     user_id: {user_id}.
 
+                    <br>
+                    <hr>
+                    <br>
+
+                    <a href='https://unikribbackend.onrender.com/unikrib/user/verify_user/{user_id}/accept'>
+                    We have verify this user's info and he can be verified ✅</a>
+                    <br>
+                    <a href='https://unikribbackend.onrender.com/unikrib/user/verify_user/{user_id}/deny'>
+                    This user is not clear to be verified ❌</a>
+
                     Please treat as urgent!.
                 </body>
             </html>'''
