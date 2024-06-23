@@ -1,14 +1,12 @@
 #!/usr/bin/python3
 
-import uuid
-import requests
 import bcrypt
-import json
 from models import storage
 from api.blueprint import app_views, auth, manager
 from flask import request, jsonify, redirect
 from models.user import User
 from models.code import Code
+from models.notification import Notification
 from settings.redactor import Redacter
 from api.blueprint.upload_image import cloudinary
 from api.blueprint.Mailing.controller import runner
@@ -423,10 +421,16 @@ def accept_or_deny_user_verification(user_id, text):
     if text == 'accept':
         setattr(user, 'isVerified', True)
         user.save()
+        text = f"Congratulations {user.first_name}, Your profile has been verified."
+        notif = Notification(user_id=user_id, text=text, category='Verification successful')
+        notif.save()
         return jsonify('User profile has been verified successfully')
     elif text == 'deny':
         setattr(user, 'isVerified', False)
         user.save()
+        text = f"Dear {user.first_name}, Your profile verification request has been denied due to inconsistency in your data"
+        notif = Notification(user_id=user_id, text=text, category='Verification denied')
+        notif.save()
         return jsonify('User verification has been denied')
     else:
         return jsonify('Invalid command, please use \'accept\' or \'deny\''), 400
