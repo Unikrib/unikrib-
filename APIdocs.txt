@@ -225,7 +225,7 @@ NOTIFIATION:
                 ]
         --> *GET, '/get_user_notifications': this returns a list notifications belonging to a user.
                 res: same as /get_all_notifications
-        --> *DELETE, '/delete_notification/<not_id>': thsi seleletes a notification from storage.o
+        --> *DELETE, '/delete_notification/<not_id>': this deletes a notification from storage.
                 res: {}
 ia
 
