@@ -204,7 +204,7 @@ INDEX:
                     res: {'agent': 10, 'vendors': 10, 'sp': 10}
 
 NOTIFIATION:
-        --> *GET, '/get_all_notifications': this returns a list of all get_all_notifications
+        --> *GET, '/get_all_notifications': this returns a list of all notifications
                 res: [
                         {
                                 'id': '1234567890',
@@ -222,7 +222,16 @@ NOTIFIATION:
                                                 'inspection_accepted', 'confirm_inspection' and 'inspection_request' categories
                                 'response': The response where necessary, can be none if no response is involed,
                         }
+                        ...
                 ]
+        --> *GET, '/get_user_notifications': this returns a list notifications belonging to a user.
+                res: same as /get_all_notifications
+        --> *DELETE, '/delete_notification/<not_id>': this deletes a notification from storage.
+                res: {}
+ia
+
+ia
+ 
 
 PRODUCT:
         --> GET, '/products': This returns a list of all products
