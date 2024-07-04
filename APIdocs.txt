@@ -218,7 +218,8 @@ NOTIFIATION:
                                                 | 'inspection_denied' | 'new_review' | 'Verification successful' | 'Verification denied']
                                 'item_id': id of item which notification refers to, Only available for 'inspection_booked', 'inspection_denied',
                                                 'inspection_accepted', 'confirm_inspection' and 'inspection_request' categories
-                                'sender': id of the user making a request, can be none if no user is involved,
+                                'sender': id of the user making a request, Only available for 'inspection_booked', 'inspection_denied',
+                                                'inspection_accepted', 'confirm_inspection' and 'inspection_request' categories
                                 'response': The response where necessary, can be none if no response is involed,
                         }
                 ]
