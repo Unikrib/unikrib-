@@ -7,7 +7,7 @@ from models.engine.mongo_database import Database
 # storage = Database()
 # storage.reload()
 
-db = 'v1'  # This must always either be 'v1' or 'v2'
+db = 'v2'  # This must always either be 'v1' or 'v2'
 
 if db == 'v1':
     storage = Storage()
@@ -16,9 +16,7 @@ else:
 
 if db == 'v1':
     from models.v1 import *
-    # storage = Storage()
 elif db == 'v2':
     from models.v2 import *
-    # storage = Database()
 
 storage.reload()
