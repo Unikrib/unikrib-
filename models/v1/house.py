@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This defines the apartment class"""
 
-from models.base_model import BaseModel, Base
+from models.v1.base_model import BaseModel, Base
 from sqlalchemy import Column, String, Integer, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
 

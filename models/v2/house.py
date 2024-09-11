@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from models.base_model import BaseModel
+from models.v2.base_model import BaseModel
 
 
 class House(BaseModel):
@@ -27,6 +27,8 @@ class House(BaseModel):
                 try:
                     if isinstance(value, str):
                         setattr(self, key, int(value))
+                    elif isinstance(value, float):
+                        pass
                 except Exception as e:
                     raise TypeError(f"{val} must be a number")
        

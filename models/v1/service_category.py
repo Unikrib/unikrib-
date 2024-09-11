@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from models.base_model import BaseModel, Base
+from models.v1.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 
 class ServiceCategory(BaseModel, Base):

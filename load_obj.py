@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 
-from models import storage
-from models.school import School
-from models.environment import Environment
-from models.street import Street
-from models.service_category import ServiceCategory
-from models.category import Category
+from models import storage, School, Environment, Street, ServiceCategory, Category
+# from models.v1.school import School
+# from models.v1.environment import Environment
+# from models.v1.street import Street
+# from models.v1.service_category import ServiceCategory
+# from models.v1.category import Category
 
 # Load schools
 print("Creating schools...")

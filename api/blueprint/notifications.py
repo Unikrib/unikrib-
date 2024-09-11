@@ -3,11 +3,11 @@
 import requests
 from os import getenv
 from api.blueprint import app_views, auth
-from models import storage
+from models import storage, Notification
 from flask import jsonify, request
-from models.notification import Notification
+# from models.v1.notification import Notification
 from api.blueprint.Mailing.controller import runner
-from datetime import datetime, timedelta
+# from datetime import datetime, timedelta
 
 base_url = 'https://api.ng.termii.com/api'
 api_key = getenv("TERMII_API_KEY")

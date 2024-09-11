@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
 from api.blueprint import app_views, auth
-from models.review import Review
-from models import storage
-from flask import jsonify, abort, request
+# from models.v1.review import Review
+from models import storage, Review
+from flask import jsonify, request
 
 @app_views.route('/reviews', strict_slashes=False)
 @auth.login_required(role="admin")

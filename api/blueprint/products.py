@@ -2,8 +2,8 @@
 
 from api.blueprint import app_views, auth
 from flask import jsonify, request
-from models import storage
-from models.product import Product
+from models import storage, Product
+# from models.v1.product import Product
 from api.blueprint.upload_image import cloudinary
 
 @app_views.route('/products', strict_slashes=False)

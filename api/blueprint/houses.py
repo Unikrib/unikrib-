@@ -5,12 +5,13 @@ import redis
 import requests
 import threading
 from os import getenv
-from models import storage
-from models.house import House
+from models import storage, Transaction, Notification, House
+# from models.v1.house import House
+# from models import House
 from flask import jsonify, request
 from api.blueprint import app_views, auth
-from models.transaction import Transaction
-from models.notification import Notification
+# from models.v1.transaction import Transaction
+# from models.v1.notification import Notification
 from api.blueprint.upload_image import cloudinary
 
 base_url = 'https://api.ng.termii.com/api'

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
-from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String, ForeignKey, Integer
+from models.v1.base_model import BaseModel, Base
+from sqlalchemy import Column, String, ForeignKey
 
 class Report(BaseModel, Base):
     __tablename__ = 'reports'

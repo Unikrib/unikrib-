@@ -1,11 +1,12 @@
 #!/usr/bin/python3
+
 """This defines the schema for the user session storage
 """
 
 from datetime import datetime
 import models
-from models.base_model import Base
-from sqlalchemy import Column, String, ForeignKey, Integer, DateTime
+from models.v1.base_model import Base
+from sqlalchemy import Column, String, ForeignKey, DateTime
 
 
 class UserSession(Base):

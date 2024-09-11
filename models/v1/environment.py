@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This defines the environment e.g Ekosodin, Bdpa ..."""
 
-from models.base_model import BaseModel, Base
+from models.v1.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey
 
 

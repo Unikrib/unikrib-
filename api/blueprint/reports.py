@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 
 from api.blueprint import app_views, auth
-from models.report import Report
-from models import storage
-from flask import jsonify, abort, request
-import requests
+# from models.v1.report import Report
+from models import storage, Report
+from flask import jsonify, request
+# import requests
 from api.blueprint.Mailing.controller import runner
 
 api = "https://unikribmailer.onrender.com"

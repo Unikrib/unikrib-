@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Defines the streets"""
 
-from models.base_model import BaseModel, Base
+from models.v1.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey
 
 class Street(BaseModel, Base):

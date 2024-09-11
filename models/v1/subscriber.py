@@ -1,5 +1,8 @@
-from models.base_model import BaseModel, Base
+#!/usr/bin/python3
+
+from models.v1.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey, Integer
+
 
 class Subscriber(BaseModel, Base):
     __tablename__ = 'subscribers'

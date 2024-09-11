@@ -228,10 +228,6 @@ NOTIFIATION:
                 res: same as /get_all_notifications
         --> *DELETE, '/delete_notification/<not_id>': this deletes a notification from storage.
                 res: {}
-ia
-
-ia
- 
 
 PRODUCT:
         --> GET, '/products': This returns a list of all products

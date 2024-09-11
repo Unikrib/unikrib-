@@ -1,6 +1,8 @@
-#!/usr/bin/python3\
-from models.base_model import BaseModel, Base
+#!/usr/bin/python3
+
+from models.v1.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey
+
 
 class Service(BaseModel, Base):
     """This defines the services class"""

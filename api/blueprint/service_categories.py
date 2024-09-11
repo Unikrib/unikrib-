@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
 from api.blueprint import app_views
-from models import storage
-from models.service_category import ServiceCategory
-from flask import jsonify, abort, request
+from models import storage, ServiceCategory
+from models.v1.service_category import ServiceCategory
+from flask import jsonify
 
 @app_views.route('/service-categories', strict_slashes=False)
 def all_serv_cats():

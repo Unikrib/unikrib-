@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 
 from api.blueprint import app_views
-from models.category import Category
+# from models.category import Category
+# from models.v2.category import Category
+from models import Category
 from models import storage
-from flask import jsonify, request, abort
+from flask import jsonify
 
 @app_views.route('/categories', strict_slashes=False)
 def all_cats():

@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """defines the various services rendered by the service providers"""
 
-from models.base_model import BaseModel, Base
+from models.v1.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey, Integer
-from sqlalchemy.orm import relationship
+# from sqlalchemy.orm import relationship
 
 
 class Product(BaseModel, Base):

@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
 import bcrypt
-from models import storage
+from models import storage, User, Code, Notification
 from api.blueprint import app_views, auth, manager
 from flask import request, jsonify, redirect
-from models.user import User
-from models.code import Code
-from models.notification import Notification
+# from models.v1.user import User
+# from models.v1.code import Code
+# from models.v1.notification import Notification
 from settings.redactor import Redacter
 from api.blueprint.upload_image import cloudinary
 from api.blueprint.Mailing.controller import runner

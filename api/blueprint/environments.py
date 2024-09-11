@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 from api.blueprint import app_views
-from models import storage
-from models.environment import Environment
+from models import storage, Environment
+# from models import Environment
 from flask import request, jsonify, abort
 
 @app_views.route('/environments', strict_slashes=False)

@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String, Integer, ForeignKey, DateTime, Boolean
-from sqlalchemy.orm import relationship
+from models.v1.base_model import BaseModel, Base
+from sqlalchemy import Column, String, DateTime, Boolean
+# from sqlalchemy.orm import relationship
 
 
 class Notification(BaseModel, Base):

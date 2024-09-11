@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
-from models import storage
-from models.street import Street
+from models import storage, Street
+# from models.v1.street import Street
 from api.blueprint import app_views
-from flask import abort, request, jsonify
+from flask import jsonify
 
 @app_views.route('/streets', strict_slashes=False)
 def all_str():

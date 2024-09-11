@@ -2,9 +2,10 @@
 
 from datetime import datetime, timedelta
 import uuid
-import json
-from models.user_session import UserSession
-from models import storage
+# import json
+# from models.v1.user_session import UserSession
+from models import storage, UserSession
+# from models import storage
 
 time = "%d-%m-%Y %H:%M.%f"
 

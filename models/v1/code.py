@@ -4,8 +4,9 @@
 
 from datetime import datetime, timedelta
 import models
-from models.base_model import Base
+from models.v1.base_model import Base
 from sqlalchemy import Column, String, ForeignKey, Integer, DateTime
+
 
 class Code(Base):
     __tablename__ = 'codes'
