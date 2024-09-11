@@ -11,7 +11,7 @@ db = 'v2'  # This must always either be 'v1' or 'v2'
 
 if db == 'v1':
     storage = Storage()
-else:
+elif db == 'v2':
     storage = Database()
 
 if db == 'v1':
