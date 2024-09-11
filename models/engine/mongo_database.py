@@ -17,10 +17,10 @@ class Database:
 
     def __init__(self):
         db_name = getenv('DB_NAME', 'unikrib_db')
-        host = getenv("HOST", 'localhost')
-        port = getenv("PORT", 27017)
+        url = getenv("HOST", 'localhost')
+        # port = getenv("PORT", )
         try:
-            self.client = pymongo.MongoClient(host, port)
+            self.client = pymongo.MongoClient(url)
             self.db = self.client[db_name]
         except Exception as e:
             print("Unable to connect to mongo server:", e)
