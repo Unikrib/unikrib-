@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
 from api.blueprint import app_views
-from models import storage, Environment
+from models import storage
 # from models import Environment
-from flask import request, jsonify, abort
+from flask import jsonify
 
 @app_views.route('/environments', strict_slashes=False)
 def all_env():

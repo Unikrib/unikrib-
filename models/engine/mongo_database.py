@@ -2,7 +2,6 @@
 
 import pymongo
 from os import getenv
-from datetime import datetime
 
 classes = {"codes": "Code", "users": "User", "products": "Product",
             "houses": "House", "environments": "Environment", "streets": "Street",
@@ -104,70 +103,43 @@ class Database:
     def close(self):
         self.client.close()
 
-    def reload(self, cls, **values):
-        """This recreates a class object from the given values"""
-        from models.v1.user import User
-        from models.v1.code import Code
-        from models.v1.house import House
-        from models.v1.product import Product
-        from models.v1.service import Service
-        from models.v1.street import Street
-        from models.v1.review import Review
-        from models.v1.report import Report
-        from models.v1.category import Category
-        from models.v1.transaction import Transaction
-        from models.v1.notification import Notification
-        from models.v1.environment import Environment
-        from models.v1.user_session import UserSession
-        from models.v1.service_category import ServiceCategory
+    def reload(self):
+        """This recreates all objects and save them to __objects"""
+        from models.v2.code import Code
+        from models.v2.category import Category
+        from models.v2.environment import Environment
+        from models.v2.house import House
+        from models.v2.notification import Notification
+        from models.v2.product import Product
+        from models.v2.report import Report
+        from models.v2.review import Review
+        from models.v2.school import School
+        from models.v2.service_category import ServiceCategory
+        from models.v2.service import Service
+        from models.v2.street import Street
+        from models.v2.subscriber import Subscriber
+        from models.v2.transaction import Transaction
+        from models.v2.user_session import UserSession
+        from models.v2.user import User
 
-        del(values['_id'])
-
-        try:
-            if cls == "users" or cls == "User":
-                model = User(**values)
-            if cls == 'codes' or cls == 'Code':
-                model = Code(**values)
-            if cls == 'houses' or cls == "House":
-                model = House(**values)
-            if cls == 'products' or cls == 'Product':
-                model = Product(**values)
-            if cls == 'services' or cls == 'Service':
-                model = Service(**values)
-            if cls == 'streets' or cls == "Street":
-                model = Street(**values)
-            if cls == 'reviews' or cls == "Review":
-                model = Review(**values)
-            if cls == 'reports' or cls == "Report":
-                model = Report(**values)
-            if cls == 'categories' or cls == 'Category':
-                model = Category(**values)
-            if cls == 'environments' or cls == 'Environment':
-                model = Environment(**values)
-            if cls == 'notifications' or cls == 'Notification':
-                model = Notification(**values)
-            if cls == 'transactions' or cls == "Transaction":
-                model = Transaction(**values)
-            if cls == 'usersession' or cls == 'UserSession':
-                model = UserSession(**values)
-            if cls == 'service_category' or cls == 'ServiceCategory':
-                model = ServiceCategory(**values)
-        except ValueError as e:
-            print(e)
-            return None
+        classes2 = {'Code': Code, 'User': User, 'Product': Product, 'House': House,
+                'Environment': Environment, 'Notification': Notification, 'Report': Report,
+                'Review': Review, 'School': School, 'ServiceCategory': ServiceCategory,
+                'Service': Service, 'Street': Street, 'Subscriber': Subscriber, 'Transaction': Transaction,
+                'UserSession': UserSession}
 
         try:
-            if hasattr(model, "created_at") and isinstance(model.created_at, str):
-                created_at = datetime.strptime(model.created_at, "%Y-%m-%dT%H:%M:%S")
-                model.created_at = created_at.strftime("%d-%m-%Y %H:%M")
-            if hasattr(model, "updated_at") and isinstance(model.updated_at, str):
-                updated_at = datetime.strptime(model.updated_at, "%Y-%m-%dT%H:%M:%S.%f")
-                model.updated_at = updated_at.strftime("%d-%m-%Y %H:%M")
+            for cls in classes:
+                models = self.db[cls].find()
+                # print(models, type(models))
+                for obj in list(models):
+                    model = classes2[obj['__class__']](**obj)
+                    key = f"{model.__class__.__name__}.{model.id}"
+                    self.__objects[key] = model
         except Exception as e:
-            print("Error at reload", e)
+            print(e)
             pass
-        return model
-        
+
     def get(self, cls, id):
         if cls not in classes:
             for key, val in classes.items():

@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
-from models.v2.base_model import BaseModel, Base
+from models.v2.base_model import BaseModel
 
 
-class School(BaseModel, Base):
+class School(BaseModel):
     __tablename__ = 'schools'
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

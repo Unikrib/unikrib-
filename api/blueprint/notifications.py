@@ -5,7 +5,7 @@ from os import getenv
 from api.blueprint import app_views, auth
 from models import storage, Notification
 from flask import jsonify, request
-# from models.v1.notification import Notification
+# from models.v2.notification import Notification
 from api.blueprint.Mailing.controller import runner
 # from datetime import datetime, timedelta
 

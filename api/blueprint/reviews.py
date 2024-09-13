@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 from api.blueprint import app_views, auth
-# from models.v1.review import Review
+# from models.v2.review import Review
 from models import storage, Review
 from flask import jsonify, request
 

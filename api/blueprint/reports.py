@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 from api.blueprint import app_views, auth
-# from models.v1.report import Report
+# from models.v2.report import Report
 from models import storage, Report
 from flask import jsonify, request
 # import requests

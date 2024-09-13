@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-from models.v1.subscriber import Subscriber
+# from models.v2.subscriber import Subscriber
 # from datetime import datetime
-from models import storage
+from models import storage, Subscriber
 
 def get_subscriber_status(user_id):
     """This returns True if a user is in the subscriber 

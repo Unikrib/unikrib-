@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 from models import storage, Street
-# from models.v1.street import Street
+# from models.v2.street import Street
 from api.blueprint import app_views
 from flask import jsonify
 

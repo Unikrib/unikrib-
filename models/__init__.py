@@ -4,8 +4,8 @@ from models.engine.mysql_database import Storage
 from models.engine.mongo_database import Database
 
 # storage = Storage()
-# storage = Database()
-# storage.reload()
+storage = Database()
+storage.reload()
 
 db = 'v2'  # This must always either be 'v1' or 'v2'
 
@@ -15,8 +15,8 @@ elif db == 'v2':
     storage = Database()
 
 if db == 'v1':
-    from models.v1 import *
+    from models._v1 import *
 elif db == 'v2':
-    from models.v2 import *
+    from models._v2 import *
 
 storage.reload()

@@ -2,7 +2,7 @@
 
 from api.blueprint import app_views
 from models import storage, ServiceCategory
-from models.v1.service_category import ServiceCategory
+# from models.v2.service_category import ServiceCategory
 from flask import jsonify
 
 @app_views.route('/service-categories', strict_slashes=False)

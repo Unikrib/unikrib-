@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 from models.v2.base_model import BaseModel
-from models import BaseModel
+# from models import BaseModel
 
 
 class Product(BaseModel):

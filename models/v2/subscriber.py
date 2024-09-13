@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
-from models.v2.base_model import BaseModel, Base
+from models.v2.base_model import BaseModel
 
 
-class Subscriber(BaseModel, Base):
+class Subscriber(BaseModel):
     __tablename__ = 'subscribers'
 
     def __init__(self, *args, **kwargs):

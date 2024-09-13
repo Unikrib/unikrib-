@@ -3,10 +3,10 @@
 from api.blueprint import app_views
 from flask import abort, jsonify, request
 from models import storage, Product, House, Service, User
-# from models.v1.product import Product
-# from models.v1.house import House
-# from models.v1.service import Service
-# from models.v1.user import User
+# from models.v2.product import Product
+# from models.v2.house import House
+# from models.v2.service import Service
+# from models.v2.user import User
 
 @app_views.route('/status', strict_slashes=False)
 def status():
