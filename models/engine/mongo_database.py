@@ -101,7 +101,8 @@ class Database:
             print(f'Error deleting document(s): {e}')
 
     def close(self):
-        self.client.close()
+        # self.client.close()
+        self.reload()
 
     def reload(self):
         """This recreates all objects and save them to __objects"""
