@@ -1,23 +1,25 @@
 #!/usr/bin/python3
 
 import pymongo
-from os import getenv
+from settings.loadenv import handleEnv
+# from os import getenv
 
 classes = {"codes": "Code", "users": "User", "products": "Product",
             "houses": "House", "environments": "Environment", "streets": "Street",
             "reviews": "Review", "categories": "Category", "services": "Service",
             "service_categories": "ServiceCategory", "reports": "Report",
             'usersession': "UserSession", 'notifications': "Notification",
-            "transactions": "Transaction"}
+            "transactions": "Transaction", "schools": "School"}
 
 
 class Database:
     all_objs = {}
 
     def __init__(self):
-        db_name = getenv('DB_NAME', 'unikrib_db')
-        url = getenv("HOST", 'localhost')
-        # port = getenv("PORT", )
+        # db_name = getenv('DB_NAME', 'unikrib_db')
+        db_name = handleEnv('DB_NAME')
+        url = handleEnv('HOST')
+        # url = getenv("HOST", 'localhost')
         try:
             self.client = pymongo.MongoClient(url)
             self.db = self.client[db_name]
@@ -25,37 +27,14 @@ class Database:
             print("Unable to connect to mongo server:", e)
 
     def all(self, cls=None):
-        if cls and cls not in classes:
-            for key, val in classes.items():
-                if val == cls:
-                    cls = key
-                    break
-        if cls and cls not in classes:
-            print(cls)
+        if cls and cls in classes:
+            cls = classes[cls]
+        elif cls and not isinstance(cls, str):
             cls = cls.__tablename__
-
-        objs = {}
-
-        if not cls:
-            for cs in classes:
-                documents = self.db[cs].find()
-                for doc in documents:
-                    if doc['__class__'] == 'Code' or doc['__class__'] == 'UserSession':
-                        key = "{}.{}".format(doc['__class__'], doc['user_id'])
-                    else:
-                        key = "{}.{}".format(doc['__class__'], doc['id'])
-                    model = self.reload(doc['__class__'], **doc)
-                    objs[key] = model
-        else:
-            documents = self.db[cls].find()
-            for doc in documents:
-                if cls == 'codes':
-                    key = "{}.{}".format(doc['__class__'], doc['user_id'])
-                else:
-                    key = "{}.{}".format(doc['__class__'], doc['id'])
-                model = self.reload(doc['__class__'], **doc)
-                objs[key] = model
-        return objs
+        if cls:
+            new_dict = {key: obj for key, obj in self.all_objs.items() if obj.__class__ == cls}
+            return new_dict
+        return self.all_objs
 
     def save(self, model):
         """
@@ -75,13 +54,13 @@ class Database:
             query = {'id': model.id}
             new_attrs = {"$set": model.to_dict()}
             self.db[model.__tablename__].update_one(query, new_attrs)
-            print("Document updated successfully")
+            # print("Document updated successfully")
         else:
             # If the document instance does not exist yet, create a new document
             try:
                 obj_dict = model.to_dict()
                 self.db[model.__tablename__].insert_one(obj_dict)
-                print('Document saved successfully.')
+                # print('Document saved successfully.')
             except pymongo.errors.PyMongoError as e:
                 print(f'Error saving document: {e}')
             except Exception as e:
@@ -127,7 +106,7 @@ class Database:
                 'Environment': Environment, 'Notification': Notification, 'Report': Report,
                 'Review': Review, 'School': School, 'ServiceCategory': ServiceCategory,
                 'Service': Service, 'Street': Street, 'Subscriber': Subscriber, 'Transaction': Transaction,
-                'UserSession': UserSession}
+                'UserSession': UserSession, 'Category': Category}
 
         try:
             for cls in classes:
@@ -136,7 +115,7 @@ class Database:
                 for obj in list(models):
                     model = classes2[obj['__class__']](**obj)
                     key = f"{model.__class__.__name__}.{model.id}"
-                    self.__objects[key] = model
+                    self.all_objs[key] = model
         except Exception as e:
             print(e)
             pass
@@ -178,13 +157,18 @@ class Database:
                     cls = key
                     break
         if cls not in classes:
-            cls = cls.__tablename__
+            try:
+                cls = cls.__tablename__
+            except Exception as e:
+                raise ValueError('Invalid search parameter')
 
         result = []
         docs = self.db[cls].find( kwargs )
-        for doc in docs:
-            model = self.reload(doc['__class__'], **doc)
-            result.append(model)
+        if docs:
+            for doc in docs:
+                key = doc['__class__'] + "." + doc['id']
+                model = self.all_objs[key]
+                result.append(model)
         return result
     
     def count(self, cls, key=None):
