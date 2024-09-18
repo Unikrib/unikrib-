@@ -16,23 +16,31 @@ class Database:
     all_objs = {}
 
     def __init__(self):
-        # db_name = getenv('DB_NAME', 'unikrib_db')
         db_name = handleEnv('DB_NAME')
         url = handleEnv('HOST')
-        # url = getenv("HOST", 'localhost')
+        
         try:
+            # print('Creating client...')
             self.client = pymongo.MongoClient(url)
             self.db = self.client[db_name]
+            # print('Client created')
         except Exception as e:
             print("Unable to connect to mongo server:", e)
 
     def all(self, cls=None):
-        if cls and cls in classes:
-            cls = classes[cls]
-        elif cls and not isinstance(cls, str):
-            cls = cls.__tablename__
+        if cls and cls not in classes:
+            for key, val in classes.items():
+                if val == cls:
+                    cls = key
+                    break
+        if cls and cls not in classes:
+            try:
+                cls = cls.__tablename__
+            except Exception as e:
+                raise ValueError('Invalid search parameter')
         if cls:
-            new_dict = {key: obj for key, obj in self.all_objs.items() if obj.__class__ == cls}
+            print(cls)
+            new_dict = {key: obj for key, obj in self.all_objs.items() if obj.__tablename__ == cls}
             return new_dict
         return self.all_objs
 
