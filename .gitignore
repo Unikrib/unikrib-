@@ -3,3 +3,4 @@ __pycache__
 .vscode
 test3.py
 error.json
+.env

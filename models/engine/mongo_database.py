@@ -2,6 +2,7 @@
 
 import pymongo
 from settings.loadenv import handleEnv
+from datetime import datetime, timedelta
 # from os import getenv
 
 classes = {"codes": "Code", "users": "User", "products": "Product",
@@ -18,7 +19,7 @@ class Database:
     def __init__(self):
         db_name = handleEnv('DB_NAME')
         url = handleEnv('HOST')
-        
+
         try:
             # print('Creating client...')
             self.client = pymongo.MongoClient(url)
@@ -129,27 +130,21 @@ class Database:
             pass
 
     def get(self, cls, id):
-        if cls not in classes:
-            for key, val in classes.items():
-                if val == cls:
-                    cls = key
-                    break
-        if cls not in classes:
-            cls = cls.__tablename__
-
-        try:
-            if cls == 'codes' or cls == 'usersession':
-                doc = self.db['cls'].find_one({ 'user_id': id })
-            else:
-                doc = self.db[cls].find_one({ 'id': id })
-            if doc:
-                model = self.reload(doc['__class__'], **doc)
-                return model
-            else:
-                return None
-        except Exception as e:
-            print(e)
-            return None
+        if cls in classes:
+            cls = classes[cls]
+        elif not isinstance(cls, str):
+            try:
+                cls = cls.__class__
+            except Exception as e:
+                raise("Invalid parameter for get function")
+        key = f"{cls}.{id}"
+        
+        obj = self.all_objs.get(key, None)
+        if obj and obj.__class__ == 'UserSession':
+            if datetime.now() > obj.created_at + timedelta(hours=72):
+                self.delete(obj)
+                return
+        return obj
 
     def search(self, cls, **kwargs):
         """This filters the storage for objects matching kwargs
@@ -174,7 +169,10 @@ class Database:
         docs = self.db[cls].find( kwargs )
         if docs:
             for doc in docs:
-                key = doc['__class__'] + "." + doc['id']
+                if doc['__class__'] == 'UserSession':
+                    key = doc['__class__'] + '.' + doc['token']
+                else:
+                    key = doc['__class__'] + "." + doc['id']
                 model = self.all_objs[key]
                 result.append(model)
         return result
