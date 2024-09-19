@@ -3,6 +3,7 @@
 import pymongo
 from settings.loadenv import handleEnv
 from datetime import datetime, timedelta
+from bson import ObjectId
 # from os import getenv
 
 classes = {"codes": "Code", "users": "User", "products": "Product",
@@ -51,29 +52,14 @@ class Database:
         Args:
             model (class): The model class representing the collection.
         """
-        if model.__tablename__ == 'codes' or model.__tablename__ == 'usersession':
-            objs = self.db[model.__tablename__].find({ "id": model.user_id })
-        else:
-            objs = self.db[model.__tablename__].find({ "id": model.id })
-        existing_docs = []
-        for obj in objs:
-            existing_docs.append(obj)
-        if existing_docs:
-            # if the document instance already exist, update it
-            query = {'id': model.id}
-            new_attrs = {"$set": model.to_dict()}
-            self.db[model.__tablename__].update_one(query, new_attrs)
-            # print("Document updated successfully")
-        else:
-            # If the document instance does not exist yet, create a new document
-            try:
-                obj_dict = model.to_dict()
-                self.db[model.__tablename__].insert_one(obj_dict)
-                # print('Document saved successfully.')
-            except pymongo.errors.PyMongoError as e:
-                print(f'Error saving document: {e}')
-            except Exception as e:
-                print(f"Error encountered: {e}") 
+        if not model:
+            return
+        query = {'id': model.id}
+        vals = model.to_dict()
+        if '_id' in vals and isinstance(vals['_id'], str):
+            vals['_id'] = ObjectId(vals['_id'])
+        new_attrs = {"$set": vals}
+        self.db[model.__tablename__].update_one(query, new_attrs, upsert=True) 
 
     def delete(self, model):
         """
@@ -169,10 +155,11 @@ class Database:
         docs = self.db[cls].find( kwargs )
         if docs:
             for doc in docs:
-                if doc['__class__'] == 'UserSession':
-                    key = doc['__class__'] + '.' + doc['token']
-                else:
-                    key = doc['__class__'] + "." + doc['id']
+                # if doc['__class__'] == 'UserSession':
+                #     key = doc['__class__'] + '.' + doc['token']
+                # else:
+                key = doc['__class__'] + "." + doc['id']
+
                 model = self.all_objs[key]
                 result.append(model)
         return result
