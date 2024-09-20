@@ -392,11 +392,10 @@ def user_verification():
         if not val:
             return jsonify(f'Please include the required {key} field'), 400
 
-    if email:
-        user = storage.search('User', email=email)
-        if user:
-            user = user[0]
-    if not user:
+    user = storage.search('User', email=email)
+    if user:
+        user = user[0]
+    else:
         return jsonify("No user with this email found"), 400  
 
     res = runner.userVerification(first_name=first_name, last_name=last_name,

@@ -65,7 +65,7 @@ class Controller:
     
     def userVerification(self, *args, **kwargs):
         data = {"first_name": kwargs.get('first_name'), 'last_name': kwargs.get('last_name'),
-                'id_number': kwargs.get('id_number'), 'face_image': kwargs.get('face_image'),
+                'face_image': kwargs.get('face_image'),
                 'id_image': kwargs.get('id_image'), 'email': 'unikrib@gmail.com', 'type': 'userVerification',
                 'user_id': kwargs.get('user_id')}
         data = json.dumps(data)
