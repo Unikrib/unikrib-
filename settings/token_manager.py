@@ -42,7 +42,7 @@ class Manager():
         created_at = sess[0].created_at
         try:
             if isinstance(created_at, str):
-                created_at = datetime.strptime(created_at, "%d-%m-%Y %H:%M")
+                created_at = datetime.strptime(created_at, "%Y-%m-%dT%H:%M:%S.%f")
                 # created_at = created_at.strftime("%d-%m-%Y %H:%M")
             valid_period = created_at + timedelta(seconds = self._duration)
             if valid_period < datetime.now():
