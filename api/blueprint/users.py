@@ -382,12 +382,11 @@ def user_verification():
 
     first_name = user_data.get('first_name')
     last_name = user_data.get('last_name')
-    id_number = user_data.get('id_number')
     face_image = user_data.get('face_image')
     id_image = user_data.get('id_image')
     email = user_data.get('email')
 
-    params = {'first_name': first_name, 'last_name': last_name, 'id_number': id_number,
+    params = {'first_name': first_name, 'last_name': last_name,
               'face_image': face_image, 'id_image': id_image, 'email': email}
     for key, val in params.items():
         if not val:
@@ -401,7 +400,7 @@ def user_verification():
         return jsonify("No user with this email found"), 400  
 
     res = runner.userVerification(first_name=first_name, last_name=last_name,
-                                  id_number=id_number, face_image=face_image,
+                                  face_image=face_image,
                                   id_image=id_image, user_id=user.id)
     if res.get('status_code') == 200:
         return jsonify("User verification submitted successfully, please wait 24 hours for confirmation"), 200
@@ -414,7 +413,7 @@ def accept_or_deny_user_verification(user_id, text):
     if not user_id or not text:
         return jsonify('Incorrect url'), 400
     
-    user:User = storage.get('User', user_id)
+    user = storage.get('User', user_id)
     if not user:
         return jsonify('User not found'), 404
     

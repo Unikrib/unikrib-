@@ -458,7 +458,6 @@ class HTMLTemp:
     def user_verification(*args, **kwargs):
         first_name = kwargs.get('first_name')
         last_name = kwargs.get('last_name')
-        id_number = kwargs.get('id_number')
         face_image = kwargs.get('face_image')
         id_image = kwargs.get('id_image')
         user_id = kwargs.get('user_id')
@@ -477,7 +476,6 @@ class HTMLTemp:
                     <br>
                     first_name: {first_name},
                     last_name: {last_name},
-                    id_number: {id_number},
                     face_image: {face_image},
                     id_image: {id_image},
                     user_id: {user_id}.

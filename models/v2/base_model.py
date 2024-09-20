@@ -60,7 +60,6 @@ class BaseModel():
             dictionary['created_at'] = self.created_at.isoformat()
         if 'updated_at' in dictionary and isinstance(dictionary['updated_at'], datetime):
             dictionary['updated_at'] = self.updated_at.isoformat()
-        dictionary.pop('_sa_instance_state', None)
         dictionary.pop('reset_code', None)
         dictionary.pop('_id', None)
         dictionary['__class__'] = self.__class__.__name__

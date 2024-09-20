@@ -66,11 +66,11 @@ class Database:
         Args:
             model (class): The instance representing the document.
         """
-        if not isinstance(model, dict):
-            model = model.to_dict()
         try:
-            dic = model.to_dict()
-            result = self.db[dic.__tablename__].delete_one({'id': model['id']})
+            # dic = model.to_dict()
+            # print(dic)
+            result = self.db[model.__tablename__].delete_one({'id': model.id})
+            del self.all_objs[f'{model.__class__}.{model.id}']
             print(f'{result.deleted_count} document(s) deleted successfully.')
         except pymongo.errors.PyMongoError as e:
             print(f'Error deleting document(s): {e}')
