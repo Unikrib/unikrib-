@@ -36,22 +36,23 @@ class Manager():
         """This retrieves a user based on the given token"""
         if token is None:
             return None
-        user = storage.search('UserSession', token=token)
-        if user is None or len(user) == 0:
+        sess = storage.search('UserSession', token=token)
+        if sess is None or len(sess) == 0:
             return None
-        created_at = user[0].created_at
+        created_at = sess[0].created_at
         try:
             if isinstance(created_at, str):
                 created_at = datetime.strptime(created_at, "%d-%m-%Y %H:%M")
                 # created_at = created_at.strftime("%d-%m-%Y %H:%M")
             valid_period = created_at + timedelta(seconds = self._duration)
             if valid_period < datetime.now():
-                self.delete_token(user[0].user_id)
+                self.delete_token(sess[0].user_id)
                 return None
-            return user[0].user_id
+            return sess[0].user_id
         except Exception as e:
             print(created_at)
-            print(type(timedelta(seconds = self._duration)))
+            print(str(e))
+            # print(type(timedelta(seconds = self._duration)))
         
 
     def delete_token(self, user_id):

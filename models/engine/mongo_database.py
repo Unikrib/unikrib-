@@ -41,7 +41,6 @@ class Database:
             except Exception as e:
                 raise ValueError('Invalid search parameter')
         if cls:
-            print(cls)
             new_dict = {key: obj for key, obj in self.all_objs.items() if obj.__tablename__ == cls}
             return new_dict
         return self.all_objs
@@ -67,9 +66,11 @@ class Database:
         Args:
             model (class): The instance representing the document.
         """
+        if not isinstance(model, dict):
+            model = model.to_dict()
         try:
             dic = model.to_dict()
-            result = self.db[dic.__class__].delete_one({'id': model['id']})
+            result = self.db[dic.__tablename__].delete_one({'id': model['id']})
             print(f'{result.deleted_count} document(s) deleted successfully.')
         except pymongo.errors.PyMongoError as e:
             print(f'Error deleting document(s): {e}')
