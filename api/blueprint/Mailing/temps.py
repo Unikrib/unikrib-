@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+from settings.loadenv import handleEnv
+
+
+self_url = handleEnv('SELF_URL')
 
 class HTMLTemp:
     def otp(code, username):
@@ -474,22 +478,22 @@ class HTMLTemp:
                     <p> A new user is requesting for verification, His/her details are as follows:>
 
                     <br>
-                    first_name: {first_name},
-                    last_name: {last_name},
-                    face_image: {face_image},
-                    id_image: {id_image},
-                    user_id: {user_id}.
+                    <p>first_name: {first_name},</p>
+                    <p>last_name: {last_name},</p>
+                    <p>face_image: {face_image},</p>
+                    <p>id_image: {id_image},</p>
+                    <p>user_id: {user_id}.</p>
 
                     <br>
                     <hr>
                     <br>
 
-                    <a href='https://unikribbackend.onrender.com/unikrib/user/verify_user/{user_id}/accept'>
-                    We have verify this user's info and he can be verified ✅</a>
+                    <p><a href='{self_url}/user/verify_user/{user_id}/accept'>
+                    We have verify this user's info and he can be verified ✅</a></p>
                     <br>
-                    <a href='https://unikribbackend.onrender.com/unikrib/user/verify_user/{user_id}/deny'>
-                    This user is not clear to be verified ❌</a>
+                    <a href='{self_url}/user/verify_user/{user_id}/deny'>
+                    This user is not clear to be verified ❌</a><br>
 
-                    Please treat as urgent!.
+                    <p>Please treat as urgent!.</p>
                 </body>
             </html>'''

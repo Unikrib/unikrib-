@@ -153,12 +153,13 @@ class Database:
                 raise ValueError('Invalid search parameter')
 
         result = []
-        docs = self.db[cls].find( kwargs )
+        case_insensitive_kwargs = {
+                key: {'$regex': value, '$options': 'i'} if isinstance(value, str) else value
+                for key, value in kwargs.items()
+            }
+        docs = self.db[cls].find( case_insensitive_kwargs )
         if docs:
             for doc in docs:
-                # if doc['__class__'] == 'UserSession':
-                #     key = doc['__class__'] + '.' + doc['token']
-                # else:
                 key = doc['__class__'] + "." + doc['id']
 
                 model = self.all_objs[key]

@@ -5,10 +5,10 @@ import random
 import uuid
 import json
 from redis import from_url
-from redis import Redis
+# from redis import Redis
 from api.blueprint.Mailing.worker import perform_task
 from os import getenv
-from models import storage
+# from models import storage
 
 redis_url = getenv('REDIS_URL')
 redis_conn = from_url(redis_url)
