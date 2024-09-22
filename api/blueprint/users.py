@@ -144,23 +144,28 @@ def user_login():
         return jsonify("Include a password in request"), 400
 
     user_dict = request.get_json()
-    email = user_dict['email']
-    password = user_dict['password']
+    email = user_dict.get('email')
+    password = user_dict.get('password')
     
-    if email is None or email == "":
+    if not email:
         return jsonify("Please include an email"), 400
-    if password is None or password == "":
+    if not password:
         return jsonify("Please include a password"), 400
 
     user = storage.search('User', email=email)
-    if user is None or user == []:
+    if not user:
         return jsonify("No user with this email found"), 404
 
     user = user[0]
     password = password.strip()
 
     password = password.encode()
-    if bcrypt.checkpw(password, user.password.encode()):
+    try:
+        user_pass = user.password.encode()
+    except:
+        user_pass = user.password
+
+    if bcrypt.checkpw(password, user_pass):
         token = manager.create_session(user.id)
         if not user.com_res:
             message = f"Welcome back {user.first_name}, please complete your sign up"
