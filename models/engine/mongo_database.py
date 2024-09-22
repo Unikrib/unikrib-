@@ -152,12 +152,23 @@ class Database:
             except Exception as e:
                 raise ValueError('Invalid search parameter')
 
-        result = []
         case_insensitive_kwargs = {
                 key: {'$regex': value, '$options': 'i'} if isinstance(value, str) else value
                 for key, value in kwargs.items()
+                }
+        
+        pipeline = []
+        match_stage = {
+            '$match': {
+                '$and': [
+                    case_insensitive_kwargs
+                ]
             }
-        docs = self.db[cls].find( case_insensitive_kwargs )
+        }
+        pipeline.append(match_stage)
+        docs = self.db[cls].aggregate(pipeline)
+
+        result = []
         if docs:
             for doc in docs:
                 key = doc['__class__'] + "." + doc['id']
