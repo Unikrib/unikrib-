@@ -10,16 +10,16 @@ class House(BaseModel):
         super().__init__(*args, **kwargs)
 
         required_params = {"price": "Price", "apartment": "Apartment type",
-                           "street_id": "Street id", "owner_id": "Owner id",}
+                            "owner_id": "Owner id",}
         
         for key, val in required_params.items():
             if key not in kwargs:
                 raise ValueError(f"{val} parameter is missing")
             
-        int_params = {"price": "Price", "agent_fee": "Agent fee",
+        init_params = {"price": "Price", "agent_fee": "Agent fee",
                       "daily_power": "Daily power", "no_clicks": "Number of clicks",
                       "rooms_available": "Rooms available"}
-        for key, val in int_params.items():
+        for key, val in init_params.items():
             value = getattr(self, key)
             if value is None:
                 continue

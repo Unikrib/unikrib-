@@ -418,6 +418,7 @@ def accept_or_deny_user_verification(user_id, text):
         return jsonify('Incorrect url'), 400
     
     user = storage.get('User', user_id)
+    text = text.lower()
     if not user:
         return jsonify('User not found'), 404
     
