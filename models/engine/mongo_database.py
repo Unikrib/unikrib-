@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import pymongo
+import re
 from settings.loadenv import handleEnv
 from datetime import datetime, timedelta
 from bson import ObjectId
@@ -153,7 +154,7 @@ class Database:
                 raise ValueError('Invalid search parameter')
 
         case_insensitive_kwargs = {
-                key: {'$regex': value, '$options': 'i'} if isinstance(value, str) else value
+                key: {'$regex': re.escape(value), '$options': 'i'} if isinstance(value, str) else value
                 for key, value in kwargs.items()
                 }
         

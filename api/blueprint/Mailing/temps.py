@@ -279,7 +279,7 @@ class HTMLTemp:
                         margin-bottom: 20px;
                         border-radius: 8px;
                         ">
-                        <a href="https://unikribbackend.onrender.com/unikrib/user/{user_id}/verify-email?code={code}">Verify Email</a>
+                        <a href="{self_url}/user/{user_id}/verify-email?code={code}">Verify Email</a>
                     </div>
                     <p>The link will expire in 30 minutes.</p>
                     
@@ -366,7 +366,7 @@ class HTMLTemp:
                         margin-bottom: 20px;
                         border-radius: 8px;
                         ">
-                        <a href="https://unikrib.com/static/notification-page.html">Go to unikrib</a>
+                        <a href="https://unikribafrica.com/static/notification-page.html">Go to unikrib</a>
                     </div>
                     
                     </br></br>If you did not post any apartment on unikrib, please ignore this email. 
@@ -401,7 +401,7 @@ class HTMLTemp:
                         margin-bottom: 20px;
                         border-radius: 8px;
                         ">
-                        <a href="https://unikrib.com/static/Apartment-info-page.html?id=''' + itemId + '''">Go to unikrib</a>
+                        <a href="https://unikribafrica.com/static/Apartment-info-page.html?id=''' + itemId + '''">Go to unikrib</a>
                     </div>
                     
                     </br></br>If you did not request any apartment on unikrib, please ignore this email. 
@@ -426,7 +426,7 @@ class HTMLTemp:
 
                     Don't worry, this doesn't have to be the end of your search.
                     Come check out more recent apartments at 
-                    <a href="https://unikrib.com/static/Apartment-page.html">Unikrib apartments</a>
+                    <a href="https://unikribafrica.com/static/Apartment-page.html">Unikrib apartments</a>
                     </br></br>
                     
                     </br></br>If you did not request any apartment on unikrib, please ignore this email. 
@@ -450,7 +450,7 @@ class HTMLTemp:
                     <p>A new review has been left for you.</p>
 
                     Please visit your profile page to view all your reviews 
-                    <a href="https://unikrib.com">Go to unikrib</a>
+                    <a href="https://unikribafrica.com">Go to unikrib</a>
                     </br></br>
                     
                     </br></br>This is an automated message. Please do NOT reply to this email.
@@ -488,7 +488,7 @@ class HTMLTemp:
                     <hr>
                     <br>
 
-                    <p><a href='{self_url}/user/verify_user/{user_id}/accept'>
+                    <p><a href='{self_url}/verify_user/{user_id}/accept'>
                     We have verify this user's info and he can be verified ✅</a></p>
                     <br>
                     <a href='{self_url}/user/verify_user/{user_id}/deny'>

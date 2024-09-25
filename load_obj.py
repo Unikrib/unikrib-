@@ -36,74 +36,75 @@ from models import storage, School, Environment, Street, ServiceCategory, Catego
 
 # storage.reload()
 
-# Load Environments
-print("Creating Environments...")
-sch_env = {
-        # "Unilag": ["Abule-oja", "Pako", "Onike", "Akoka", "Igbobi"],
-        # "UNN": ["Hilltop", "Odenigwe", "Odim gate", "Behind flat"],
-        # "UI": ["Agbowo", "Bodija", "Orogun", "Ojoo", "Sango", "Makola"],
-        # "OAU": ["Oduduwa estate", "Asherifa", "Damico area", "Ibadan road", "Parakin estate",
-        #         "Mayfair", "Oranfe", "Modakeke", "Lagere", "Edunabon", "Fajuiyi"],
-        # "UniAbuja": ["Iddo sarki", "Pasere", "Iddo sabo", "Gbessa", "Uniabuja staff quarters",
-        #                 "Amma pepple estate", "Toge", "Gosa", "Sauka", "Kango"],
-        # "Uniport": ["Alakahia", "Aluu", "Back of chem", "Choba", "Choba extension", "Rumekini",
-        #                 "Roumosi"],
-        # "FUTA": ["North gate", "West gate", "South gate", "Redemption area", "Apatapiti",
-        #                 "Embassy area", "Stateline road", "Baptist student fellowship road", "Clinic"],
-        # "UNIUYO": ["Ekpany", "Ikpa road", "Itu road", "Udoette", "Urua ikpa"],
-        # "UNIZIK": ["Amansi", "Aroma", "Commisioners quarters", "Fire", "Reginal", "School gate", "Temp site"],
-        # "UNICAL": ["Mount zion", "Yellow duke", "Goldie", "Satellite town", "Etta agbor", "Mary slessor"],
-        # "UNILORIN": ["Chapel bus stop"],
-        "Uniben": ["Adolor", "BDPA", "Ekosodin", "Isihior", "Oluku", "JSQ", "Osasoghie", "SSQ", "UBTH quarters", "Uselu"],
-        "FUTO": ["Nekede", "Ihiagwa", "Eziobodo", "Obinze", "Umuchima", "Ezeogwu", "Okolochi"],
-        "LASU": ["First gate", "Post service", "Ojo", "Akesan", "Iba"],
-        "AAU": ["School gate", "Ihumudum", "Ujemen", "Idumebo"],
-        "FUPRE": ["Ugbomoro", "Iteregbi", "Ugolo", "Okorikpehre"],
-        "ABSU": ["Isuikwato", "Uloma", "Okigwe", "Obiagu"],
-        "OOU": ["Ago-Iwoye", "Oru", "Ilaporu", "Aha", "Awa"],
-        "CRUTECH": ["Ene-Obong", "Eko basi", "Mount zion", "Idim ita", "Edibe Edibe", "Efut Abua", "Atamunu", "Anantigha"],
-        "FUOYE": ["Odo-oro", "Ootunja", "Isaba", "Usin", "Ikoyi", "Ikoyi tuntun", "School gate", "Asin", "Shell", "Market", "Garage"]
-        }
+# # Load Environments
+# print("Creating Environments...")
+# sch_env = {
+#         "Unilag": ["Abule-oja", "Pako", "Onike", "Akoka", "Igbobi"],
+#         "UNN": ["Hilltop", "Odenigwe", "Odim gate", "Behind flat"],
+#         "UI": ["Agbowo", "Bodija", "Orogun", "Ojoo", "Sango", "Makola"],
+#         "OAU": ["Oduduwa estate", "Asherifa", "Damico area", "Ibadan road", "Parakin estate",
+#                 "Mayfair", "Oranfe", "Modakeke", "Lagere", "Edunabon", "Fajuiyi"],
+#         "UniAbuja": ["Iddo sarki", "Pasere", "Iddo sabo", "Gbessa", "Uniabuja staff quarters",
+#                         "Amma pepple estate", "Toge", "Gosa", "Sauka", "Kango"],
+#         "Uniport": ["Alakahia", "Aluu", "Back of chem", "Choba", "Choba extension", "Rumekini",
+#                         "Roumosi"],
+#         "FUTA": ["North gate", "West gate", "South gate", "Redemption area", "Apatapiti",
+#                         "Embassy area", "Stateline road", "Baptist student fellowship road", "Clinic"],
+#         "UNIUYO": ["Ekpany", "Ikpa road", "Itu road", "Udoette", "Urua ikpa"],
+#         "UNIZIK": ["Amansi", "Aroma", "Commisioners quarters", "Fire", "Reginal", "School gate", "Temp site"],
+#         "UNICAL": ["Mount zion", "Yellow duke", "Goldie", "Satellite town", "Etta agbor", "Mary slessor"],
+#         "UNILORIN": ["Chapel bus stop"],
+#         "Uniben": ["Adolor", "BDPA", "Ekosodin", "Isihior", "Oluku", "JSQ", "Osasoghie", "SSQ", "UBTH quarters", "Uselu"],
+#         "FUTO": ["Nekede", "Ihiagwa", "Eziobodo", "Obinze", "Umuchima", "Ezeogwu", "Okolochi"],
+#         "LASU": ["First gate", "Post service", "Ojo", "Akesan", "Iba"],
+#         "AAU": ["School gate", "Ihumudum", "Ujemen", "Idumebo"],
+#         "FUPRE": ["Ugbomoro", "Iteregbi", "Ugolo", "Okorikpehre"],
+#         "ABSU": ["Isuikwato", "Uloma", "Okigwe", "Obiagu"],
+#         "OOU": ["Ago-Iwoye", "Oru", "Ilaporu", "Aha", "Awa"],
+#         "CRUTECH": ["Ene-Obong", "Eko basi", "Mount zion", "Idim ita", "Edibe Edibe", "Efut Abua", "Atamunu", "Anantigha"],
+#         "FUOYE": ["Odo-oro", "Ootunja", "Isaba", "Usin", "Ikoyi", "Ikoyi tuntun", "School gate", "Asin", "Shell", "Market", "Garage"]
+#         }
 
-for sch in sch_env:
-    print(f"creating environments for {sch}")
-    sch_obj = storage.search("School", name=sch)
-    if sch_obj is None or len(sch_obj) == 0:
-        print(f"{sch} was not found")
-        continue
-    sch_mod = sch_obj[0]
-    for env in sch_env[sch]:
-        model = Environment(name=env, school_id=sch_mod.id)
-        model.save()
-        print(f"{model.name} --> {model.id}")
+# for sch in sch_env:
+#     print(f"creating environments for {sch}")
+#     sch_obj = storage.search("School", name=sch)
+#     if sch_obj is None or len(sch_obj) == 0:
+#         print(f"{sch} was not found")
+#         continue
+#     sch_mod = sch_obj[0]
+#     for env in sch_env[sch]:
+#         model = Environment(name=env, school_id=sch_mod.id)
+#         model.save()
+#         print(f"{model.name} --> {model.id}")
 
 # storage.reload()
 
 # Load Service categories
-# print("Creating service Categories...")
-# cats = [("AC installer", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814207/service_categories/AC_installer_gvqm9a.jpg"), 
-#         ("Carpenter", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814208/service_categories/Carpenter_zblwhv.jpg"), 
-#         ("Caterer", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814208/service_categories/Caterer_dw831l.jpg"),
-#         ("DSTV installer", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814208/service_categories/dstv_installer.jpeg_olbdjm.jpg'),
-#         ("Electrician", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814209/service_categories/electrician_byzscv.jpg'),
-#         ("Event Planner", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814211/service_categories/eventplanner_uemgzu.jpg'), 
-#         ("Fashion Designer", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814211/service_categories/Fashion_Designer_lc3oym.jpg"),
-#         ("Cooking gas", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814212/service_categories/gas_delivery_uchsbp.jpg'),
-#         ("Generator Repairer", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814214/service_categories/generator_repairman_em6i1g.jpg'),
-#         ("Hair Stylist", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814214/service_categories/Hair-stylist_v5h1w6.jpg'), 
-#         ("Logistics", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814214/service_categories/Logistics_ucpliv.jpg'), 
-#         ("Make up artist", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814215/service_categories/makeup_artist_qbcgaz.jpg'), 
-#         ("Painter", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814217/service_categories/Painter_zffu9b.jpg'), 
-#         ("Plumber", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1708942830/service_categories/Plumber_i4ejqy.jpg"),
-#         ("Refrigerator repairer", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1708942835/service_categories/Refrigerator_repairman_btkgvz.jpg"), 
-#         ("Welder", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708942829/service_categories/Welder_syjen0.jpg')]
-# for cat, image_url in cats:
-#         cat_obj = storage.search('ServiceCategory', name=cat)
-#         if cat_obj is None:
-#             print(f'No obj found for {cat}')
-#             exit
-#         setattr(cat_obj, 'image_url', image_url)
-#         cat_obj.save()
+print("Creating service Categories...")
+cats = [("AC installer", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814207/service_categories/AC_installer_gvqm9a.jpg"), 
+        ("Carpenter", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814208/service_categories/Carpenter_zblwhv.jpg"), 
+        ("Caterer", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814208/service_categories/Caterer_dw831l.jpg"),
+        ("DSTV installer", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814208/service_categories/dstv_installer.jpeg_olbdjm.jpg'),
+        ("Electrician", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814209/service_categories/electrician_byzscv.jpg'),
+        ("Event Planner", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814211/service_categories/eventplanner_uemgzu.jpg'), 
+        ("Fashion Designer", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814211/service_categories/Fashion_Designer_lc3oym.jpg"),
+        ("Cooking gas", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814212/service_categories/gas_delivery_uchsbp.jpg'),
+        ("Generator Repairer", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814214/service_categories/generator_repairman_em6i1g.jpg'),
+        ("Hair Stylist", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814214/service_categories/Hair-stylist_v5h1w6.jpg'), 
+        ("Logistics", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814214/service_categories/Logistics_ucpliv.jpg'), 
+        ("Make up artist", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814215/service_categories/makeup_artist_qbcgaz.jpg'), 
+        ("Painter", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708814217/service_categories/Painter_zffu9b.jpg'), 
+        ("Plumber", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1708942830/service_categories/Plumber_i4ejqy.jpg"),
+        ("Refrigerator repairer", "https://res.cloudinary.com/deg1j9wbh/image/upload/v1708942835/service_categories/Refrigerator_repairman_btkgvz.jpg"), 
+        ("Welder", 'https://res.cloudinary.com/deg1j9wbh/image/upload/v1708942829/service_categories/Welder_syjen0.jpg')]
+for cat, image_url in cats:
+        cat_obj = storage.search('ServiceCategory', name=cat)
+        if not cat_obj:
+            print(f'No obj found for {cat}')
+            continue
+        cat_obj = cat_obj[0]
+        setattr(cat_obj, 'image_url', image_url)
+        cat_obj.save()
         # cat_dict = {"name": cat, 'image_url': image_url}
         # model = ServiceCategory(**cat_dict)
         # print("{} --> {}".format(cat, model.id))
