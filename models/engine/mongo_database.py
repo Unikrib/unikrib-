@@ -195,18 +195,18 @@ class Database:
         if cls not in classes:
             cls = cls.__tablename__
 
-        if key:
-            try:
-                result = self.db[cls].aggregate([
-                    {"$group": {"_id": None, "sum": {"$sum": f"${key}"}}}
-                ])
-                sum_value = 0
-                for doc in result:
-                    sum_value = doc['sum']
-                return sum_value
-            except Exception as e:
-                print(e)
-        return self.db[cls].count()
+        # if key:
+        #    try:
+        #        result = self.db[cls].aggregate([
+        #            {"$group": {"_id": None, "sum": {"$sum": f"${key}"}}}
+        #        ])
+        #        sum_value = 0
+        #        for doc in result:
+        #             sum_value = doc['sum']
+        #        return sum_value
+        #    except Exception as e:
+        #        print(e)
+        return self.db[cls].count_documents({})
 
     def paginate_query(self, cls, pgnum, pgsize, **kwargs):
         """This handles pagination by returning limited data
