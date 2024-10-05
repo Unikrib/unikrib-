@@ -60,7 +60,7 @@ class Database:
             vals['_id'] = ObjectId(vals['_id'])
         new_attrs = {"$set": vals}
         self.db[model.__tablename__].update_one(query, new_attrs, upsert=True)
-        self.all_objs[f'{model.__class__}.{model.id}'] = model
+        self.all_objs[f'{model.to_dict().get("__class__")}.{model.id}'] = model
 
     def delete(self, model):
         """
@@ -72,10 +72,13 @@ class Database:
             # dic = model.to_dict()
             # print(dic)
             result = self.db[model.__tablename__].delete_one({'id': model.id})
-            del self.all_objs[f'{model.__class__}.{model.id}']
+            # self.reload()
+            del self.all_objs[f'{model.to_dict().get("__class__")}.{model.id}']
             print(f'{result.deleted_count} document(s) deleted successfully.')
         except pymongo.errors.PyMongoError as e:
             print(f'Error deleting document(s): {e}')
+        except Exception as e:
+            print(f'Error deleting document: {e}')
 
     def close(self):
         # self.client.close()
