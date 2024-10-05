@@ -59,7 +59,8 @@ class Database:
         if '_id' in vals and isinstance(vals['_id'], str):
             vals['_id'] = ObjectId(vals['_id'])
         new_attrs = {"$set": vals}
-        self.db[model.__tablename__].update_one(query, new_attrs, upsert=True) 
+        self.db[model.__tablename__].update_one(query, new_attrs, upsert=True)
+        self.all_objs[f'{model.__class__}.{model.id}'] = model
 
     def delete(self, model):
         """
