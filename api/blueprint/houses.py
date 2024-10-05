@@ -292,10 +292,10 @@ def delete_house(house_id):
     global terminate_thread
     terminate_thread = True
 
-    obj.delete()
+    # obj.delete()
     print("House deleted!!!")
-    # storage.delete(obj)
-    # storage.save()
+    storage.delete(obj)
+    storage.save()
     return {}, 201
 
 @app_views.route('/houses/search', strict_slashes=False, methods=['POST'])
@@ -322,7 +322,7 @@ def search_house():
         if not objs:
             return jsonify([])
         for obj in objs:
-            if (obj.price >= min_price) and (obj.price <= max_price):
+            if (int(obj.price) >= min_price) and (int(obj.price) <= max_price):
                 result.append(obj.to_dict())
         return jsonify(result), 200
 
