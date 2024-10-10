@@ -458,7 +458,7 @@ SERVICE:
         --> *DELETE, '/services/<service_id>': This deletes a service
                 res: {}
 
-STREET:
+STREET (DEPRECIATED):
         --> GET, '/streets/<street_id>': This returns a street
                 res: {
                         "__class__": "Street", 
@@ -497,7 +497,7 @@ USER
                         "email": "************************", 
                         "first_name": "John", 
                         "id": "134a6a57-dccd-410d-b14f-67dc40dae385", 
-                        "isVerified": false, 
+                        "isVerified": 'pending', ( [True | False | 'pending'] )
                         "last_name": "Doe", 
                         "note": "I apply all types of make ups. For all kinds of parties let me be your sure plug", 
                         "password": "********", 
