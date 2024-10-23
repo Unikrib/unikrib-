@@ -407,6 +407,8 @@ def user_verification():
                                   face_image=face_image,
                                   id_image=id_image, user_id=user.id)
     if res.get('status_code') == 200:
+        setattr(user, 'isVerified', 'pending')
+        user.save()
         return jsonify("User verification submitted successfully, please wait 24 hours for confirmation"), 200
     else:
         return jsonify("An error occured while submitting request, please try again later"), 404
