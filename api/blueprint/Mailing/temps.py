@@ -491,8 +491,9 @@ class HTMLTemp:
                     <p><a href='{self_url}/verify_user/{user_id}/accept'>
                     We have verify this user's info and he can be verified ✅</a></p>
                     <br>
-                    <a href='{self_url}/user/verify_user/{user_id}/deny'>
-                    This user is not clear to be verified ❌</a><br>
+                    <p><a href='{self_url}/verify_user/{user_id}/deny'>
+                    This user is not clear to be verified ❌</a></p>
+                    <br>
 
                     <p>Please treat as urgent!.</p>
                 </body>
