@@ -26,5 +26,7 @@ class User(BaseModel):
             self.rating = 0
         if "isVerified" not in kwargs:
             self.isVerified = False
+        if 'verification_status' not in kwargs:
+            self.verification_status = 'unverified'
         if kwargs['user_type'] not in ['regular', 'agent', 'vendor', 'sp']:
             raise ValueError("Invalid user type passed.")
