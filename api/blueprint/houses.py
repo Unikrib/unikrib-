@@ -209,8 +209,9 @@ def create_house():
             val = house_dict['newly_built'].lower() == "true"
             house_dict["newly_built"] = val
         if house_dict.get("security_available", None):
-            val = house_dict['security_available'].lower() == "true"
-            house_dict['security_available'] = val
+            if house_dict['security_available'] in [True, 'yes']:
+            # val = house_dict['security_available'].lower() == "true"
+              house_dict['security_available'] = True
         if house_dict.get("tiled", None):
             val = house_dict['tiled'].lower() == "true"
             house_dict['tiled'] = val
