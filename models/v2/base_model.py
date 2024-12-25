@@ -61,6 +61,7 @@ class BaseModel():
         if 'updated_at' in dictionary and isinstance(dictionary['updated_at'], datetime):
             dictionary['updated_at'] = self.updated_at.isoformat()
         dictionary.pop('reset_code', None)
+        dictionary.pop('password', None)
         dictionary.pop('_id', None)
         dictionary['__class__'] = self.__class__.__name__
         return dictionary

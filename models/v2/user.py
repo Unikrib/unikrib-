@@ -21,7 +21,7 @@ class User(BaseModel):
         if "note" not in kwargs:
             self.note = "I provide the best products/services"
         if "avatar" not in kwargs:
-            self.avatar = "images/default-img.webp"
+            self.avatar = "https://res.cloudinary.com/deg1j9wbh/image/upload/v1710551753/default-img_rthe0v.webp"
         if "rating" not in kwargs:
             self.rating = 0
         if "isVerified" not in kwargs:

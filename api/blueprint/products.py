@@ -157,7 +157,7 @@ def search_product():
         if owner.com_res == location or location == 'all':
             search_queries = query.lower().split()
             if len(search_queries) == 1:
-                if search_queries[0][-1] == 's':
+                if search_queries[0].endswith('s'):
                     search_queries[0] = search_queries[0][:-1]
             for word in search_queries:
                 if word in product.name.lower() or word in product.features.lower():

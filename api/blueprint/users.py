@@ -4,9 +4,6 @@ import bcrypt
 from models import storage, User, Code, Notification
 from api.blueprint import app_views, auth, manager
 from flask import request, jsonify, redirect
-# from models.v2.user import User
-# from models.v2.code import Code
-# from models.v2.notification import Notification
 from settings.redactor import Redacter
 from api.blueprint.upload_image import cloudinary
 from api.blueprint.Mailing.controller import runner
@@ -14,8 +11,6 @@ from api.blueprint.Mailing.controller import runner
 
 fields = ["password", "email", "phone_no"]
 format = Redacter(fields)
-# SESSION_NAME = '_my_session_id'
-# api = "https://unikribmailer.onrender.com"
 frontAPI = "https://unikrib.com"
 
 
@@ -117,14 +112,14 @@ def create_user():
         return jsonify(str(msg)), 400
     token = manager.create_session(user.id)
 
-    # # send verify mail
-    # res = runner.sendVerifyLink(user.email, user.first_name, user.id)
+    # send verify mail
+    res = runner.sendVerifyLink(user.email, user.first_name, user.id)
 
-    # # store the code
-    # code = res["code"]
-    # code_dict = {"code": code, "user_id": user.id}
-    # obj = Code(**code_dict)
-    # obj.save()
+    # store the code
+    code = res["code"]
+    code_dict = {"code": code, "user_id": user.id}
+    obj = Code(**code_dict)
+    obj.save()
 
     return jsonify({"message": f"Welcome ${user.first_name}, Please visit your email to complete your verification",
                     "token": token,
