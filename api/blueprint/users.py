@@ -402,9 +402,9 @@ def user_verification():
                                   face_image=face_image,
                                   id_image=id_image, user_id=user.id)
     if res.get('status_code') == 200:
-        setattr(user, 'isVerified', 'pending')
+        # setattr(user, 'isVerified', 'pending')
+        setattr(user, 'verification_status', 'pending')
         user.save()
-
         return jsonify("User verification submitted successfully, please wait 24 hours for confirmation"), 200
     else:
         return jsonify("An error occured while submitting request, please try again later"), 404
@@ -422,6 +422,7 @@ def accept_or_deny_user_verification(user_id, text):
     
     if text == 'accept':
         setattr(user, 'isVerified', True)
+        setattr(user, 'verification_status', 'verified')
         user.save()
         text = f"Congratulations {user.first_name}, Your profile has been verified."
         notif = Notification(user_id=user_id, text=text, category='Verification successful')
@@ -429,6 +430,7 @@ def accept_or_deny_user_verification(user_id, text):
         return jsonify('User profile has been verified successfully')
     elif text == 'deny':
         setattr(user, 'isVerified', False)
+        setattr(user, 'verification_status', 'unverified')
         user.save()
         text = f"Dear {user.first_name}, Your profile verification request has been denied due to inconsistency in your data"
         notif = Notification(user_id=user_id, text=text, category='Verification denied')
